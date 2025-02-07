@@ -3,69 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
+    <title>Veda Bharghav - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <header>
-        <h1>Hello, I'm Veda Bharghav</h1>
-        <p>💻 Data Engineer | Data Analyst | Python | SQL | ETL</p>
+        <h1 class="fade-in" style="font-family: 'Montserrat', sans-serif;">Veda Bharghav</h1>
         <nav>
             <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#About">About</a></li>
+                <li><a href="#Projects">Projects</a></li>
+                <li><a href="#Photography">Photography</a></li>
+                <li><a href="#Contact">Contact</a></li>
             </ul>
         </nav>
     </header>
-
-    <section id="about">
+    
+    <section id="About" class="fade-in">
         <h2>About Me</h2>
-        <p>Data Analyst with expertise in ETL, Snowflake, SQL, and Power BI. Passionate about data-driven innovation and automation.</p>
+        <p>Passionate Data Engineer & Analyst with expertise in building ETL pipelines, SQL databases, and data visualization.</p>
     </section>
 
-    <section id="projects">
+    <section id="Projects" class="fade-in" style="text-align: center;">
         <h2>Projects</h2>
         <div class="project">
+            <img src="project1.jpg" alt="Project 1">
             <h3>📊 Breakage Analysis Dashboard</h3>
-            <p>Developed an AI-powered dashboard to detect manufacturing defects, reducing warranty claims by 45%.</p>
-    
+            <p>Developed a Power BI dashboard to track warranty claims and defects, leading to a 45% reduction in manufacturing issues.</p>
         </div>
-
         <div class="project">
+            <img src="project2.jpg" alt="Project 2">
             <h3>⚡ Automated Issue Tracker</h3>
-            <p>Built a Power BI dashboard with Microsoft Forms and Power Automate, increasing efficiency by 35%.</p>
-         
+            <p>Designed an automated issue tracking system using Power Automate and Power BI, improving issue resolution time by 35%.</p>
         </div>
+    </section>
 
-        <div class="project">
-            <h3>📉 Retail Analytics Dashboard</h3>
-            <p>Processed large datasets using Apache Spark on Databricks, improving demand forecasting by 20%.</p>
-          
+    <section id="Photography" class="fade-in">
+        <h2>📷 Photography</h2>
+        <p>Capturing the beauty of nature through my lens - a deep passion and hobby.</p>
+        <div class="gallery">
+            <img src="photo1.jpg" alt="Wildlife 1">
+            <img src="photo2.jpg" alt="Wildlife 2">
+            <img src="photo3.jpg" alt="Wildlife 3">
         </div>
-        
     </section>
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Python, SQL, Apache Spark, Databricks</li>
-            <li>ETL, Data Pipelines, Snowflake, Kafka</li>
-            <li>Power BI, Tableau, Data Visualization</li>
-            <li>Machine Learning, NLP, Statistical Analysis</li>
-        </ul>
-    </section>
-
-    <section id="photography">
-        <h2>📷 Photography & Wildlife</h2>
-        <p>I am passionate about wildlife photography and capturing nature's beauty through my lens.</p>
-    </section>
-
-    <section id="contact">
+    <section id="Contact" class="fade-in">
         <h2>Contact Me</h2>
-        <p>📧 Email: v.bharghav3@gmail.com</p>
-        <p>🔗 <a href="https://www.linkedin.com/in/veda-bharghav-a61aa6304/">LinkedIn</a></p>
+        <form id="contactForm">
+            <input type="text" name="first_name" placeholder="First Name" required>
+            <input type="text" name="last_name" placeholder="Last Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Query" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
     </section>
 </body>
 </html>
