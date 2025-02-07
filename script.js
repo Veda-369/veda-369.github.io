@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
         event.preventDefault();
 
         const formData = new FormData(this);
-        fetch("https://formsubmit.co/YOUR-EMAIL-HERE", {
+        fetch("https://formsubmit.co/V.Bharghav3@Gmail.Com", {
             method: "POST",
             body: formData
         })
