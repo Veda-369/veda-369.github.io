@@ -2,6 +2,10 @@ document.addEventListener("DOMContentLoaded", function() {
     // Animation on scroll
     const faders = document.querySelectorAll('.fade-in');
 
+    faders.forEach(fader => {
+        fader.classList.add("visible"); // Ensure all sections become visible
+    });
+
     const appearOptions = {
         threshold: 0.5,
         rootMargin: "0px 0px -50px 0px"
