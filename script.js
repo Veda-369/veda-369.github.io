@@ -1,108 +1,42 @@
-/* Apply Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+document.addEventListener("DOMContentLoaded", function() {
+    // Scroll animations
+    const faders = document.querySelectorAll('.fade-in');
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f4f4f4;
-    color: #333;
-    text-align: center;
-}
+    const appearOptions = {
+        threshold: 0.5,
+        rootMargin: "0px 0px -50px 0px"
+    };
 
-/* Header Styling */
-header {
-    background: linear-gradient(90deg, #ff8c00, #ff2e63);
-    color: white;
-    padding: 20px;
-    text-transform: uppercase;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, appearOptions);
 
-nav ul {
-    list-style: none;
-    padding: 0;
-}
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+    });
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
+    // Contact form submission
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+        event.preventDefault();
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-nav ul li a:hover {
-    color: #00d9ff;
-}
-
-/* Sections */
-section {
-    padding: 50px;
-    background: white;
-    margin: 20px auto;
-    width: 80%;
-    border-radius: 8px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Projects & Photography Gallery */
-.project, .gallery img {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 5px;
-    margin: 10px 0;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.project:hover, .gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Contact Form */
-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    margin: auto;
-}
-
-input, textarea {
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
-    background: #ff2e63;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #ff8c00;
-}
-
-/* Animations */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+        const formData = new FormData(this);
+        fetch("https://formsubmit.co/V.Bharghav3@Gmail.Com", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                alert("Message sent successfully!");
+                this.reset();
+            } else {
+                alert("There was an error. Please try again.");
+            }
+        })
+        .catch(error => console.log(error));
+    });
+});
