@@ -1,4 +1,18 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Smooth scrolling
+    document.querySelectorAll('nav ul li a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            window.scrollTo({
+                top: targetElement.offsetTop - 50,
+                behavior: 'smooth'
+            });
+        });
+    });
+
     // Scroll animations
     const faders = document.querySelectorAll('.fade-in');
 
@@ -30,12 +44,8 @@ document.addEventListener("DOMContentLoaded", function() {
             body: formData
         })
         .then(response => {
-            if (response.ok) {
-                alert("Message sent successfully!");
-                this.reset();
-            } else {
-                alert("There was an error. Please try again.");
-            }
+            alert(response.ok ? "Message sent successfully!" : "Error. Try again.");
+            this.reset();
         })
         .catch(error => console.log(error));
     });
