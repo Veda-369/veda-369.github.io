@@ -1,4 +1,4 @@
-/* Apply Google Fonts */
+/* Import Montserrat Font */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
 
 body {
@@ -10,18 +10,18 @@ body {
     text-align: center;
 }
 
-/* Header Styling */
+/* Header */
 header {
     background: linear-gradient(90deg, #ff8c00, #ff2e63);
     color: white;
     padding: 20px;
-    text-transform: uppercase;
     position: sticky;
     top: 0;
     width: 100%;
     z-index: 1000;
 }
 
+/* Navigation */
 nav ul {
     list-style: none;
     padding: 0;
@@ -53,18 +53,43 @@ section {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Projects & Photography Gallery */
-.project, .gallery img {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 5px;
-    margin: 10px 0;
-    transition: transform 0.3s, box-shadow 0.3s;
+/* Projects */
+.project-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
-.project:hover, .gallery img:hover {
+.project {
+    width: 45%;
+    max-width: 500px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.project img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.project:hover {
     transform: scale(1.05);
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Photography */
+.gallery img {
+    width: 30%;
+    border-radius: 5px;
+    margin: 10px;
+    transition: transform 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
 }
 
 /* Contact Form */
