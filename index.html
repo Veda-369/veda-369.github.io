@@ -9,59 +9,75 @@
     <script defer src="script.js"></script>
 </head>
 <body style="font-family: 'Montserrat', sans-serif;">
+
     <header>
         <h1 class="fade-in">Veda Bharghav</h1>
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#photography">Photography</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
-    
-   <section id="projects" class="fade-in" style="text-align: center;">
-    <h2>Projects</h2>
-    <div class="project-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-        <div class="project" style="width: 45%;">
-            <img src="project1.jpg" alt="Project 1">
-            <h3>📊 Breakage Analysis Dashboard</h3>
-            <p>Developed a Power BI dashboard to track warranty claims and defects, leading to a 45% reduction in manufacturing issues.</p>
+
+    <section id="about" class="fade-in">
+        <h2>About Me</h2>
+        <p>Passionate Data Engineer & Analyst with expertise in building ETL pipelines, SQL databases, and data visualization.</p>
+    </section>
+
+    <section id="projects" class="fade-in">
+        <h2>Projects</h2>
+        <div class="project-container">
+            <div class="project">
+                <img src="project1.jpg" alt="Project 1">
+                <h3>📊 Breakage Analysis Dashboard</h3>
+                <p>Developed a Power BI dashboard to track warranty claims and defects, leading to a 45% reduction in manufacturing issues.</p>
+            </div>
+            <div class="project">
+                <img src="project2.jpg" alt="Project 2">
+                <h3>⚡ Automated Issue Tracker</h3>
+                <p>Designed an automated issue tracking system using Power Automate and Power BI, improving issue resolution time by 35%.</p>
+            </div>
+            <div class="project">
+                <img src="project3.jpg" alt="Project 3">
+                <h3>📉 Retail Analytics Dashboard</h3>
+                <p>Processed large retail datasets using Apache Spark and Databricks, reducing data processing time by 30% and improving demand forecasting.</p>
+            </div>
+            <div class="project">
+                <img src="project4.jpg" alt="Project 4">
+                <h3>📦 Inventory Burn Down Tracker</h3>
+                <p>Developed a dashboard to monitor module consumption and inventory tracking, improving test resource planning by 40%.</p>
+            </div>
+            <div class="project">
+                <img src="project5.jpg" alt="Project 5">
+                <h3>✈️ Flight Data Analysis</h3>
+                <p>Built a real-time analysis dashboard for flight delays and patterns using Python, Apache Kafka, and Power BI.</p>
+                <p>Implemented machine learning models to predict flight delays with 85% accuracy.</p>
+            </div>
         </div>
-        <div class="project" style="width: 45%;">
-            <img src="project2.jpg" alt="Project 2">
-            <h3>⚡ Automated Issue Tracker</h3>
-            <p>Designed an automated issue tracking system using Power Automate and Power BI, improving issue resolution time by 35%.</p>
-        </div>
-        <div class="project" style="width: 45%;">
-            <img src="project3.jpg" alt="Project 3">
-            <h3>📉 Retail Analytics Dashboard</h3>
-            <p>Processed large retail datasets using Apache Spark and Databricks, reducing data processing time by 30% and improving demand forecasting.</p>
-        </div>
-        <div class="project" style="width: 45%;">
-            <img src="project4.jpg" alt="Project 4">
-            <h3>📦 Inventory Burn Down Tracker</h3>
-            <p>Developed a dashboard to monitor module consumption and inventory tracking, improving test resource planning by 40%.</p>
-        </div>
-        <div class="project" style="width: 45%;">
-            <img src="project5.jpg" alt="Project 5">
-            <h3>✈️ Flight Data Analysis</h3>
-            <p>Built a real-time analysis dashboard for flight delays and patterns using Python, Apache Kafka, and Power BI.</p>
-            <p>Implemented machine learning models to predict flight delays with 85% accuracy.</p>
-        </div>
-    </div>
-</section>
+    </section>
 
     <section id="photography" class="fade-in">
-    <h2>Photography</h2>
-    <p>Capturing the beauty of nature through my lens, photography has always been a cherished passion and creative outlet.</p>
-    <div class="gallery">
-        <img src="images/photo1.jpg" alt="Wildlife 1">
-        <img src="images/photo2.jpg" alt="Wildlife 2">
-        <img src="images/photo3.jpg" alt="Wildlife 3">
-    </div>
-</section>
-
+        <h2>Photography</h2>
+        <p>Capturing the beauty of nature through my lens, photography has always been a cherished passion and creative outlet.</p>
+        <div class="gallery">
+            <img src="images/photo1.jpg" alt="Wildlife 1">
+            <img src="images/photo2.jpg" alt="Wildlife 2">
+            <img src="images/photo3.jpg" alt="Wildlife 3">
+        </div>
     </section>
+
+    <section id="contact" class="fade-in">
+        <h2>Contact Me</h2>
+        <form id="contactForm">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
 </body>
 </html>
