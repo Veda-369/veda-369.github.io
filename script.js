@@ -13,32 +13,11 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Scroll animations
-    const faders = document.querySelectorAll('.fade-in');
-
-    const appearOptions = {
-        threshold: 0.5,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
-            }
-        });
-    }, appearOptions);
-
-    faders.forEach(fader => {
-        appearOnScroll.observe(fader);
-    });
-
-    // Contact form submission
+    // Contact Form Submission
     document.getElementById("contactForm").addEventListener("submit", function(event) {
         event.preventDefault();
-
         const formData = new FormData(this);
+
         fetch("https://formsubmit.co/V.Bharghav3@Gmail.Com", {
             method: "POST",
             body: formData
