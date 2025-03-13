@@ -1,18 +1,17 @@
-/* Import Montserrat Font */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background: #f4f4f4;
-    color: #333;
+    background: #0e0e0e;
+    color: white;
     text-align: center;
 }
 
 /* Header */
 header {
-    background: linear-gradient(90deg, #ff8c00, #ff2e63);
+    background: linear-gradient(90deg, #ff5722, #ff9800);
     color: white;
     padding: 20px;
     position: sticky;
@@ -21,7 +20,6 @@ header {
     z-index: 1000;
 }
 
-/* Navigation */
 nav ul {
     list-style: none;
     padding: 0;
@@ -46,11 +44,11 @@ nav ul li a:hover {
 /* Sections */
 section {
     padding: 50px;
-    background: white;
+    background: #1a1a1a;
     margin: 20px auto;
     width: 80%;
     border-radius: 8px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.1);
 }
 
 /* Projects */
@@ -62,12 +60,11 @@ section {
 }
 
 .project {
-    width: 45%;
-    max-width: 500px;
-    background: #fff;
+    width: 300px;
+    background: #282828;
     border-radius: 8px;
     padding: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
 }
 
 .project img {
@@ -75,11 +72,18 @@ section {
     border-radius: 5px;
 }
 
-/* Prevent Image Download */
-img {
-    pointer-events: none;
-    user-drag: none;
-    -webkit-user-drag: none;
+/* Photography */
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.gallery img {
+    width: 200px;
+    height: auto;
+    border-radius: 5px;
 }
 
 /* Contact Form */
@@ -98,7 +102,7 @@ input, textarea {
 }
 
 button {
-    background: #ff2e63;
+    background: #ff5722;
     color: white;
     border: none;
     padding: 10px;
@@ -107,5 +111,12 @@ button {
 }
 
 button:hover {
-    background: #ff8c00;
+    background: #ff9800;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .project {
+        width: 100%;
+    }
 }
