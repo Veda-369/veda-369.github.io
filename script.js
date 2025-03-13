@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Smooth scrolling
     document.querySelectorAll('nav ul li a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -12,6 +11,19 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     });
+
+    // Scroll Animations
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    });
+
+    faders.forEach(fader => appearOnScroll.observe(fader));
 
     // Contact Form Submission
     document.getElementById("contactForm").addEventListener("submit", function(event) {
