@@ -4,149 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veda Bharghav - Portfolio</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script defer src="assets/js/script.js"></script>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #121212;
-            color: #ffffff;
-            text-align: center;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(90deg, #ff9800, #ff3d00);
-            color: white;
-            padding: 20px;
-            position: sticky;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #00d9ff;
-        }
-
-        /* Sections */
-        section {
-            padding: 50px;
-            background: #1e1e1e;
-            margin: 20px auto;
-            width: 85%;
-            border-radius: 10px;
-            box-shadow: 2px 2px 15px rgba(255, 255, 255, 0.1);
-        }
-
-        /* Projects */
-        .project-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .project {
-            width: 300px;
-            background: #282828;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .project:hover {
-            transform: scale(1.05);
-        }
-
-        .project img {
-            width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-
-        /* Photography */
-        .gallery {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .gallery img {
-            width: 200px;
-            height: auto;
-            border-radius: 5px;
-        }
-
-        /* Contact Form */
-        form {
-            display: flex;
-            flex-direction: column;
-            max-width: 400px;
-            margin: auto;
-        }
-
-        input, textarea {
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        button {
-            background: #ff5722;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #ff9800;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .project {
-                width: 100%;
-            }
-        }
-    </style>
 </head>
 <body>
 
     <header>
-        <h1>Veda Bharghav</h1>
+        <h1 class="fade-in">Veda Bharghav</h1>
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#photography">Photography</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="https://github.com/Veda-369/veda-369.github.io/blob/main/README.md" target="_blank">GitHub</a></li>
+                <li><a href="https://github.com/Veda-369/veda-369.github.io/blob/main/README.md" target="_blank" rel="noopener noreferrer">GitHub</a></li>
             </ul>
         </nav>
     </header>
@@ -160,27 +32,27 @@
         <h2>Projects</h2>
         <div class="project-container">
             <div class="project">
-                <img src="images/project1.jpg" alt="Breakage Analysis Dashboard">
+                <img src="assets/images/project1.jpg" alt="Breakage Analysis Dashboard">
                 <h3>📊 Breakage Analysis Dashboard</h3>
                 <p>Developed a Power BI dashboard to track warranty claims and defects.</p>
             </div>
             <div class="project">
-                <img src="images/project2.jpg" alt="Automated Issue Tracker">
+                <img src="assets/images/project2.jpg" alt="Automated Issue Tracker">
                 <h3>⚡ Automated Issue Tracker</h3>
                 <p>Designed an automated issue tracking system using Power Automate and Power BI.</p>
             </div>
             <div class="project">
-                <img src="images/project3.jpg" alt="Retail Analytics">
+                <img src="assets/images/project3.jpg" alt="Retail Analytics">
                 <h3>📉 Retail Analytics Dashboard</h3>
                 <p>Processed large datasets using Apache Spark and Databricks.</p>
             </div>
             <div class="project">
-                <img src="images/project4.jpg" alt="Inventory Burn Down Tracker">
+                <img src="assets/images/project4.jpg" alt="Inventory Burn Down Tracker">
                 <h3>📦 Inventory Burn Down Tracker</h3>
                 <p>Developed a dashboard to monitor module consumption and inventory tracking.</p>
             </div>
             <div class="project">
-                <img src="images/project5.jpg" alt="Flight Data Analysis">
+                <img src="assets/images/project5.jpg" alt="Flight Data Analysis">
                 <h3>✈️ Flight Data Analysis</h3>
                 <p>Built a real-time analysis dashboard for flight delays and patterns.</p>
             </div>
@@ -190,9 +62,9 @@
     <section id="photography">
         <h2>Photography</h2>
         <div class="gallery">
-            <img src="images/photo1.jpg" alt="Wildlife 1">
-            <img src="images/photo2.jpg" alt="Wildlife 2">
-            <img src="images/photo3.jpg" alt="Wildlife 3">
+            <img src="assets/images/photo1.jpg" alt="Wildlife 1">
+            <img src="assets/images/photo2.jpg" alt="Wildlife 2">
+            <img src="assets/images/photo3.jpg" alt="Wildlife 3">
         </div>
     </section>
 
@@ -205,38 +77,6 @@
             <button type="submit">Send Message</button>
         </form>
     </section>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            document.querySelectorAll('nav ul li a').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetElement = document.getElementById(targetId);
-
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 50,
-                        behavior: 'smooth'
-                    });
-                });
-            });
-
-            document.getElementById("contactForm").addEventListener("submit", function(event) {
-                event.preventDefault();
-                const formData = new FormData(this);
-
-                fetch("https://formsubmit.co/V.Bharghav3@Gmail.Com", {
-                    method: "POST",
-                    body: formData
-                })
-                .then(response => {
-                    alert(response.ok ? "Message sent successfully!" : "Error. Try again.");
-                    this.reset();
-                })
-                .catch(error => console.log(error));
-            });
-        });
-    </script>
 
 </body>
 </html>
