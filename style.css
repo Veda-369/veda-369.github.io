@@ -8,7 +8,7 @@ body {
     color: white;
     text-align: center;
     overflow-x: hidden;
-    transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 /* Light Mode */
@@ -39,26 +39,27 @@ header {
     cursor: pointer;
 }
 
-/* Navigation */
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
+/* Animated Title */
+.title-effect {
+    font-size: 2.5em;
     font-weight: bold;
-    transition: 0.3s ease-in-out;
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-nav ul li a:hover {
-    color: #00d9ff;
+/* About Section */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.about-container img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
 }
 
 /* Project Cards */
@@ -82,23 +83,10 @@ body.light-mode .project {
     background: #f0f0f0;
 }
 
-.project:hover {
-    transform: scale(1.05);
-}
-
-/* Images */
-.project img,
-.gallery img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-}
-
 /* Contact Form */
 form {
     max-width: 500px;
     margin: auto;
-    text-align: left;
 }
 
 input, textarea {
@@ -120,6 +108,11 @@ button {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
     .project {
         width: 90%;
     }
