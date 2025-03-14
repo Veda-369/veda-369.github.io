@@ -4,7 +4,7 @@ body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    background: #181818;
+    background: linear-gradient(to bottom, #2c3e50, #181818); /* Dark Mode: Night Sky Effect */
     color: #e0e0e0;
     text-align: center;
     overflow-x: hidden;
@@ -13,7 +13,7 @@ body {
 
 /* Light Mode */
 body.light-mode {
-    background: #f5f5f5;
+    background: linear-gradient(to bottom, #ffecd2, #f5f5f5); /* Light Mode: Soft Sunrise */
     color: #333;
 }
 
