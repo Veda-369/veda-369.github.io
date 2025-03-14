@@ -46,7 +46,7 @@ header {
     text-align: center;
     background: linear-gradient(45deg, #ff416c, #ff4b2b);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: white;
 }
 
 /* About Section */
