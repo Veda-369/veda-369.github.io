@@ -26,13 +26,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
     faders.forEach(fader => appearOnScroll.observe(fader));
 
-    // Dark/Light Mode Toggle
+    // Dark/Light Mode Toggle with Local Storage
     const themeToggle = document.getElementById("theme-toggle");
 
-    // Check Local Storage for theme preference
+    // Apply saved theme preference
     if (localStorage.getItem("theme") === "light") {
         document.body.classList.add("light-mode");
         themeToggle.textContent = "☀️";
+    } else {
+        document.body.classList.remove("light-mode");
+        themeToggle.textContent = "🌙";
     }
 
     themeToggle.addEventListener("click", () => {
@@ -46,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Contact Form Submission
+    // Contact Form Submission Handling
     document.getElementById("contactForm").addEventListener("submit", function(event) {
         event.preventDefault();
         const formData = new FormData(this);
@@ -56,4 +59,13 @@ document.addEventListener("DOMContentLoaded", function() {
             body: formData
         })
         .then(response => {
-            alert(response.ok 
+            if (response.ok) {
+                alert("✅ Message sent successfully!");
+                this.reset();
+            } else {
+                alert("❌ Error. Please try again.");
+            }
+        })
+        .catch(error => console.log("Error:", error));
+    });
+});
