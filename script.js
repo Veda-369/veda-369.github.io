@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Smooth Scrolling for Navigation Links
     document.querySelectorAll('nav ul li a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -27,9 +28,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Dark/Light Mode Toggle
     const themeToggle = document.getElementById("theme-toggle");
+
+    // Check Local Storage for theme preference
+    if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-mode");
+        themeToggle.textContent = "☀️";
+    }
+
     themeToggle.addEventListener("click", () => {
         document.body.classList.toggle("light-mode");
-        themeToggle.textContent = document.body.classList.contains("light-mode") ? "☀️" : "🌙";
+        if (document.body.classList.contains("light-mode")) {
+            localStorage.setItem("theme", "light");
+            themeToggle.textContent = "☀️";
+        } else {
+            localStorage.setItem("theme", "dark");
+            themeToggle.textContent = "🌙";
+        }
     });
 
     // Contact Form Submission
@@ -42,9 +56,4 @@ document.addEventListener("DOMContentLoaded", function() {
             body: formData
         })
         .then(response => {
-            alert(response.ok ? "Message sent successfully!" : "Error. Try again.");
-            this.reset();
-        })
-        .catch(error => console.log(error));
-    });
-});
+            alert(response.ok 
