@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.body.classList.toggle("light-mode");
         themeToggle.textContent = document.body.classList.contains("light-mode") ? "☀️" : "🌙";
     });
-    
+
     // Contact Form Submission
     document.getElementById("contactForm").addEventListener("submit", function(event) {
         event.preventDefault();
