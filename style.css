@@ -38,28 +38,7 @@ header {
     cursor: pointer;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s ease-in-out;
-}
-
-nav ul li a:hover {
-    color: #00d9ff;
-}
-
-/* Projects */
+/* Projects (Dark/Light Mode Colors) */
 .project-container {
     display: flex;
     flex-wrap: wrap;
@@ -76,8 +55,27 @@ nav ul li a:hover {
     transition: transform 0.3s ease-in-out;
 }
 
-.project:hover {
-    transform: scale(1.05);
+/* Light Mode for Projects */
+body.light-mode .project {
+    background: #f0f0f0;
+    color: black;
+}
+
+/* Contact Section Alignment */
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#contactForm input, #contactForm textarea {
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 /* Responsive */
