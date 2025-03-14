@@ -47,19 +47,6 @@ header {
     background: linear-gradient(45deg, #ff416c, #ff4b2b);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: fadeIn 2s ease-in-out;
-}
-
-/* Keyframes for fade-in effect */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* About Section */
@@ -97,33 +84,9 @@ header {
     background: rgba(255, 255, 255, 0.1);
 }
 
-/* Change colors for Light Mode */
 body.light-mode .project {
     background: #f0f0f0;
     color: black;
-}
-
-/* Contact Form */
-form {
-    max-width: 500px;
-    margin: auto;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: none;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    background: #ff416c;
-    color: white;
-    border: none;
-    cursor: pointer;
 }
 
 /* Ensure No Scrolling Left-Right */
@@ -134,16 +97,4 @@ button {
 html, body {
     max-width: 100%;
     overflow-x: hidden;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .about-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .project {
-        width: 90%;
-    }
 }
