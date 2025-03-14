@@ -4,8 +4,8 @@ body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    background: #181818; /* Slightly lighter than #121212 for better contrast */
-    color: #e0e0e0; /* Soft white for readability */
+    background: #181818;
+    color: #e0e0e0;
     text-align: center;
     overflow-x: hidden;
     transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -13,70 +13,58 @@ body {
 
 /* Light Mode */
 body.light-mode {
-    background: #f5f5f5; /* Soft off-white for a modern look */
-    color: #333; /* Dark grey for better readability */
-}
-
-/* Header */
-header {
-    background: linear-gradient(90deg, #ff6f61, #ff4b2b); /* Warmer gradient for better contrast */
-    color: white;
-    padding: 20px;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-body.light-mode header {
-    background: linear-gradient(90deg, #ff8a65, #ff7043); /* Softer colors for light mode */
-    color: white;
-}
-
-#theme-toggle {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-body.light-mode #theme-toggle {
+    background: #f5f5f5;
     color: #333;
 }
 
-/* Project Cards */
+/* Fix Image Overlapping */
 .project-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
+    justify-content: center;
 }
 
-.project {
-    width: 300px;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
-    background: rgba(255, 255, 255, 0.08); /* Softer contrast for dark mode */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4); /* Slight depth */
+.project img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
-body.light-mode .project {
-    background: white; /* Clean white background */
-    color: #333;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Softer shadow */
+/* Photography Section */
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
-.project:hover {
-    transform: scale(1.05);
-    background: rgba(255, 255, 255, 0.15); /* Highlight effect in dark mode */
+.gallery img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
 }
 
-body.light-mode .project:hover {
-    background: #f0f0f0; /* Light grey hover effect */
+/* Contact Form */
+form {
+    max-width: 400px;
+    margin: auto;
+    text-align: left;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #ff6f61;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
