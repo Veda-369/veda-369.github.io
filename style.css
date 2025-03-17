@@ -1,73 +1,129 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+/* Import Montserrat Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #2c3e50, #181818);
-    color: #e0e0e0;
-    text-align: center;
-    overflow-x: hidden;
-    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-/* Light Mode - Perfect Morning Theme */
-body.light-mode {
-    background: linear-gradient(to bottom, #ffecd2, #f5f5f5);
+    background: #f4f4f4;
     color: #333;
+    text-align: center;
 }
 
-/* Header */
+/* 🔹 Fix Header & Navigation Alignment */
 header {
-    background: linear-gradient(90deg, #ff6f61, #ff4b2b);
+    background: linear-gradient(90deg, #ff8c00, #ff2e63);
     color: white;
     padding: 20px;
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
+    text-transform: uppercase;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-body.light-mode header {
-    background: linear-gradient(90deg, #ff8a65, #ff7043);
+/* 🔹 Fix Navigation Menu */
+nav ul {
+    list-style: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Align items in a row */
 }
 
-#theme-toggle {
-    background: none;
-    border: none;
+nav ul li {
+    display: inline-block; /* Ensure links are inline */
+    margin: 0 15px;
+}
+
+nav ul li a {
     color: white;
-    font-size: 20px;
-    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-/* Projects - Grid Fix */
+nav ul li a:hover {
+    color: #00d9ff;
+}
+
+/* 🔹 Sections */
+section {
+    padding: 50px;
+    background: white;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+section:hover {
+    transform: scale(1.02);
+}
+
+/* 🔹 Projects */
 .project-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    gap: 20px;
+}
+
+.project {
+    width: 45%;
+    max-width: 500px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
 }
 
 .project img {
     width: 100%;
-    height: auto;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
-/* Photography Section */
-.gallery {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
+.project:hover {
+    transform: scale(1.05);
 }
 
+/* 🔹 Photography */
 .gallery img {
-    width: 200px;
-    height: auto;
-    border-radius: 10px;
+    width: 30%;
+    border-radius: 5px;
+    margin: 10px;
+    transition: transform 0.3s;
 }
+
+/* 🔹 Prevent Image Download & Hide Metadata */
+img {
+    pointer-events: none; /* Prevents right-click save */
+    user-drag: none;
+    -webkit-user-drag: none;
+}
+
+/* 🔹 Contact Form */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+}
+
+input, textarea {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background: #ff2e63;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5
