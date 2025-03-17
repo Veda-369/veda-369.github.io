@@ -28,10 +28,6 @@ header {
     z-index: 1000;
 }
 
-body.dark-mode header {
-    background: linear-gradient(90deg, #222, #444);
-}
-
 /* Navigation */
 nav ul {
     list-style: none;
@@ -59,20 +55,18 @@ body.dark-mode .project {
     background: #333;
 }
 
-/* Dark Mode Toggle Button */
+/* Small Dark Mode Button */
 #toggleDarkMode {
     cursor: pointer;
-    padding: 8px 15px;
-    border-radius: 20px;
+    font-size: 1.5rem;
     border: none;
-    background: white;
-    color: #ff2e63;
-    transition: all 0.3s ease-in-out;
+    background: none;
+    color: white;
+    transition: transform 0.3s ease;
 }
 
 #toggleDarkMode:hover {
-    background: #ff2e63;
-    color: white;
+    transform: scale(1.2);
 }
 
 /* Photography Fix */
