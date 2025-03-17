@@ -4,71 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veda Bharghav - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
 
     <header>
-        <h1 class="title-effect">Veda Bharghav</h1>
-        <button id="theme-toggle">🌙</button>
+        <h1>Veda Bharghav</h1>
         <nav>
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#photography">Photography</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="https://github.com/Veda-369" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                <li><a href="https://github.com/yourgithub">GitHub</a></li>
+                <li><button id="toggleDarkMode">🌙 Dark Mode</button></li>
             </ul>
         </nav>
     </header>
 
     <section id="about" class="fade-in">
         <h2>About Me</h2>
-        <div class="about-container">
-            <img src="profile.jpg" alt="Veda Bharghav">
-            <p>👋 Hi, I'm <b>Veda Bharghav</b>, a passionate <b>Data Engineer & Analyst</b> specializing in  
-            <b>ETL Pipelines, SQL, and Data Visualization</b>.  
-            I love working with <b>big data, cloud platforms, and real-time analytics</b> to transform raw information  
-            into <b>insightful dashboards</b>.  
-            Skilled in <b>Azure Cloud, Snowflake, PostgreSQL, Apache Spark, Kafka, and Power BI</b>.</p>
-        </div>
+        <p>Passionate Data Engineer & Analyst with expertise in building ETL pipelines, SQL databases, and data visualization.</p>
     </section>
 
     <section id="projects" class="fade-in">
         <h2>Projects</h2>
         <div class="project-container">
             <div class="project">
-                <img src="images/project1.jpg" alt="Breakage Analysis Dashboard">
+                <img src="project1.jpg" alt="Breakage Analysis">
                 <h3>📊 Breakage Analysis Dashboard</h3>
-                <p>Developed a Power BI dashboard to track warranty claims and defects.</p>
+                <p>Developed a Power BI dashboard to track warranty claims and defects, leading to a 45% reduction in manufacturing issues.</p>
             </div>
             <div class="project">
-                <img src="images/project2.jpg" alt="Automated Issue Tracker">
+                <img src="project2.jpg" alt="Issue Tracker">
                 <h3>⚡ Automated Issue Tracker</h3>
-                <p>Designed an automated issue tracking system using Power Automate and Power BI.</p>
+                <p>Designed an automated issue tracking system using Power Automate and Power BI, improving issue resolution time by 35%.</p>
             </div>
             <div class="project">
-                <img src="images/project3.jpg" alt="Retail Analytics">
+                <img src="project3.jpg" alt="Retail Analytics">
                 <h3>📉 Retail Analytics Dashboard</h3>
-                <p>Processed large datasets using Apache Spark and Databricks.</p>
+                <p>Processed large retail datasets using Apache Spark and Databricks, reducing data processing time by 30% and improving demand forecasting.</p>
             </div>
             <div class="project">
-                <img src="images/project4.jpg" alt="Inventory Burn Down Tracker">
+                <img src="project4.jpg" alt="Inventory Tracker">
                 <h3>📦 Inventory Burn Down Tracker</h3>
-                <p>Developed a dashboard to monitor module consumption and inventory tracking.</p>
+                <p>Developed a dashboard to monitor module consumption and inventory tracking, improving test resource planning by 40%.</p>
             </div>
             <div class="project">
                 <img src="project5.jpg" alt="Flight Data Analysis">
                 <h3>✈️ Flight Data Analysis</h3>
-                <p>Built a real-time analysis dashboard for flight delays and patterns.</p>
+                <p>Built a real-time analysis dashboard for flight delays and patterns using Python, Apache Kafka, and Power BI.</p>
             </div>
         </div>
     </section>
 
     <section id="photography" class="fade-in">
         <h2>Photography</h2>
+        <p>Capturing the beauty of nature through my lens.</p>
         <div class="gallery">
             <img src="images/photo1.jpg" alt="Wildlife 1">
             <img src="images/photo2.jpg" alt="Wildlife 2">
@@ -78,11 +75,10 @@
 
     <section id="contact" class="fade-in">
         <h2>Contact Me</h2>
-        <form id="contactForm" action="https://formsubmit.co/V.Bharghav3@Gmail.Com" method="POST">
+        <form id="contactForm">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
-            <input type="hidden" name="_captcha" value="false">
             <button type="submit">Send Message</button>
         </form>
     </section>
