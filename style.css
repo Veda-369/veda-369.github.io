@@ -27,19 +27,19 @@ header {
 
 /* 🔹 Fix Navigation Menu */
 nav {
-    margin-right: 20px; /* Adds spacing from right */
+    margin-right: 20px;
 }
 
 nav ul {
-    list-style: none; /* Remove bullet points */
+    list-style: none;
     padding: 0;
     margin: 0;
-    display: flex; /* Align items in a row */
-    gap: 20px; /* Adds spacing between menu items */
+    display: flex;
+    gap: 20px;
 }
 
 nav ul li {
-    display: inline-block; /* Ensures links are inline */
+    display: inline-block;
 }
 
 nav ul li a {
@@ -53,22 +53,25 @@ nav ul li a:hover {
     color: #00d9ff;
 }
 
-/* 🔹 Sections */
+/* 🔹 Fix Sections Not Showing */
 section {
-    padding: 50px;
+    padding: 80px 50px; /* Increase padding to ensure it's visible */
     background: white;
     margin: 20px auto;
     width: 80%;
     border-radius: 8px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
+    display: block; /* Ensure sections are visible */
+    opacity: 1; /* Ensure opacity is set to visible */
 }
 
-section:hover {
-    transform: scale(1.02);
+/* 🔹 Fix Sections Hidden Under Header */
+#about, #projects, #photography, #contact {
+    margin-top: 80px; /* Push sections down so they are not under the sticky navbar */
 }
 
-/* 🔹 Projects */
+/* 🔹 Fix Projects Layout */
 .project-container {
     display: flex;
     flex-wrap: wrap;
@@ -95,28 +98,21 @@ section:hover {
     transform: scale(1.05);
 }
 
-/* 🔹 Photography */
-.gallery {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
+/* 🔹 Fix Photography */
 .gallery img {
     width: 30%;
     border-radius: 5px;
     transition: transform 0.3s;
 }
 
-/* 🔹 Prevent Image Download & Hide Metadata */
+/* 🔹 Prevent Image Download */
 img {
-    pointer-events: none; /* Prevents right-click save */
+    pointer-events: none;
     user-drag: none;
     -webkit-user-drag: none;
 }
 
-/* 🔹 Contact Form */
+/* 🔹 Fix Contact Form */
 form {
     display: flex;
     flex-direction: column;
@@ -145,7 +141,7 @@ button:hover {
     background: #ff8c00;
 }
 
-/* 🔹 Animations */
+/* 🔹 Fix Animations */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -157,7 +153,7 @@ button:hover {
     transform: translateY(0);
 }
 
-/* 🔹 Responsive Design for Mobile */
+/* 🔹 Mobile Responsive Fix */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
