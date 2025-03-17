@@ -1,30 +1,18 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Disable Right-Click for Images
-    document.addEventListener("contextmenu", function(event) {
-        if (event.target.tagName === "IMG") {
-            event.preventDefault();
-            alert("Image downloading is disabled.");
-        }
+    // Dark Mode Toggle
+    const toggleDarkMode = document.getElementById("toggleDarkMode");
+    toggleDarkMode.addEventListener("click", function() {
+        document.body.classList.toggle("dark-mode");
+        toggleDarkMode.textContent = document.body.classList.contains("dark-mode") ? "☀️ Light Mode" : "🌙 Dark Mode";
     });
 
-    // Scroll animations
-    const faders = document.querySelectorAll('.fade-in');
-
-    const appearOptions = {
-        threshold: 0.5,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
-            }
+    // Smooth Scroll Animation
+    document.querySelectorAll('nav ul li a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
-    }, appearOptions);
-
-    faders.forEach(fader => {
-        appearOnScroll.observe(fader);
     });
 });
