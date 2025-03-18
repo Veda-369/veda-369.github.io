@@ -6,6 +6,7 @@
     <title>[Your Name] - Data Analyst Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://hcaptcha.com/1/api.js" async defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -14,6 +15,7 @@
         <nav>
             <ul>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#tech-stack">Tech Stack</a></li>
                 <li><a href="#photography">Photography</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -26,44 +28,60 @@
         <p>I specialize in **data visualization, statistical analysis, and predictive modeling**. I have expertise in SQL, Python, and Power BI, and I enjoy collaborating with stakeholders to develop insightful analytics solutions. My passion lies in data governance, real-time analytics, and automation to enhance business decision-making.</p>
     </section>
 
+    <!-- Tech Stack Section -->
+    <section id="tech-stack">
+        <h2>Tech Stack</h2>
+        <div class="skills">
+            <span>SQL</span>
+            <span>Python</span>
+            <span>Power BI</span>
+            <span>Tableau</span>
+            <span>Apache Spark</span>
+            <span>PostgreSQL</span>
+            <span>Snowflake</span>
+            <span>Azure</span>
+            <span>Google Cloud</span>
+        </div>
+    </section>
+
     <!-- Projects Section -->
     <section id="projects">
         <h2>Projects</h2>
         <div class="projects-grid">
-            <div class="project">
-                <img src="assets/images/flight_analytics.jpg" alt="Flight Data Analytics">
-                <h3>Flight Data Analytics</h3>
-                <p>Developed a dashboard for real-time flight insights, analyzing delays, weather impact, and airline performance.</p>
-                <p><strong>Tech Used:</strong> Python, Pandas, Matplotlib, Power BI, PostgreSQL</p>
+            <div class="project" onclick="flipCard(this)">
+                <div class="front">
+                    <img src="assets/images/flight_analytics.jpg" alt="Flight Data Analytics">
+                    <h3>Flight Data Analytics</h3>
+                </div>
+                <div class="back">
+                    <p>Analyzed real-time flight data for insights on delays, weather impact, and airline performance.</p>
+                    <p><strong>Tech Used:</strong> Python, Pandas, Matplotlib, Power BI, PostgreSQL</p>
+                </div>
             </div>
 
-            <div class="project">
-                <img src="assets/images/defect_dashboard.jpg" alt="AI-Driven Defect Detection">
-                <h3>AI-Driven Defect Detection</h3>
-                <p>Automated defect detection in manufacturing using AI-powered vision analytics to improve quality control.</p>
-                <p><strong>Tech Used:</strong> Python, Power BI, Snowflake, Cognex Vision Pro Deep Learning Studio</p>
-            </div>
-
-            <div class="project">
-                <img src="assets/images/retail_dashboard.jpg" alt="Retail Analytics">
-                <h3>Retail Analytics Dashboard</h3>
-                <p>Developed ML-based demand forecasting models and optimized large-scale data processing using Apache Spark.</p>
-                <p><strong>Tech Used:</strong> Apache Spark, Databricks, Python, Tableau, Azure SQL</p>
+            <div class="project" onclick="flipCard(this)">
+                <div class="front">
+                    <img src="assets/images/defect_dashboard.jpg" alt="AI-Driven Defect Detection">
+                    <h3>AI-Driven Defect Detection</h3>
+                </div>
+                <div class="back">
+                    <p>Automated defect detection using AI-powered vision analytics for quality control.</p>
+                    <p><strong>Tech Used:</strong> Python, Power BI, Snowflake, Cognex Vision AI</p>
+                </div>
             </div>
         </div>
     </section>
 
-  <!-- Wildlife Photography Section -->
-<section id="photography">
-    <h2>Wildlife Photography</h2>
-    <p class="quote">"Look deep into nature, and then you will understand everything better." – Albert Einstein</p>
-    <div class="gallery">
-        <img src="assets/images/photo1.jpg" alt="Wildlife 1">
-        <img src="assets/images/photo2.jpg" alt="Wildlife 2">
-        <img src="assets/images/photo3.jpg" alt="Wildlife 3">
-    </div>
-</section>
-
+    <!-- Wildlife Photography Section -->
+    <section id="photography">
+        <h2>Wildlife Photography</h2>
+        <p class="quote">"Look deep into nature, and then you will understand everything better." – Albert Einstein</p>
+        <div class="gallery">
+            <img src="assets/images/photo1.jpg" alt="Wildlife 1">
+            <img src="assets/images/photo2.jpg" alt="Wildlife 2">
+            <img src="assets/images/photo3.jpg" alt="Wildlife 3">
+        </div>
+    </section>
 
     <!-- Contact Section -->
     <section id="contact">
