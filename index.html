@@ -3,83 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veda Bharghav - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>[Your Name] - Data Analyst Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="https://hcaptcha.com/1/api.js" async defer></script>
 </head>
 <body>
-
-    <header class="fade-in">
-        <h1 class="slide-in">Veda Bharghav</h1>
+    <header>
+        <h1>[Your Name]</h1>
+        <p>Data Analyst | Data Engineer | AI Enthusiast</p>
         <nav>
             <ul>
-                <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#photography">Photography</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="https://github.com/yourgithub">GitHub</a></li>
-                <li><button id="toggleDarkMode">🌙</button></li>
             </ul>
         </nav>
     </header>
 
-    <section id="about" class="fade-in">
+    <!-- About Section -->
+    <section id="about">
         <h2>About Me</h2>
-        <p>Passionate Data Engineer & Analyst with expertise in building ETL pipelines, SQL databases, and data visualization.</p>
+        <p>I specialize in **data visualization, statistical analysis, and predictive modeling**. I have expertise in SQL, Python, and Power BI, and I enjoy collaborating with stakeholders to develop insightful analytics solutions. My passion lies in data governance, real-time analytics, and automation to enhance business decision-making.</p>
     </section>
 
-    <section id="projects" class="fade-in">
+    <!-- Projects Section -->
+    <section id="projects">
         <h2>Projects</h2>
-        <div class="project-container">
+        <div class="projects-grid">
             <div class="project">
-                <img src="project1.jpg" alt="Breakage Analysis">
-                <h3>📊 Breakage Analysis Dashboard</h3>
-                <p>Developed a Power BI dashboard to track warranty claims and defects, leading to a 45% reduction in manufacturing issues.</p>
+                <img src="assets/images/flight_analytics.jpg" alt="Flight Data Analytics">
+                <h3>Flight Data Analytics</h3>
+                <p>Developed a dashboard for real-time flight insights, analyzing delays, weather impact, and airline performance.</p>
+                <p><strong>Tech Used:</strong> Python, Pandas, Matplotlib, Power BI, PostgreSQL</p>
             </div>
+
             <div class="project">
-                <img src="project2.jpg" alt="Issue Tracker">
-                <h3>⚡ Automated Issue Tracker</h3>
-                <p>Designed an automated issue tracking system using Power Automate and Power BI, improving issue resolution time by 35%.</p>
+                <img src="assets/images/defect_dashboard.jpg" alt="AI-Driven Defect Detection">
+                <h3>AI-Driven Defect Detection</h3>
+                <p>Automated defect detection in manufacturing using AI-powered vision analytics to improve quality control.</p>
+                <p><strong>Tech Used:</strong> Python, Power BI, Snowflake, Cognex Vision Pro Deep Learning Studio</p>
             </div>
+
             <div class="project">
-                <img src="project3.jpg" alt="Retail Analytics">
-                <h3>📉 Retail Analytics Dashboard</h3>
-                <p>Processed large retail datasets using Apache Spark and Databricks, reducing data processing time by 30% and improving demand forecasting.</p>
-            </div>
-            <div class="project">
-                <img src="project4.jpg" alt="Inventory Tracker">
-                <h3>📦 Inventory Burn Down Tracker</h3>
-                <p>Developed a dashboard to monitor module consumption and inventory tracking, improving test resource planning by 40%.</p>
-            </div>
-            <div class="project">
-                <img src="project5.jpg" alt="Flight Data Analysis">
-                <h3>✈️ Flight Data Analysis</h3>
-                <p>Built a real-time analysis dashboard for flight delays and patterns using Python, Apache Kafka, and Power BI.</p>
+                <img src="assets/images/retail_dashboard.jpg" alt="Retail Analytics">
+                <h3>Retail Analytics Dashboard</h3>
+                <p>Developed ML-based demand forecasting models and optimized large-scale data processing using Apache Spark.</p>
+                <p><strong>Tech Used:</strong> Apache Spark, Databricks, Python, Tableau, Azure SQL</p>
             </div>
         </div>
     </section>
 
-    <section id="photography" class="fade-in">
-        <h2>Photography</h2>
-        <p>Capturing the beauty of nature through my lens.</p>
-        <div class="gallery">
-            <img src="images/photo1.jpg" alt="Wildlife 1">
-            <img src="images/photo2.jpg" alt="Wildlife 2">
-            <img src="images/photo3.jpg" alt="Wildlife 3">
-        </div>
-    </section>
+  <!-- Wildlife Photography Section -->
+<section id="photography">
+    <h2>Wildlife Photography</h2>
+    <p class="quote">"Look deep into nature, and then you will understand everything better." – Albert Einstein</p>
+    <div class="gallery">
+        <img src="assets/images/photo1.jpg" alt="Wildlife 1">
+        <img src="assets/images/photo2.jpg" alt="Wildlife 2">
+        <img src="assets/images/photo3.jpg" alt="Wildlife 3">
+    </div>
+</section>
 
-    <section id="contact" class="fade-in">
+
+    <!-- Contact Section -->
+    <section id="contact">
         <h2>Contact Me</h2>
-        <form id="contactForm">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
-            <button type="submit">Send Message</button>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <div class="h-captcha" data-sitekey="YOUR_HCAPTCHA_SITE_KEY"></div>
+            
+            <button type="submit">Send</button>
         </form>
     </section>
 
+    <script src="script.js"></script>
 </body>
 </html>
