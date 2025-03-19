@@ -6,8 +6,8 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background: linear-gradient(to bottom, #1c1c1c, #343a40);
+    color: white;
     text-align: center;
 }
 
@@ -18,7 +18,7 @@ body {
     top: 0;
     background: #2c3e50;
     padding: 15px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     z-index: 1000;
 }
 
@@ -48,19 +48,44 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(to right, #2c3e50, #4ca1af);
+    background: linear-gradient(to right, #6a040f, #f48c06);
     color: white;
     padding: 120px 20px;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 60px;
 }
 
-/* Animated Highlight */
-.highlight {
-    background: linear-gradient(90deg, #6a11cb, #2575fc);
-    padding: 3px 6px;
-    border-radius: 5px;
-    color: white;
+/* Drop-down Animation for Heading */
+.hero h1 {
+    font-size: 50px;
+    font-weight: 700;
+    margin: 0;
+    opacity: 0;
+    color: #ffcc00;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    transform: translateY(-50px);
+    animation: dropDown 1s ease-out forwards;
+}
+
+/* Keyframe for Drop Animation */
+@keyframes dropDown {
+    0% { opacity: 0; transform: translateY(-50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Fading Roles */
+.fading-text {
+    font-size: 24px;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeCycle 6s infinite;
+}
+
+/* Keyframe for Role Fading */
+@keyframes fadeCycle {
+    0%, 100% { opacity: 0; }
+    20% { opacity: 1; }
+    40% { opacity: 0; }
 }
 
 /* About Section */
@@ -70,19 +95,20 @@ body {
     margin: auto;
 }
 
-/* Highlight Text Animation */
-.highlight-text {
-    font-size: 18px;
-    line-height: 1.8;
-    color: #333;
+/* Highlighted Text */
+.highlight-text span {
+    background: linear-gradient(90deg, #ffd700, #ff5733);
+    padding: 3px 6px;
+    border-radius: 5px;
+    color: black;
     opacity: 0;
-    animation: fadeIn 2s ease-in-out forwards;
+    animation: textHighlight 4s ease-in-out forwards;
 }
 
-/* Keyframe Animation for Text Fade-in */
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
+/* Keyframe for Highlight Animation */
+@keyframes textHighlight {
+    from { opacity: 0; width: 0; }
+    to { opacity: 1; width: 100%; }
 }
 
 /* Projects Section */
@@ -99,13 +125,13 @@ body {
     margin: auto;
 }
 
-/* Project Flip Card */
+/* Flip Card for Projects */
 .project-card {
     width: 280px;
     height: 180px;
     background: white;
     border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.5s ease-in-out;
     transform-style: preserve-3d;
     cursor: pointer;
@@ -129,13 +155,13 @@ body {
 }
 
 .project-card .project-front {
-    background: #3498db;
+    background: #ff5733;
     color: white;
 }
 
 .project-card .project-back {
-    background: #2ecc71;
-    color: white;
+    background: #ffcc00;
+    color: black;
     transform: rotateY(180deg);
 }
 
@@ -143,25 +169,10 @@ body {
     transform: rotateY(180deg);
 }
 
-/* Photography Section */
-#photography {
-    padding: 60px 20px;
-    background: #f9f9f9;
-}
-
-.photo-gallery img {
-    width: 250px;
-    height: auto;
-    margin: 10px;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-}
-
 /* Contact Section */
 #contact {
     padding: 60px 20px;
-    background: #eaeaea;
-    text-align: center;
+    background: #2c2c2c;
 }
 
 #contact-form {
@@ -180,7 +191,7 @@ input, textarea {
 }
 
 button {
-    background: #2575fc;
+    background: #ff5733;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -191,7 +202,7 @@ button {
 }
 
 button:hover {
-    background: #6a11cb;
+    background: #ffcc00;
 }
 
 /* Smooth Scroll */
