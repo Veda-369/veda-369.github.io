@@ -1,107 +1,67 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Orbitron:wght@700&display=swap');
+
+/* General Styling */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #1c2833, #2e4053);
-    background-size: 400% 400%;
-    animation: gradientAnimation 15s ease infinite;
-    color: #ecf0f1;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-}
-
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-#name {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3.5em;
-    font-weight: 700;
-    margin: 50px 0 20px 0;
-    opacity: 0;
-    animation: nameAnimation 2s ease-out forwards;
-    color: #3498db;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-@keyframes nameAnimation {
-    0% {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-#summary-container {
-    width: 80%;
-    max-width: 800px;
+    background: #121212;
+    color: white;
     text-align: center;
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 50px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    border-radius: 8px;
-    background-color: rgba(0, 0, 0, 0.2);
 }
 
-#summary {
-    font-size: 1.2em;
-    line-height: 1.6;
-    opacity: 0;
-    white-space: pre-line;
-    position: relative;
-    z-index: 1;
-}
-
-#summary-fill {
-    position: absolute;
+/* Navbar */
+.navbar {
+    position: fixed;
+    width: 100%;
     top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: linear-gradient(to right, #3498db, #2980b9);
-    z-index: 0;
-    animation: textFill 3s ease-in-out forwards;
+    background: #1a1a2e;
+    padding: 15px;
+    z-index: 1000;
 }
 
-@keyframes textFill {
-    to {
-        width: 100%;
-    }
+/* Hero Section */
+.hero {
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    padding: 120px 20px;
 }
 
-#education, #work-experience, #projects, #certifications, #skills {
-    width: 80%;
-    max-width: 800px;
-    margin: 50px 0;
-    padding: 20px;
-    text-align: left;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    background-color: rgba(0, 0, 0, 0.2);
+.hero h1 {
+    font-size: 55px;
+    font-family: 'Orbitron', sans-serif;
+    color: #00eaff;
+    text-shadow: 0px 0px 15px rgba(0, 234, 255, 0.8);
 }
 
-.education-item, .experience-item, .project-item, .certification-item {
-    margin-bottom: 20px;
+/* Rotating Titles */
+.title-rotation {
+    font-size: 24px;
+    font-weight: bold;
+    opacity: 0;
+    animation: rotateTitles 6s infinite;
 }
 
-.experience-item ul {
-    margin-left: 20px;
+/* Rotating Title Animation */
+@keyframes rotateTitles {
+    0%, 100% { opacity: 0; }
+    20% { opacity: 1; content: "Data Analyst"; }
+    40% { opacity: 1; content: "Data Engineer"; }
+    60% { opacity: 1; content: "Wildlife Photographer"; }
+}
+
+/* Flip Cards */
+.project-card {
+    width: 280px;
+    height: 180px;
+    background: white;
+    border-radius: 10px;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+}
+
+.project-card.flipped {
+    transform: rotateY(180deg);
+}
