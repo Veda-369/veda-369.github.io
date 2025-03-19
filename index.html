@@ -3,110 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veda Portfolio</title>
+    <title>Veda Bharghav - Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <div id="name">Veda</div>
-    <div id="summary-container">
-        <div id="summary-fill"></div>
-        <div id="summary">
-            Data Analyst with expertise in data visualization, statistical analysis, and predictive modeling. Adept at collaborating with business stakeholders to understand data needs, define KPIs, and develop custom analytics solutions. Proficient in SQL, Python, and Power BI, leveraging advanced data querying, ad hoc analysis, and UAT to ensure data accuracy and business intelligence insights. Skilled in automation and real-time analytics to optimize business processes. Passionate about data governance, improving reporting processes, and driving data-driven strategies.
-        </div>
-    </div>
-    <section id="education">
-        <h2>Education</h2>
-        <div class="education-item">
-            <h3>M.S. in Management of Information Systems</h3>
-            <p>Auburn University at Montgomery | May 2024</p>
-        </div>
-        <div class="education-item">
-            <h3>B.Tech in Computer Science and Engineering</h3>
-            <p>Koneru Lakshmaiah Education Foundation | April 2022</p>
-        </div>
-    </section>
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="skill-list">
-            <ul>
-                <li>SQL</li>
-                <li>Python</li>
-                <li>Power BI (DAX)</li>
-                <li>Tableau</li>
-                <li>MySQL</li>
-                <li>Snowflake</li>
-                <li>Statistical Analysis</li>
-                <li>Predictive Modeling</li>
-                <li>JMP</li>
-                <li>Matplotlib</li>
-                <li>Seaborn</li>
-                <li>Apache Spark</li>
-                <li>Databricks</li>
-            </ul>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#tech-stack">Tech Stack</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#photography">Photography</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1 class="name-text">👋 Hi, I'm <span class="name-highlight">Veda Bharghav</span></h1>
+        <p class="title-rotation">Data Analyst</p>
+    </header>
+
+    <!-- Tech Stack Section -->
+    <section id="tech-stack">
+        <h2>Tech Stack</h2>
+        <div class="tech-container">
+            <div class="tech-category"><h3>Programming</h3><p>Python, SQL, C</p></div>
+            <div class="tech-category"><h3>Databases</h3><p>Snowflake, PostgreSQL, MySQL</p></div>
+            <div class="tech-category"><h3>Big Data & Streaming</h3><p>Apache Kafka, Apache Spark</p></div>
+            <div class="tech-category"><h3>AI & Machine Learning</h3><p>NLP, ML, Statistics</p></div>
+            <div class="tech-category"><h3>Visualization</h3><p>Power BI, Tableau, Plotly</p></div>
+            <div class="tech-category"><h3>Cloud & Tools</h3><p>Google Cloud, Azure, Databricks</p></div>
         </div>
     </section>
-    <section id="work-experience">
-        <h2>Work Experience</h2>
-        <div class="experience-item">
-            <h3>R&D Data Analyst, First Solar</h3>
-            <p>July 2024 – Present</p>
-            <ul>
-                <li>Designed and implemented interactive Power BI dashboards integrating real-time data.</li>
-                <li>Applied advanced statistical modeling in JMP to analyze manufacturing defects.</li>
-                <li>Optimized data workflows in Snowflake, ensuring data quality and compliance.</li>
-            </ul>
-        </div>
-        <div class="experience-item">
-            <h3>ITS Tech Support, Auburn University at Montgomery</h3>
-            <p>May 2023 – May 2024</p>
-            <ul>
-                <li>Provided technical support to 700+ users, achieving high satisfaction.</li>
-                <li>Leveraged Azure Cloud Services to enhance system management.</li>
-                <li>Implemented Security and User Behavior Analytics solutions.</li>
-            </ul>
-        </div>
-        <div class="experience-item">
-            <h3>Data Engineer, SenecaGlobal IT Services</h3>
-            <p>June 2022 – Dec 2022</p>
-            <ul>
-                <li>Designed and optimized ETL pipelines, improving data processing speed.</li>
-                <li>Developed real-time reporting solutions using Google Cloud Pub/Sub.</li>
-                <li>Built NLP-based sentiment analysis models, improving customer insights.</li>
-            </ul>
-        </div>
-    </section>
+
+    <!-- Projects Section -->
     <section id="projects">
         <h2>Projects</h2>
-        <div class="project-item">
-            <h3>AI-Driven Defect Detection & Analytics Dashboard</h3>
-            <p>Engineered AI-powered defect detection system, automated data pipeline, and designed Power BI dashboards.</p>
-        </div>
-        <div class="project-item">
-            <h3>Inventory Burn Down Tracker</h3>
-            <p>Developed real-time Power BI dashboard, improved forecast accuracy, and optimized resource utilization.</p>
-        </div>
-        <div class="project-item">
-            <h3>Accelerometer Data Analytics Dashboard</h3>
-            <p>Processed high-frequency accelerometer data, identified failure thresholds, and developed Power BI dashboards.</p>
-        </div>
-        <div class="project-item">
-            <h3>Retail Analytics Dashboard Development</h3>
-            <p>Optimized retail data processing using Apache Spark, developed machine learning models, and designed Tableau dashboards.</p>
-        </div>
-    </section>
-    <section id="certifications">
-        <h2>Certifications</h2>
-        <div class="certification-item">
-            <h3>Microsoft Certified Azure AI Fundamentals</h3>
-        </div>
-        <div class="certification-item">
-            <h3>IBM Data Science (Coursera)</h3>
-        </div>
-        <div class="certification-item">
-            <h3>Statistics with Python (Coursera)</h3>
+        <div class="projects-grid">
+            <div class="project-card" onclick="flipCard(this)">
+                <div class="project-front"><h3>AI-Driven Defect Detection</h3></div>
+                <div class="project-back">
+                    <p>Tech Stack: Python, Power BI, SQL</p>
+                    <p>Developed an AI-powered defect detection system.</p>
+                </div>
+            </div>
+            <div class="project-card" onclick="flipCard(this)">
+                <div class="project-front"><h3>Retail Analytics Dashboard</h3></div>
+                <div class="project-back">
+                    <p>Tech Stack: Apache Spark, Databricks, Python</p>
+                    <p>Built ML-based demand forecasting models.</p>
+                </div>
+            </div>
         </div>
     </section>
-    <script src="script.js"></script>
+
+    <!-- Photography Section -->
+    <section id="photography">
+        <h2>Wildlife Photography</h2>
+        <div class="photo-gallery">
+            <img src="Images/photo1.jpg" alt="Wildlife Photo 1">
+            <img src="Images/photo2.jpg" alt="Wildlife Photo 2">
+            <img src="Images/photo3.jpg" alt="Wildlife Photo 3">
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form id="contact-form">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
 </body>
 </html>
