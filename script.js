@@ -1,3 +1,9 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const animatedText = document.querySelectorAll(".animate-text");
+    animatedText.forEach((text, index) => {
+        text.style.animationDelay = `${index * 0.3}s`;
+    });
+});
 // Smooth Scrolling for Navigation Links
 document.querySelectorAll('nav ul li a').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
