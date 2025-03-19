@@ -1,9 +1,28 @@
-// Ensure Animations Run on Page Load
 document.addEventListener("DOMContentLoaded", function () {
-    const animatedText = document.querySelectorAll(".animate-text");
-    animatedText.forEach((text, index) => {
-        text.style.animationDelay = `${index * 0.3}s`;
-    });
+    // Fading Sentence Animation
+    const sentences = [
+        "I specialize in transforming raw data into insights.",
+        "Building scalable pipelines for real-time processing.",
+        "Bringing AI and cloud technologies together for impact."
+    ];
+    let sentenceIndex = 0;
+    const summaryText = document.querySelector(".fading-summary");
+
+    function cycleSentences() {
+        summaryText.style.opacity = 0;
+        setTimeout(() => {
+            summaryText.innerText = sentences[sentenceIndex];
+            summaryText.style.opacity = 1;
+            sentenceIndex = (sentenceIndex + 1) % sentences.length;
+        }, 500);
+    }
+    setInterval(cycleSentences, 4000);
+
+    // Full-Sentence Highlight Animation
+    let summaryHighlight = document.querySelector('.animated-summary');
+    setTimeout(() => {
+        summaryHighlight.style.opacity = "1";
+    }, 500);
 });
 
 // Smooth Scrolling for Navigation Links
@@ -31,18 +50,7 @@ function flipCard(card) {
     card.classList.toggle('flipped');
 }
 
-// Highlight Animation for Summary
-document.addEventListener("DOMContentLoaded", function () {
-    let highlightedTexts = document.querySelectorAll('.highlight-text span');
-    highlightedTexts.forEach((word, index) => {
-        setTimeout(() => {
-            word.style.color = "#2575fc";
-            word.style.fontWeight = "bold";
-        }, index * 200);
-    });
-});
-
-// Form Validation (hCaptcha Removed)
+// Form Validation
 document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
