@@ -9,14 +9,8 @@
 </head>
 <body>
 
-    <!-- Animated Hero Section -->
-    <header class="hero">
-        <h1 class="animate-text">Hi, I'm <span class="highlight">Veda Bharghav</span></h1>
-        <p class="animate-text">Data Analyst • Data Engineer • AI Enthusiast • Photographer</p>
-    </header>
-
-    <!-- Navigation -->
-    <nav>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
@@ -25,52 +19,48 @@
         </ul>
     </nav>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p class="fade-in-text">
-            I specialize in <span class="highlight">ETL pipelines</span>, 
-            <span class="highlight">real-time data processing</span>, and 
-            <span class="highlight">cloud-based analytics</span>, transforming raw data into actionable insights. 
-            My expertise spans <span class="highlight">data engineering tools</span> like 
-            <span class="highlight">Apache Kafka</span>, <span class="highlight">Apache Airflow</span>, 
-            <span class="highlight">Snowflake</span>, <span class="highlight">PostgreSQL</span>, and 
-            <span class="highlight">Databricks</span>, along with cloud platforms such as 
-            <span class="highlight">Google Cloud</span> and <span class="highlight">Azure</span>.  
-            For <span class="highlight">data analysis and visualization</span>, I leverage 
-            <span class="highlight">Power BI</span>, <span class="highlight">Tableau</span>, and 
-            <span class="highlight">Plotly</span> to create interactive dashboards.  
-            With a passion for <span class="highlight">big data</span>, <span class="highlight">AI</span>, 
-            and <span class="highlight">automation</span>, I thrive on building scalable solutions, 
-            optimizing workflows, and solving complex data challenges to drive informed decision-making.
-        </p>
-    </section>
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1 class="animated-text">Hi, I'm <span class="highlight">Veda Bharghav</span></h1>
+        <p class="animated-text">Data Analyst • Data Engineer • AI Enthusiast • Photographer</p>
+    </header>
 
-    <!-- Tech Stack Section -->
-    <section id="tech-stack">
-        <h2>Tech Stack</h2>
-        <div class="tech-container">
-            <div class="tech-category"><h3>Programming</h3><p>Python, SQL, C</p></div>
-            <div class="tech-category"><h3>Databases</h3><p>Snowflake, PostgreSQL, MySQL</p></div>
-            <div class="tech-category"><h3>Big Data & Streaming</h3><p>Apache Kafka, Apache Spark, Streaming APIs</p></div>
-            <div class="tech-category"><h3>AI & Machine Learning</h3><p>Natural Language Processing (NLP), Machine Learning, Statistical Modeling</p></div>
-            <div class="tech-category"><h3>Data Visualization</h3><p>Power BI, Tableau, Plotly, Matplotlib, Seaborn</p></div>
-            <div class="tech-category"><h3>Cloud & Tools</h3><p>Google Cloud, Microsoft Azure, Databricks, Informatica</p></div>
-        </div>
+    <!-- About Section -->
+    <section id="about" class="fade-in">
+        <h2>About Me</h2>
+        <p class="highlight-text">
+            I specialize in <span class="highlight">ETL pipelines</span>, <span class="highlight">real-time data processing</span>, and <span class="highlight">cloud-based analytics</span>,
+            transforming raw data into actionable insights. My expertise spans <span class="highlight">data engineering tools</span> like
+            <span class="highlight">Apache Kafka</span>, <span class="highlight">Apache Airflow</span>, <span class="highlight">Snowflake</span>, <span class="highlight">PostgreSQL</span>, and
+            <span class="highlight">Databricks</span>, along with cloud platforms such as <span class="highlight">Google Cloud</span> and <span class="highlight">Azure</span>.  
+            For <span class="highlight">data analysis and visualization</span>, I leverage <span class="highlight">Power BI</span>, <span class="highlight">Tableau</span>, and <span class="highlight">Plotly</span>
+            to create interactive dashboards.  With a passion for <span class="highlight">big data</span>, <span class="highlight">AI</span>, and <span class="highlight">automation</span>,
+            I thrive on building scalable solutions, optimizing workflows, and solving complex data challenges to drive informed decision-making.
+        </p>
     </section>
 
     <!-- Projects Section -->
     <section id="projects">
         <h2>Projects</h2>
         <div class="projects-grid">
-            <div class="project" onclick="toggleProjectDetails(this)">
-                <h3>AI-Driven Defect Detection</h3>
-                <p class="hidden-details">Developed an AI-powered defect detection system using Cognex Vision Pro, automating breakage identification and measurement recording.</p>
+            <div class="project-card" onclick="flipCard(this)">
+                <div class="project-front">
+                    <h3>AI-Driven Defect Detection</h3>
+                </div>
+                <div class="project-back">
+                    <p>Tech Stack: Python, Power BI, SQL, Cognex Vision Pro</p>
+                    <p>Developed an AI-powered defect detection system, automating breakage identification.</p>
+                </div>
             </div>
-
-            <div class="project" onclick="toggleProjectDetails(this)">
-                <h3>Retail Analytics Dashboard</h3>
-                <p class="hidden-details">Built ML-based demand forecasting models using Apache Spark to enhance business decisions.</p>
+            
+            <div class="project-card" onclick="flipCard(this)">
+                <div class="project-front">
+                    <h3>Retail Analytics Dashboard</h3>
+                </div>
+                <div class="project-back">
+                    <p>Tech Stack: Apache Spark, Databricks, Python, Tableau, Azure SQL</p>
+                    <p>Built ML-based demand forecasting models and developed interactive dashboards.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -91,13 +81,8 @@
         <h2>Contact Me</h2>
         <form id="contact-form">
             <input type="text" id="name" name="name" placeholder="Your Name" required>
-            <input type="email" id="email" name="_replyto" placeholder="Your Email" required>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
             <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-            <div class="h-captcha" data-sitekey="YOUR_HCAPTCHA_SITE_KEY"></div>
             <button type="submit">Send</button>
         </form>
     </section>
-
-    <script src="script.js"></script>
-</body>
-</html>
