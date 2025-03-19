@@ -5,102 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veda Bharghav - Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://hcaptcha.com/1/api.js" async defer></script>
 </head>
 <body>
 
     <header>
-        <h1>Veda Bharghav</h1>
+        <h1>[Your Name]</h1>
         <p>Data Analyst | Data Engineer | AI Enthusiast | Transforming Data into Decisions, Pipelines into Performance</p>
         <nav>
             <ul>
-                <li><a href="#tech-stack">Tech Stack</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#photography">Photography</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="photography.html">Photography</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- About Section -->
     <section id="about">
         <h2>About Me</h2>
-        <p>I specialize in **data visualization, statistical analysis, and predictive modeling**. I build **interactive dashboards, develop data pipelines, and perform machine learning analytics** to drive business decisions.</p>
-    </section>
+        <p>🚀 Data Engineer | Data Analyst | Cloud Enthusiast  
+I specialize in ETL pipelines, real-time data processing, and cloud-based analytics, transforming raw data into actionable insights. 
+My expertise spans data engineering tools like Apache Kafka, Apache Airflow, Snowflake, PostgreSQL, and Databricks, along with cloud platforms
+such as Google Cloud and Azure. For data analysis and visualization, I leverage Power BI, JMP, Tableau, and Plotly to create interactive dashboards. 
+With a passion for Big Data, AI, and automation, I thrive on building scalable solutions, optimizing workflows, and solving complex data challenges
+            to drive informed decision-making.</p>    </section>
 
-    <!-- Tech Stack Section -->
     <section id="tech-stack">
-        <h2>Tech Stack</h2>
-        <div class="skills">
-            <div class="skill-category"><h3>Programming</h3><p>Python, SQL</p></div>
-            <div class="skill-category"><h3>Databases</h3><p>Snowflake, PostgreSQL, MySQL</p></div>
-            <div class="skill-category"><h3>Visualization</h3><p>Power BI, Tableau, Matplotlib, Seaborn</p></div>
-            <div class="skill-category"><h3>Tools</h3><p>Apache Spark, Databricks, Google Cloud</p></div>
+    <h2>Tech Stack</h2>
+    <div class="skills">
+        <div class="skill-category"><h3>Programming</h3><p>Python, SQL</p></div>
+        <div class="skill-category"><h3>Databases & Warehouses</h3><p>Snowflake, PostgreSQL, MySQL</p></div>
+        <div class="skill-category"><h3>Data Engineering</h3><p>Apache Kafka, Apache Airflow, Apache Spark, Databricks, Informatica</p></div>
+        <div class="skill-category"><h3>Cloud Platforms</h3><p>Google Cloud, Microsoft Azure</p></div>
+        <div class="skill-category"><h3>Data Visualization</h3><p>Power BI, Tableau, Plotly, Matplotlib, Seaborn</p></div>
+        <div class="skill-category"><h3>Big Data & Streaming</h3><p>Apache Kafka, Apache Spark, Streaming APIs</p></div>
+        <div class="skill-category"><h3>AI & Machine Learning</h3><p>Natural Language Processing (NLP), Machine Learning, Statistical Modeling</p></div>
+        <div class="skill-category"><h3>Certifications</h3>
+            <p>Microsoft Certified: Azure AI Fundamentals, Multi-Cloud Networking (Aviatrix), IBM Data Science - Coursera, Statistics with Python - Coursera</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Projects Section -->
+
     <section id="projects">
         <h2>Projects</h2>
         <div class="projects-grid">
-            <div class="project" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="front">
-                        <img src="assets/images/flight_analytics.jpg" alt="Flight Data Analytics">
-                        <h3>Flight Data Analytics</h3>
-                    </div>
-                    <div class="back">
-                        <p>Real-time flight data dashboard analyzing delays, weather impact, and airline performance.</p>
-                        <p><strong>Tech Used:</strong> Python, Pandas, Power BI</p>
-                    </div>
+            <a href="projects.html">
+                <div class="project">
+                    <img src="assets/images/flight_analytics.jpg" alt="Flight Data Analytics">
+                    <h3>Flight Data Analytics</h3>
                 </div>
-            </div>
+            </a>
 
-            <div class="project" onclick="flipCard(this)">
-                <div class="card-inner">
-                    <div class="front">
-                        <img src="assets/images/retail_dashboard.jpg" alt="Retail Analytics">
-                        <h3>Retail Analytics Dashboard</h3>
-                    </div>
-                    <div class="back">
-                        <p>Developed ML-based demand forecasting models using Apache Spark to enhance business decisions.</p>
-                        <p><strong>Tech Used:</strong> Apache Spark, Databricks, Python, Tableau</p>
-                    </div>
+            <a href="projects.html">
+                <div class="project">
+                    <img src="assets/images/retail_dashboard.jpg" alt="Retail Analytics">
+                    <h3>Retail Analytics Dashboard</h3>
                 </div>
-            </div>
+            </a>
         </div>
     </section>
 
-    <!-- Photography Section -->
-    <section id="photography">
-        <h2>Wildlife Photography</h2>
-        <p class="quote">"Look deep into nature, and then you will understand everything better." – Albert Einstein</p>
-        <div class="gallery">
-            <img src="images/photo1.jpg" alt="Wildlife 1">
-            <img src="images/photo2.jpg" alt="Wildlife 2">
-            <img src="images/photo3.jpg" alt="Wildlife 3">
-        </div>
-    </section>
+    <footer>
+        <p>© 2025 [Veda Bharghav] | All Rights Reserved</p>
+    </footer>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <form id="contact-form">
-            <label>Name:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label>Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label>Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            
-            <div class="h-captcha" data-sitekey="YOUR_HCAPTCHA_SITE_KEY"></div>
-            
-            <button type="submit">Send</button>
-        </form>
-    </section>
-
-    <script src="script.js"></script>
 </body>
 </html>
