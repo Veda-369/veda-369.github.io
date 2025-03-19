@@ -21,6 +21,33 @@ body {
     z-index: 1000;
 }
 
+/* Hero Section */
+.hero {
+    background: linear-gradient(to right, #2a2a2a, #3d3d3d);
+    padding: 100px 20px;
+}
+
+.name-text {
+    font-size: 60px;
+    font-family: 'Nanum Gothic', sans-serif;
+    color: #e0e0e0;
+}
+
+/* Rotating Titles */
+.title-rotation {
+    font-size: 28px;
+    font-weight: bold;
+    animation: rotateTitles 6s infinite;
+}
+
+/* Rotating Title Animation */
+@keyframes rotateTitles {
+    0%, 100% { opacity: 0; }
+    20% { opacity: 1; content: "Data Analyst"; }
+    40% { opacity: 1; content: "Data Engineer"; }
+    60% { opacity: 1; content: "Wildlife Photographer"; }
+}
+
 /* Tech Stack */
 .tech-container {
     display: flex;
@@ -59,31 +86,10 @@ body {
     height: 100%;
     position: absolute;
     backface-visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.project-front {
-    background: white;
-    color: black;
-    border-radius: 10px;
-}
-
-.project-front img {
-    width: 100%;
-    border-radius: 10px 10px 0 0;
 }
 
 .project-back {
     background: #333;
     color: white;
-    transform: rotateY(180deg);
-    border-radius: 10px;
-    padding: 10px;
-}
-
-.project-card.flipped {
     transform: rotateY(180deg);
 }
