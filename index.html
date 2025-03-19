@@ -3,44 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Your Name] - Data Analyst Portfolio</title>
+    <title>Veda Bharghav - Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://hcaptcha.com/1/api.js" async defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <header>
-        <h1>[Your Name]</h1>
-        <p>Data Analyst | Data Engineer | AI Enthusiast</p>
+        <h1>Veda Bharghav</h1>
+        <p>Data Analyst | Data Engineer | AI Enthusiast |  Transforming Data into Decisions, Pipelines into Performance</p>
         <nav>
             <ul>
-                <li><a href="#projects">Projects</a></li>
                 <li><a href="#tech-stack">Tech Stack</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#photography">Photography</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- About Section -->
+    <!-- Summary Section -->
     <section id="about">
         <h2>About Me</h2>
-        <p>I specialize in **data visualization, statistical analysis, and predictive modeling**. I have expertise in SQL, Python, and Power BI, and I enjoy collaborating with stakeholders to develop insightful analytics solutions. My passion lies in data governance, real-time analytics, and automation to enhance business decision-making.</p>
+        <p>As a Data Analyst with expertise in data visualization, statistical analysis, and predictive modeling, I specialize in turning raw data into actionable insights. I build interactive dashboards, develop data pipelines, and perform machine learning analytics to drive business decisions.</p>
+        <p>With experience in SQL, Python, Power BI, and cloud technologies, I have built ETL pipelines, automated analytics, and real-time reporting solutions to support data-driven decision-making.</p>
     </section>
 
     <!-- Tech Stack Section -->
     <section id="tech-stack">
         <h2>Tech Stack</h2>
         <div class="skills">
-            <span>SQL</span>
-            <span>Python</span>
-            <span>Power BI</span>
-            <span>Tableau</span>
-            <span>Apache Spark</span>
-            <span>PostgreSQL</span>
-            <span>Snowflake</span>
-            <span>Azure</span>
-            <span>Google Cloud</span>
+            <div class="skill-category">
+                <h3>Programming</h3>
+                <p>Python, SQL</p>
+            </div>
+            <div class="skill-category">
+                <h3>Databases</h3>
+                <p>Snowflake, PostgreSQL, MySQL</p>
+            </div>
+            <div class="skill-category">
+                <h3>Visualization</h3>
+                <p>Power BI, Tableau, Matplotlib, Seaborn</p>
+            </div>
+            <div class="skill-category">
+                <h3>Tools</h3>
+                <p>Apache Spark, Databricks, Google Cloud</p>
+            </div>
         </div>
     </section>
 
@@ -54,25 +62,25 @@
                     <h3>Flight Data Analytics</h3>
                 </div>
                 <div class="back">
-                    <p>Analyzed real-time flight data for insights on delays, weather impact, and airline performance.</p>
-                    <p><strong>Tech Used:</strong> Python, Pandas, Matplotlib, Power BI, PostgreSQL</p>
+                    <p>Real-time flight data dashboard analyzing delays, weather impact, and airline performance.</p>
+                    <p><strong>Tech Used:</strong> Python, Pandas, Power BI</p>
                 </div>
             </div>
 
             <div class="project" onclick="flipCard(this)">
                 <div class="front">
-                    <img src="assets/images/defect_dashboard.jpg" alt="AI-Driven Defect Detection">
-                    <h3>AI-Driven Defect Detection</h3>
+                    <img src="assets/images/retail_dashboard.jpg" alt="Retail Analytics">
+                    <h3>Retail Analytics Dashboard</h3>
                 </div>
                 <div class="back">
-                    <p>Automated defect detection using AI-powered vision analytics for quality control.</p>
-                    <p><strong>Tech Used:</strong> Python, Power BI, Snowflake, Cognex Vision AI</p>
+                    <p>Developed ML-based demand forecasting models using Apache Spark to enhance business decisions.</p>
+                    <p><strong>Tech Used:</strong> Apache Spark, Databricks, Python, Tableau</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Wildlife Photography Section -->
+    <!-- Photography Section -->
     <section id="photography">
         <h2>Wildlife Photography</h2>
         <p class="quote">"Look deep into nature, and then you will understand everything better." – Albert Einstein</p>
@@ -87,13 +95,13 @@
     <section id="contact">
         <h2>Contact Me</h2>
         <form id="contact-form">
-            <label for="name">Name:</label>
+            <label>Name:</label>
             <input type="text" id="name" name="name" required>
             
-            <label for="email">Email:</label>
+            <label>Email:</label>
             <input type="email" id="email" name="email" required>
             
-            <label for="message">Message:</label>
+            <label>Message:</label>
             <textarea id="message" name="message" required></textarea>
             
             <div class="h-captcha" data-sitekey="YOUR_HCAPTCHA_SITE_KEY"></div>
