@@ -23,6 +23,11 @@ const revealSection = () => {
 window.addEventListener("scroll", revealSection);
 document.addEventListener("DOMContentLoaded", revealSection);
 
+// Flip Effect for Projects
+function flipCard(card) {
+    card.classList.toggle('flipped');
+}
+
 // Form Validation & CAPTCHA
 document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault();
