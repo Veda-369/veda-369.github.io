@@ -1,23 +1,9 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Smooth Scrolling
-    document.querySelectorAll('.navbar ul li a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-        });
-    });
+const roles = ["Data Analyst", "Data Engineer", "Wildlife Photographer"];
+let roleIndex = 0;
 
-    // Flip Card Function
-    function flipCard(card) {
-        card.classList.toggle('flipped');
-    }
-    window.flipCard = flipCard;
+function changeRole() {
+    document.getElementById("changingRole").textContent = roles[roleIndex];
+    roleIndex = (roleIndex + 1) % roles.length;
+}
 
-    // Rotating Title Animation
-    const titles = ["Data Analyst", "Data Engineer", "Wildlife Photographer"];
-    let index = 0;
-    setInterval(() => {
-        document.querySelector('.title-rotation').innerText = titles[index];
-        index = (index + 1) % titles.length;
-    }, 2000);
-});
+setInterval(changeRole, 3000);
