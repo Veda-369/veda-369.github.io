@@ -1,29 +1,25 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Vollkorn:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Nunito:wght@300;400;600&family=Montserrat:wght@700&display=swap');
 
-/* Global Styles */
 body {
-    font-family: 'Vollkorn', serif;
-    background: linear-gradient(to bottom right, #1e293b, #334155);
-    color: white;
+    font-family: 'Nunito', sans-serif;
+    background: white;
+    color: #444;
 }
 
 /* Headings */
-h1, h2, h3 {
-    font-family: 'Vollkorn', serif;
-}
-
-/* Name Styling */
-.name {
+h1 {
     font-family: 'Chakra Petch', sans-serif;
-    font-size: 2.5rem;
 }
 
-/* Navigation */
-.nav-link {
-    color: white;
-    transition: color 0.3s ease-in-out;
+h2, h3 {
+    font-family: 'Montserrat', sans-serif;
 }
-.nav-link:hover {
-    color: #38bdf8;
+
+/* Section Titles */
+.section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
 }
