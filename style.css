@@ -2,8 +2,8 @@
 
 body {
     font-family: 'Nunito', sans-serif;
-    background: white;
-    color: #444;
+    background: #333;
+    color: white;
     margin: 0;
     padding: 0;
 }
@@ -17,11 +17,8 @@ h2, h3 {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Section Titles */
-.section-title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 1rem;
+/* Centering Sections */
+.section {
     text-align: center;
+    padding: 50px 0;
 }
