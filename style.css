@@ -24,3 +24,15 @@ html {
 .nav-link:hover {
     color: #38bdf8;
 }
+
+/* Floating Name Animation */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.name-animation {
+    display: inline-block;
+    animation: float 3s infinite ease-in-out;
+}
