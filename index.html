@@ -4,28 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veda Bharghav | Portfolio</title>
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Vollkorn:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Custom Styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Nunito:wght@300;400;600&family=Montserrat:wght@700&display=swap">
+    
+    <!-- Custom Styles & Scripts -->
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
-<body class="bg-gradient-to-br from-gray-800 to-blue-900 text-white">
-    <!-- Navigation Bar -->
-    <nav class="w-full bg-black bg-opacity-80 py-3">
-        <ul class="flex justify-center space-x-6 text-lg font-bold">
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#projects" class="nav-link">Projects</a></li>
-            <li><a href="#techstack" class="nav-link">Tech Stack</a></li>
-            <li><a href="#photography" class="nav-link">Photography</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
-    </nav>
-    <div id="main" class="mt-6">
-        <!-- Content will be loaded here -->
-    </div>
-    <!-- Custom Scripts -->
-    <script src="script.js"></script>
+<body class="bg-white text-gray-800">
+
+    <div id="main"></div>
+
+    <script>
+        async function loadSections() {
+            document.getElementById("main").innerHTML = await (await fetch("home.html")).text();
+        }
+        loadSections();
+    </script>
+
 </body>
 </html>
