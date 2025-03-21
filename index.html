@@ -3,96 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veda Bharghav - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <title>Veda Bharghav | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&family=Vollkorn:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Vollkorn', serif;
+            background-color: #1a1a2e;
+            color: white;
+        }
+        .font-chakra {
+            font-family: 'Chakra Petch', sans-serif;
+        }
+    </style>
 </head>
-<body>
+<body class="flex items-center justify-center h-screen text-center px-4">
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#tech-stack">Tech Stack</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#photography">Photography</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <div class="max-w-2xl">
+        <!-- Animated Name -->
+        <h1 class="text-5xl font-bold font-chakra text-white animate-fadeIn">
+            Hi, I'm <span class="text-teal-400">Veda Bharghav</span>
+        </h1>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <h1 class="name-text">Hi, I'm <span class="name-highlight">Veda Bharghav</span></h1>
-        <p class="title-rotation">Data Analyst</p>
-    </header>
+        <!-- Changing Role Animation -->
+        <h2 id="changingRole" class="text-3xl mt-4 text-yellow-400 font-semibold animate-fadeInSlow">
+            Data Analyst
+        </h2>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I specialize in ETL pipelines, real-time data processing, and cloud-based analytics. My expertise spans data engineering tools like Apache Kafka, Apache Airflow, Snowflake, PostgreSQL, and Databricks, along with cloud platforms such as Google Cloud and Azure.</p>
-    </section>
-
-    <!-- Tech Stack Section -->
-    <section id="tech-stack">
-        <h2>Tech Stack</h2>
-        <div class="tech-container">
-            <div class="tech-box"><h3>Programming</h3><p>Python, SQL, C</p></div>
-            <div class="tech-box"><h3>Databases</h3><p>Snowflake, PostgreSQL, MySQL</p></div>
-            <div class="tech-box"><h3>Big Data & Streaming</h3><p>Apache Kafka, Apache Spark</p></div>
-            <div class="tech-box"><h3>AI & ML</h3><p>NLP, Machine Learning, Statistics</p></div>
-            <div class="tech-box"><h3>Visualization</h3><p>Power BI, JMP, Tableau, Plotly</p></div>
-            <div class="tech-box"><h3>Cloud & Tools</h3><p>Google Cloud, Azure, Databricks</p></div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card" onclick="flipCard(this)">
-                <div class="project-front">
-                    <img src="Images/project1.jpg" alt="Project 1">
-                    <h3>AI-Driven Defect Detection</h3>
-                </div>
-                <div class="project-back">
-                    <p>Tech Stack: Python, Power BI, SQL</p>
-                    <p>Developed an AI-powered defect detection system.</p>
-                </div>
-            </div>
-            <div class="project-card" onclick="flipCard(this)">
-                <div class="project-front">
-                    <img src="Images/project2.jpg" alt="Project 2">
-                    <h3>Retail Analytics Dashboard</h3>
-                </div>
-                <div class="project-back">
-                    <p>Tech Stack: Apache Spark, Databricks, Python</p>
-                    <p>Built ML-based demand forecasting models.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Photography Section -->
-    <section id="photography">
-        <h2>Wildlife Photography</h2>
-        <p class="photo-caption">"Capturing the beauty of wildlife through my lens."</p>
-        <div class="photo-gallery">
-            <img src="images/photo1.jpg" alt="Wildlife Photo 1">
-            <img src="images/photo2.jpg" alt="Wildlife Photo 2">
-            <img src="images/photo3.jpg" alt="Wildlife Photo 3">
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <form id="contact-form">
-            <input type="text" id="name" name="name" placeholder="Your Name" required>
-            <input type="email" id="email" name="email" placeholder="Your Email" required>
-            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </section>
+        <!-- Summary -->
+        <p class="mt-6 text-lg text-gray-300 animate-fadeInSlower">
+            Data Analyst with expertise in data visualization, statistical analysis, and predictive modeling. Adept at collaborating
+            with business stakeholders to define KPIs and develop analytics solutions using SQL, Python, and Power BI.
+        </p>
+    </div>
 
 </body>
 </html>
