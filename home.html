@@ -1,25 +1,36 @@
 <div class="min-h-screen flex flex-col items-center justify-center text-center px-6">
     <!-- Animated Name -->
-    <h1 class="text-5xl font-bold font-chakra text-white animate-floating">
+    <h1 class="text-6xl font-bold font-chakra text-white animate-floating">
         Hi, I'm <span class="text-teal-400">Veda Bharghav</span>
     </h1>
 
     <!-- Role Switching -->
     <h2 id="changingRole" class="text-3xl mt-4 text-yellow-400 font-semibold"></h2>
 
-    <!-- About Me Section -->
-    <div class="mt-10 max-w-3xl">
-        <h2 class="text-4xl font-bold text-yellow-400">About Me</h2>
-        <p class="mt-4 text-gray-300">Passionate about Data Engineering, AI, and Wildlife Photography.</p>
+    <!-- Summary Section -->
+    <div class="mt-10 max-w-3xl text-lg text-gray-300">
+        <p>
+            Data Analyst with expertise in data visualization, statistical analysis, and predictive modeling. Adept at collaborating
+            with business stakeholders to define KPIs and develop analytics solutions using SQL, Python, and Power BI.
+        </p>
     </div>
 
-    <!-- Projects Section -->
+    <!-- Tech Stack Section -->
+    <div id="tech-stack" class="mt-10 max-w-3xl text-center">
+        <h2 class="text-4xl font-bold text-yellow-400">Tech Stack</h2>
+        <div class="mt-6 grid grid-cols-2 md:grid-cols-3 gap-6 p-6 bg-gray-800 rounded-lg shadow-lg">
+            <span class="px-4 py-2 bg-gray-700 rounded-md text-white">SQL</span>
+            <span class="px-4 py-2 bg-gray-700 rounded-md text-white">Python</span>
+            <span class="px-4 py-2 bg-gray-700 rounded-md text-white">Power BI</span>
+            <span class="px-4 py-2 bg-gray-700 rounded-md text-white">Tableau</span>
+            <span class="px-4 py-2 bg-gray-700 rounded-md text-white">Snowflake</span>
+            <span class="px-4 py-2 bg-gray-700 rounded-md text-white">PostgreSQL</span>
+        </div>
+    </div>
+
+    <!-- Sections Loading -->
     <div id="projects"></div>
-
-    <!-- Photography Section -->
     <div id="photography"></div>
-
-    <!-- Contact Section -->
     <div id="contact"></div>
 
     <script>
