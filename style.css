@@ -1,45 +1,11 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@700&family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&family=Vollkorn:wght@400;700&display=swap');
 
-/* General Styling */
 body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to bottom, #e0e0e0, #b0b0b0);
-    color: #222;
-    text-align: center;
+    font-family: 'Vollkorn', serif;
+    background-color: #1a1a2e;
+    color: white;
 }
 
-/* Hero Section */
-.hero {
-    background: linear-gradient(to right, #dcdcdc, #a0a0a0);
-    padding: 100px 20px;
-}
-
-.name-text {
-    font-size: 60px;
-    font-family: 'Exo 2', sans-serif;
-    color: #333;
-    animation: fadeIn 1.5s ease-out;
-}
-
-/* Smooth Fade-in Animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Title Rotation */
-.title-rotation {
-    font-size: 28px;
-    font-weight: bold;
-    animation: rotateTitles 6s infinite;
-}
-
-@keyframes rotateTitles {
-    0%, 100% { opacity: 0; }
-    20% { opacity: 1; content: "Data Analyst"; }
-    40% { opacity: 1; content: "Data Engineer"; }
-    60% { opacity: 1; content: "Wildlife Photographer"; }
+.font-chakra {
+    font-family: 'Chakra Petch', sans-serif;
 }
