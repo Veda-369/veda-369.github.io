@@ -1,99 +1,30 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import "tailwindcss/tailwind.css";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veda Bharghav | Portfolio</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-const roles = ["Data Analyst", "Data Engineer", "Wildlife Photographer"];
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&family=Vollkorn:wght@400;700&display=swap">
+    
+    <!-- Custom CSS & Scripts -->
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
 
-export default function Portfolio() {
-  const [roleIndex, setRoleIndex] = useState(0);
+    <div id="main"></div>
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+    <script>
+        async function loadSections() {
+            document.getElementById("main").innerHTML = await (await fetch("home.html")).text();
+        }
+        loadSections();
+    </script>
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-800 to-gray-900 text-white flex flex-col items-center justify-center px-6">
-      {/* Animated Name */}
-      <motion.h1
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="text-5xl font-extrabold text-center font-chakra-petch animate-floating"
-      >
-        Hi, I'm Veda Bharghav
-      </motion.h1>
-      
-      {/* Role Animation */}
-      <motion.h2
-        key={roleIndex}
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -10 }}
-        transition={{ duration: 0.8 }}
-        className="text-3xl mt-4 text-teal-400 font-bold"
-      >
-        {roles[roleIndex]}
-      </motion.h2>
-      
-      {/* Summary Section */}
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-        className="mt-6 max-w-2xl text-center text-lg text-gray-300 font-vollkorn"
-      >
-        Data Analyst with expertise in data visualization, statistical analysis, and predictive modeling. Adept at collaborating
-        with business stakeholders to define KPIs and develop analytics solutions using SQL, Python, and Power BI.
-      </motion.p>
-      
-      {/* About Section */}
-      <div className="mt-10 max-w-3xl text-center">
-        <h2 className="text-4xl font-bold text-yellow-400">About Me</h2>
-        <p className="mt-4 text-gray-300">Passionate about Data Engineering, AI, and Wildlife Photography. I love solving complex data problems and visualizing insights in meaningful ways.</p>
-      </div>
-      
-      {/* Projects Section */}
-      <div className="mt-10 max-w-4xl text-center">
-        <h2 className="text-4xl font-bold text-yellow-400">Projects</h2>
-        <p className="mt-4 text-gray-300">Here are some of the projects I have worked on:</p>
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="p-6 bg-gray-700 rounded-lg shadow-md hover:scale-105 transition-transform">
-            <h3 className="text-xl font-bold text-teal-400">AI-Driven Defect Detection</h3>
-            <p className="text-gray-300 mt-2">Implemented AI-powered defect detection and analytics dashboards.</p>
-          </div>
-          <div className="p-6 bg-gray-700 rounded-lg shadow-md hover:scale-105 transition-transform">
-            <h3 className="text-xl font-bold text-teal-400">Retail Analytics Dashboard</h3>
-            <p className="text-gray-300 mt-2">Developed machine learning models for retail demand forecasting.</p>
-          </div>
-        </div>
-      </div>
-      
-      {/* Photography Section */}
-      <div className="mt-10 max-w-3xl text-center">
-        <h2 className="text-4xl font-bold text-yellow-400">Photography</h2>
-        <p className="mt-4 text-gray-300">Wildlife photography captures the beauty of nature. Here are some of my best shots:</p>
-        <div className="mt-6 flex justify-center gap-4">
-          <img src="wildlife1.jpg" alt="Wildlife 1" className="w-40 h-40 rounded-lg shadow-md hover:scale-105 transition-transform" />
-          <img src="wildlife2.jpg" alt="Wildlife 2" className="w-40 h-40 rounded-lg shadow-md hover:scale-105 transition-transform" />
-          <img src="wildlife3.jpg" alt="Wildlife 3" className="w-40 h-40 rounded-lg shadow-md hover:scale-105 transition-transform" />
-        </div>
-      </div>
-      
-      {/* Contact Section */}
-      <div className="mt-10 max-w-3xl text-center">
-        <h2 className="text-4xl font-bold text-yellow-400">Contact Me</h2>
-        <p className="mt-4 text-gray-300">Feel free to reach out if you have any inquiries or collaboration opportunities.</p>
-        <form className="mt-6 flex flex-col items-center">
-          <input type="text" placeholder="Your Name" className="w-full p-3 rounded-md bg-gray-700 text-white border-none focus:ring-2 focus:ring-teal-400 mb-3" />
-          <input type="email" placeholder="Your Email" className="w-full p-3 rounded-md bg-gray-700 text-white border-none focus:ring-2 focus:ring-teal-400 mb-3" />
-          <textarea placeholder="Your Message" className="w-full p-3 rounded-md bg-gray-700 text-white border-none focus:ring-2 focus:ring-teal-400 mb-3" rows="4"></textarea>
-          <button className="px-6 py-3 bg-teal-500 rounded-md text-white font-bold hover:bg-teal-600 transition">Send Message</button>
-        </form>
-      </div>
-    </div>
-  );
-}
-
+</body>
+</html>
