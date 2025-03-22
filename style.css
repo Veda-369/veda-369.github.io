@@ -13,7 +13,7 @@ h1, h2, h3 {
 
 .name {
   font-family: 'Chakra Petch', sans-serif;
-  color: #00FFFF;
+  color: #00ffff;
   opacity: 0;
   animation: fadeIn 2s ease-in-out forwards, float 3s infinite ease-in-out 2s;
 }
@@ -35,10 +35,14 @@ h1, h2, h3 {
 }
 
 .card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideUpFade 1s forwards;
 }
 
-.card-hover:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+@keyframes slideUpFade {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
