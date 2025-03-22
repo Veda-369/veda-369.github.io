@@ -4,8 +4,7 @@ body {
   font-family: 'EB Garamond', serif;
   background-color: #f7f9fc;
   color: #333;
-  margin: 0;
-  padding: 0;
+  scroll-behavior: smooth;
 }
 
 h1, h2, h3 {
@@ -61,13 +60,23 @@ h1, h2, h3 {
 }
 
 .photo-img {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
   border-radius: 1rem;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
 }
 
 .photo-img:hover {
   transform: scale(1.05);
+}
+
+/* Summary Animation */
+.letter-reveal span {
+  opacity: 0.4;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.letter-reveal span.visible {
+  opacity: 1;
 }
