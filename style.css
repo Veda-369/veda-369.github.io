@@ -67,10 +67,12 @@ h1, h2, h3 {
 /* Carousel */
 .scroll-container {
   overflow: hidden;
-  width: 100%;
-  padding: 1rem 0;
-  background: white;
+  padding: 1.5rem 0;
+  margin: 0;
+  width: 100vw;
+  background: transparent;
 }
+
 
 .scroll-row {
   display: flex;
