@@ -2,7 +2,6 @@
 const { useState, useEffect } = React;
 
 const roles = ["Data Analyst", "Data Engineer", "Wildlife Photographer", "AI Enthusiast"];
-
 const summaryText = "Data Analyst with expertise in data visualization, statistical analysis, and predictive modeling. Skilled in automation, real-time analytics, and data-driven decision-making across tools like SQL, Power BI, Snowflake, and Python.";
 
 const techStack = {
@@ -56,22 +55,20 @@ const projects = [
   }
 ];
 
-const photos = ["images/photo1.jpg", "images/photo2.jpg", "images/photo3.jpg"];
-const pngs = Array.from({ length: 18 }, (_, i) => `images/png${i + 1}.png`);
+const photos = ["photo1.jpg", "photo2.jpg", "photo3.jpg"];
+const pngs = Array.from({ length: 18 }, (_, i) => `png${i + 1}.png`);
 
 function App() {
   const [roleIndex, setRoleIndex] = useState(0);
-  const [currentPhoto, setCurrentPhoto] = useState(0);
+  const [photoIndex, setPhotoIndex] = useState(0);
 
   useEffect(() => {
     const roleInterval = setInterval(() => {
-      setRoleIndex((prev) => (prev + 1) % roles.length);
+      setRoleIndex(prev => (prev + 1) % roles.length);
     }, 3000);
-
     const photoInterval = setInterval(() => {
-      setCurrentPhoto((prev) => (prev + 1) % photos.length);
+      setPhotoIndex(prev => (prev + 1) % photos.length);
     }, 4000);
-
     return () => {
       clearInterval(roleInterval);
       clearInterval(photoInterval);
@@ -79,76 +76,74 @@ function App() {
   }, []);
 
   return (
-    <div className="px-4">
-      <section className="h-screen flex flex-col justify-center items-center text-center">
-        <h1 className="text-5xl font-bold name">Hi, I'm Veda Bharghav</h1>
-        <h2 className="text-2xl mt-4 text-gray-700 font-semibold">{roles[roleIndex]}</h2>
+    <div className="px-4 max-w-6xl mx-auto">
+      <section className="text-center mt-12">
+        <h1 className="text-4xl name">Hi, I'm Veda Bharghav</h1>
+        <h2 className="text-xl mt-2 text-blue-600">{roles[roleIndex]}</h2>
       </section>
 
-      <section id="summary" className="py-10 text-center fade-up">
+      <section id="summary" className="mt-16 text-center fade-up">
         <h2 className="section-title">About Me</h2>
-        <p className="max-w-3xl mx-auto text-lg letter-reveal text-gray-700">
-          {summaryText}
-        </p>
-      </section>
-
-      <section className="scroll-container">
-        <div className="scroll-row">
-          {pngs.map((src, i) => (
-            <img src={src} key={i} alt={`png${i + 1}`} />
-          ))}
+        <p className="max-w-3xl mx-auto">{summaryText}</p>
+        <div className="scroll-container mt-6">
+          <div className="scroll-row">
+            {pngs.concat(pngs).map((src, i) => (
+              <img key={i} src={`images/${src}`} alt={`Tech ${i}`} draggable="false" />
+            ))}
+          </div>
         </div>
       </section>
 
-      <section id="techstack" className="py-12 fade-up">
+      <section id="techstack" className="mt-20 fade-up">
         <h2 className="section-title">Tech Stack</h2>
-        <img src="techstack.jpg" alt="Tech Stack" className="mx-auto mb-8 w-32" />
         <div className="flex flex-wrap justify-center gap-6">
-          {Object.entries(techStack).map(([category, items]) => (
-            <div key={category} className="text-center">
-              <h3 className="text-lg font-bold mb-2">{category}</h3>
-              <div>
-                {items.map(item => (
-                  <span className="tech-pill" key={item}>{item}</span>
-                ))}
-              </div>
+          {Object.entries(techStack).map(([key, values]) => (
+            <div key={key} className="bg-gray-100 p-4 rounded-lg shadow w-72">
+              <h3 className="font-semibold text-lg mb-2">{key}</h3>
+              <p>{values.join(", ")}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="projects" className="py-12 fade-up">
+      <section id="projects" className="mt-20 fade-up">
         <h2 className="section-title">Projects</h2>
-        <div className="space-y-8 max-w-4xl mx-auto">
-          {projects.map((project, i) => (
-            <div key={i} className="bg-white p-6 rounded shadow project-card">
-              <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-              <ul className="list-disc pl-6 text-gray-700">
-                {project.details.map((point, idx) => (
-                  <li key={idx}>{point}</li>
-                ))}
-              </ul>
+        <div className="space-y-10 mt-10">
+          {projects.map((project, idx) => (
+            <div key={idx} className={`project-zigzag ${idx % 2 === 1 ? 'flex-row-reverse' : ''}`}>
+              <div className="content">
+                <h3 className="text-xl font-bold text-blue-900">{project.title}</h3>
+                <ul className="list-disc pl-5 mt-2 text-gray-700">
+                  {project.details.map((pt, i) => (
+                    <li key={i}>{pt}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="spacer"></div>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="photography" className="py-12 text-center fade-up">
+      <section id="photography" className="mt-20 fade-up text-center">
         <h2 className="section-title">Photography</h2>
-        <p className="max-w-2xl mx-auto mb-6 text-gray-700">
-          Wildlife photography captures raw beauty, emotion, and the untamed wonders of nature. Here's a glimpse of my lens at work:
-        </p>
-        <img src={photos[currentPhoto]} alt={`Wildlife ${currentPhoto + 1}`} className="photo-img mx-auto" />
+        <p className="mb-6">I capture moments in the wild. Here are a few of my favorite shots.</p>
+        <img
+          src={`images/${photos[photoIndex]}`}
+          alt="Wildlife"
+          className="photo-img mx-auto"
+          draggable="false"
+        />
       </section>
 
-      <section id="contact" className="py-12 text-center fade-up">
+      <section id="contact" className="mt-20 fade-up text-center">
         <h2 className="section-title">Contact Me</h2>
-        <form className="max-w-md mx-auto flex flex-col gap-4 mt-6">
-          <input type="text" placeholder="Name" className="p-3 rounded bg-white border border-gray-300" />
-          <input type="email" placeholder="Email" className="p-3 rounded bg-white border border-gray-300" />
-          <input type="tel" placeholder="Contact Number" className="p-3 rounded bg-white border border-gray-300" />
-          <textarea rows="4" placeholder="Message" className="p-3 rounded bg-white border border-gray-300" />
-          <button className="bg-[#00bfa6] text-white py-3 rounded font-bold hover:bg-[#01998b] transition">Send</button>
+        <form className="max-w-lg mx-auto space-y-4">
+          <input type="text" placeholder="Name" className="w-full p-3 rounded bg-gray-100" required />
+          <input type="email" placeholder="Email" className="w-full p-3 rounded bg-gray-100" required />
+          <input type="text" placeholder="Contact Number" className="w-full p-3 rounded bg-gray-100" />
+          <textarea placeholder="Message" className="w-full p-3 rounded bg-gray-100" rows="4"></textarea>
+          <button type="submit" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Send</button>
         </form>
       </section>
     </div>
