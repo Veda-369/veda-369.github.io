@@ -1,4 +1,3 @@
-
 const { useState, useEffect } = React;
 
 const roles = ["Data Analyst", "Data Engineer", "Wildlife Photographer", "AI Enthusiast"];
@@ -6,7 +5,7 @@ const roles = ["Data Analyst", "Data Engineer", "Wildlife Photographer", "AI Ent
 const summaryText = "Data Analyst with expertise in data visualization, statistical analysis, and predictive modeling. Skilled in automation, real-time analytics, and data-driven decision-making across tools like SQL, Power BI, Snowflake, and Python.";
 
 const techStack = {
-  Programming: ["SQL", "Python", "HTML", "CSS"],
+  Programming: ["SQL", "Python"],
   Databases: ["MySQL", "SQL Server", "PostgreSQL", "Snowflake"],
   Visualization: ["Power BI", "Tableau", "JMP", "Matplotlib", "Seaborn"],
   "Statistical Analysis": ["Regression", "Hypothesis Testing", "Time-Series"],
@@ -57,104 +56,145 @@ const projects = [
 ];
 
 const photos = ["photo1.jpg", "photo2.jpg", "photo3.jpg"];
-const pngs = Array.from({ length: 18 }, (_, i) => `png${i + 1}.png`);
 
 function App() {
   const [roleIndex, setRoleIndex] = useState(0);
-  const [photoIndex, setPhotoIndex] = useState(0);
+  const [revealed, setRevealed] = useState([]);
 
   useEffect(() => {
-    const roleInterval = setInterval(() => {
-      setRoleIndex(prev => (prev + 1) % roles.length);
+    const interval = setInterval(() => {
+      setRoleIndex((prev) => (prev + 1) % roles.length);
     }, 3000);
-    const photoInterval = setInterval(() => {
-      setPhotoIndex(prev => (prev + 1) % photos.length);
-    }, 4000);
-    return () => {
-      clearInterval(roleInterval);
-      clearInterval(photoInterval);
-    };
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const element = document.getElementById("about");
+      if (element) element.scrollIntoView({ behavior: "smooth" });
+    }, 5000);
+    return () => clearTimeout(timeout);
+  }, []);
+
+  useEffect(() => {
+    const chars = summaryText.split("");
+    chars.forEach((_, i) => {
+      setTimeout(() => {
+        setRevealed((prev) => [...prev, i]);
+      }, 30 * i);
+    });
   }, []);
 
   return (
-    <div className="px-4 max-w-6xl mx-auto">
-      <section className="text-center mt-12">
-        <h1 className="text-4xl name">Hi, I'm Veda Bharghav</h1>
-        <h2 className="text-xl mt-2 text-blue-600">{roles[roleIndex]}</h2>
-        <img src="images/hero.jpg" alt="Banner" className="hero-image" draggable="false" />
+    <div>
+      {/* Animated Name */}
+      <section id="home" className="text-center mt-32">
+        <h1 className="name text-4xl sm:text-5xl mb-2">Hi, I'm Veda Bharghav</h1>
+        <h2 className="text-xl text-blue-700 font-semibold mb-6">{roles[roleIndex]}</h2>
+        <img src="banner.jpg" alt="Banner" className="mx-auto w-full max-w-screen-xl rounded-xl mb-6" />
       </section>
 
-      <section id="summary" className="mt-16 text-center fade-up">
+      {/* Summary Section */}
+      <section id="about" className="text-center mb-12">
         <h2 className="section-title">About Me</h2>
-        <p className="max-w-3xl mx-auto">{summaryText}</p>
+        <p className="letter-reveal max-w-4xl mx-auto text-lg">
+          {summaryText.split("").map((char, i) => (
+            <span key={i} className={revealed.includes(i) ? "visible" : ""}>
+              {char}
+            </span>
+          ))}
+        </p>
       </section>
 
-      <div className="scroll-container">
-        <div className="scroll-row">
-          {pngs.concat(pngs).map((src, i) => (
-            <img key={i} src={`images/${src}`} alt={`Tech ${i}`} draggable="false" />
-          ))}
-        </div>
-      </div>
-
-      <section id="techstack" className="mt-20 fade-up">
+      {/* Tech Stack */}
+      <section id="techstack" className="text-center py-10 fade-up">
         <h2 className="section-title">Tech Stack</h2>
-        <div className="flex flex-wrap justify-center gap-6">
-          {Object.entries(techStack).map(([key, values]) => (
-            <div key={key} className="bg-gray-100 p-4 rounded-lg shadow w-72">
-              <h3 className="font-semibold text-lg mb-2">{key}</h3>
-              <p>{values.join(", ")}</p>
+        <div className="flex flex-wrap justify-center items-start gap-4 max-w-5xl mx-auto">
+          {Object.entries(techStack).map(([title, items]) => (
+            <div key={title} className="bg-slate-800 text-white px-6 py-4 rounded-lg w-72 shadow-md">
+              <h3 className="font-bold text-lg mb-2 text-blue-200">{title}</h3>
+              <p className="text-sm">{items.join(", ")}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="projects" className="mt-20 fade-up">
+      {/* Projects */}
+      <section id="projects" className="text-center py-10 fade-up">
         <h2 className="section-title">Projects</h2>
-        <div className="space-y-10 mt-10">
-          {projects.map((project, idx) => (
-            <div key={idx} className={`project-zigzag ${idx % 2 === 1 ? 'flex-row-reverse' : ''}`}>
-              <div className="content">
-                <h3 className="text-xl font-bold text-blue-900">{project.title}</h3>
-                <ul className="list-disc pl-5 mt-2 text-gray-700">
-                  {project.details.map((pt, i) => (
-                    <li key={i}>{pt}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="spacer"></div>
+        <div className="flex flex-col gap-10 items-center max-w-6xl mx-auto px-4">
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className={`bg-white border border-gray-300 p-6 shadow-md rounded-xl w-full sm:w-5/6 md:w-3/4 lg:w-2/3 text-left transition transform hover:scale-[1.01] ${
+                index % 2 === 0 ? "self-start" : "self-end"
+              }`}
+            >
+              <h3 className="text-xl font-semibold text-blue-800 mb-2">{project.title}</h3>
+              <ul className="list-disc list-inside text-gray-700">
+                {project.details.map((point, i) => (
+                  <li key={i}>{point}</li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
       </section>
 
-     <section id="photography" className="mt-20 fade-up text-center">
-  <h2 className="section-title">Photography</h2>
-  <p className="mb-2 italic text-gray-600">
-    "Photography is the story I fail to put into words." – Destin Sparks
-  </p>
-  <p className="mb-6 text-gray-600">
-    These photographs are captured by me during field explorations. All images © Veda Bharghav.
-  </p>
-  <img
-    src={`images/${photos[photoIndex]}`}
-    alt="Wildlife"
-    className="photo-img mx-auto"
-    draggable="false"
-  />
-</section>
+      {/* Photography */}
+      <section id="photography" className="text-center py-10 fade-up">
+        <h2 className="section-title">Photography</h2>
+        <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
+          Wildlife photography captures the raw beauty of nature in motion. Here are a few of my best shots.
+        </p>
+        <div className="flex flex-wrap justify-center gap-6">
+          {photos.map((src, i) => (
+            <img
+              key={i}
+              src={`images/${src}`}
+              alt={`Wildlife ${i + 1}`}
+              className="photo-img select-none pointer-events-none"
+              onContextMenu={(e) => e.preventDefault()}
+              draggable={false}
+            />
+          ))}
+        </div>
+      </section>
 
-
-      <section id="contact" className="mt-20 fade-up text-center">
+      {/* Contact */}
+      <section id="contact" className="text-center py-10 fade-up">
         <h2 className="section-title">Contact Me</h2>
-        <form action="https://formspree.io/f/yourformid" method="POST" className="max-w-lg mx-auto space-y-4">
-          <input type="text" name="name" placeholder="Name" className="w-full p-3 rounded bg-gray-100" required />
-          <input type="email" name="email" placeholder="Email" className="w-full p-3 rounded bg-gray-100" required />
-          <input type="text" name="phone" placeholder="Contact Number" className="w-full p-3 rounded bg-gray-100" />
-          <textarea name="message" placeholder="Message" className="w-full p-3 rounded bg-gray-100" rows="4"></textarea>
-          <button type="submit" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Send</button>
+        <form className="max-w-xl mx-auto flex flex-col gap-4">
+          <input type="text" placeholder="Name" className="p-3 rounded-md border" required />
+          <input type="email" placeholder="Email" className="p-3 rounded-md border" required />
+          <input type="text" placeholder="Contact Number" className="p-3 rounded-md border" />
+          <textarea placeholder="Message" rows="4" className="p-3 rounded-md border" required></textarea>
+          <button className="bg-blue-700 text-white font-bold py-2 rounded-md hover:bg-blue-900 transition">Send</button>
         </form>
       </section>
+
+      {/* PNG Carousel */}
+      <section className="py-6">
+        <div className="carousel-wrapper">
+          <div className="carousel">
+            {[...Array(18)].map((_, i) => (
+              <img
+                key={i}
+                src={`images/png${i + 1}.png`}
+                alt={`png${i + 1}`}
+                className="h-20 mx-4 select-none pointer-events-none"
+                draggable={false}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="text-sm text-gray-400 flex justify-between px-6 py-4">
+        <div className="text-left">PNG icons are copyright Freepik. Wildlife photographs © Veda Bharghav.</div>
+        <div className="text-right">© Veda Bharghav</div>
+      </footer>
     </div>
   );
 }
