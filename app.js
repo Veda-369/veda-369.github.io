@@ -55,7 +55,7 @@ const projects = [
   }
 ];
 
-const photos = ["photo1.jpg", "photo2.jpg", "photo3.jpg"];
+cconst photos = ["images/photo1.jpg", "images/photo2.jpg", "images/photo3.jpg"];
 
 function App() {
   const [roleIndex, setRoleIndex] = useState(0);
