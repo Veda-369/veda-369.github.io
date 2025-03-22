@@ -18,6 +18,7 @@ h1, h2, h3 {
   color: #00bfa6;
   opacity: 0;
   animation: fadeIn 2s ease-in-out forwards, float 3s infinite ease-in-out 2s;
+  margin-top: -40px;
 }
 
 @keyframes float {
@@ -79,4 +80,40 @@ h1, h2, h3 {
 
 .letter-reveal span.visible {
   opacity: 1;
+}
+
+/* PNG carousel */
+.scroll-row {
+  display: flex;
+  gap: 40px;
+  animation: scroll-left 30s linear infinite;
+  width: max-content;
+  align-items: center;
+}
+
+.scroll-container {
+  overflow: hidden;
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.scroll-row img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+/* Project Card Interactions */
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
