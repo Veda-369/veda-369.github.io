@@ -2,11 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Veda Bharghav | Portfolio</title>
-
- <!-- Favicon (Letter V) -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>V</text></svg>">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -14,52 +11,75 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=EB+Garamond&family=PT+Serif:wght@700&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome for icons -->
-  <script src="https://kit.fontawesome.com/6d327a98a6.js" crossorigin="anonymous"></script>
+  <!-- Font Awesome Icons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
 
-  <!-- Custom CSS -->
+  <!-- Custom Styles -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- React -->
+  <!-- Favicon (Letter V) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>V</text></svg>">
+
+  <!-- React + Babel -->
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Disable Right Click + Auto Scroll -->
+  <script>
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    window.onload = () => {
+      setTimeout(() => {
+        document.querySelector('#summary')?.scrollIntoView({ behavior: 'smooth' });
+      }, 5000);
+    };
+  </script>
 </head>
 
-<body class="text-gray-800">
+<body class="bg-[#f7f9fc] text-gray-800 scroll-smooth">
 
   <!-- Navigation Bar -->
-  <nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50 px-6 py-4 flex justify-between items-center">
-    <div class="text-xl font-bold text-teal-600">Veda</div>
-    <div class="flex space-x-6 text-[17px] font-semibold">
-      <a href="#summary" class="hover:text-blue-600 transition">About</a>
-      <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
-      <a href="#techstack" class="hover:text-blue-600 transition">Tech Stack</a>
-      <a href="#photography" class="hover:text-blue-600 transition">Photography</a>
-      <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
-      <a href="https://github.com/veda-369" target="_blank" class="hover:text-black">
-        <i class="fab fa-github text-xl"></i>
-      </a>
-      <a href="https://linkedin.com/in/veda-bharghav" target="_blank" class="hover:text-blue-700">
-        <i class="fab fa-linkedin text-xl"></i>
-      </a>
+  <nav class="fixed top-0 w-full bg-white bg-opacity-90 shadow-md z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="text-xl font-bold tracking-wide text-[#00bfa6]">Veda</div>
+      <div class="hidden md:flex space-x-5 text-lg font-semibold items-center">
+        <a href="#summary" class="hover:text-blue-600 transition">About</a>
+        <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
+        <a href="#techstack" class="hover:text-blue-600 transition">Tech Stack</a>
+        <a href="#photography" class="hover:text-blue-600 transition">Photography</a>
+        <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+        <a href="https://github.com/veda-369" target="_blank" class="hover:text-blue-600"><i class="fab fa-github fa-lg"></i></a>
+        <a href="https://linkedin.com/in/your-profile" target="_blank" class="hover:text-blue-600"><i class="fab fa-linkedin fa-lg"></i></a>
+      </div>
+      <div class="md:hidden block">
+        <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobileMenu" class="md:hidden px-6 pb-4 hidden">
+      <a href="#summary" class="block py-1">About</a>
+      <a href="#projects" class="block py-1">Projects</a>
+      <a href="#techstack" class="block py-1">Tech Stack</a>
+      <a href="#photography" class="block py-1">Photography</a>
+      <a href="#contact" class="block py-1">Contact</a>
+      <a href="https://github.com/veda-369" target="_blank" class="block py-1">GitHub</a>
+      <a href="https://linkedin.com/in/your-profile" target="_blank" class="block py-1">LinkedIn</a>
     </div>
   </nav>
 
-  <!-- React Root -->
-  <main class="pt-28">
-    <div id="root"></div>
-  </main>
+  <!-- React App -->
+  <div id="root" class="pt-28"></div>
 
   <!-- Footer -->
-  <footer class="text-[10px] text-gray-400 mt-10 px-4 pb-6">
-    <div class="flex justify-between max-w-6xl mx-auto">
-      <span class="text-left">PNG icons are copyright Freepik. Wildlife photographs © Veda Bharghav.</span>
-      <span class="text-right text-xs">© Veda Bharghav</span>
-    </div>
+  <footer class="flex justify-between items-center text-xs text-gray-400 mt-10 mb-4 px-6">
+    <p class="text-[3px] italic">PNG's used are copyright to Freepik</p>
+    <p class="text-sm font-semibold text-black">© Veda Bharghav</p>
   </footer>
 
-  <!-- React App -->
+  <!-- React Mount -->
   <script type="text/babel" src="app.js"></script>
 </body>
 </html>
