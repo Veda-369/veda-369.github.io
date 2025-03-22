@@ -128,16 +128,22 @@ function App() {
         </div>
       </section>
 
-      <section id="photography" className="mt-20 fade-up text-center">
-        <h2 className="section-title">Photography</h2>
-        <p className="mb-6">I capture moments in the wild. Here are a few of my favorite shots.</p>
-        <img
-          src={`images/${photos[photoIndex]}`}
-          alt="Wildlife"
-          className="photo-img mx-auto"
-          draggable="false"
-        />
-      </section>
+     <section id="photography" className="mt-20 fade-up text-center">
+  <h2 className="section-title">Photography</h2>
+  <p className="mb-2 italic text-gray-600">
+    "Photography is the story I fail to put into words." – Destin Sparks
+  </p>
+  <p className="mb-6 text-gray-600">
+    These photographs are captured by me during field explorations. All images © Veda Bharghav.
+  </p>
+  <img
+    src={`images/${photos[photoIndex]}`}
+    alt="Wildlife"
+    className="photo-img mx-auto"
+    draggable="false"
+  />
+</section>
+
 
       <section id="contact" className="mt-20 fade-up text-center">
         <h2 className="section-title">Contact Me</h2>
