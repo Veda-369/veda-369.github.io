@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Veda Bharghav | Portfolio</title>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=EB+Garamond&family=PT+Serif:wght@700&display=swap" rel="stylesheet">
 
-  <!-- Custom CSS + React -->
+  <!-- Style and Scripts -->
   <link rel="stylesheet" href="style.css"/>
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body class="bg-[#f7f9fc] text-gray-800">
-  <div id="root"></div>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 right-0 p-4 z-50">
+    <div class="space-x-4 bg-white bg-opacity-90 px-4 py-2 rounded shadow text-sm font-semibold">
+      <a href="#summary" class="hover:text-blue-600">About</a>
+      <a href="#projects" class="hover:text-blue-600">Projects</a>
+      <a href="#techstack" class="hover:text-blue-600">Tech Stack</a>
+      <a href="#photography" class="hover:text-blue-600">Photography</a>
+      <a href="#contact" class="hover:text-blue-600">Contact</a>
+    </div>
+  </nav>
+
+  <!-- React Root -->
+  <div id="root" class="pt-24"></div>
   <script type="text/babel" src="app.js"></script>
 </body>
 </html>
