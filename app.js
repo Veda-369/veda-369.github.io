@@ -45,26 +45,18 @@ function App() {
       <section id="techstack" className="max-w-5xl w-full py-12 text-center">
         <h2 className="section-title">Tech Stack</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
-          <div className="bg-gray-700 p-4 rounded-lg card-hover">
-            <h3 className="text-blue-300 font-bold mb-2">Programming</h3>
-            <p>SQL, Python</p>
-          </div>
-          <div className="bg-gray-700 p-4 rounded-lg card-hover">
-            <h3 className="text-blue-300 font-bold mb-2">Databases</h3>
-            <p>MySQL, SQL Server, PostgreSQL, Snowflake</p>
-          </div>
-          <div className="bg-gray-700 p-4 rounded-lg card-hover">
-            <h3 className="text-blue-300 font-bold mb-2">Visualization</h3>
-            <p>Power BI, Tableau, JMP, Matplotlib, Seaborn</p>
-          </div>
-          <div className="bg-gray-700 p-4 rounded-lg card-hover">
-            <h3 className="text-blue-300 font-bold mb-2">Statistical Analysis</h3>
-            <p>Regression, Hypothesis Testing, Time-Series</p>
-          </div>
-          <div className="md:col-span-2 bg-gray-700 p-4 rounded-lg card-hover">
-            <h3 className="text-blue-300 font-bold mb-2">Certifications</h3>
-            <p>Azure AI Fundamentals, IBM Data Science, Statistics with Python</p>
-          </div>
+          {[
+            { title: "Programming", desc: "SQL, Python" },
+            { title: "Databases", desc: "MySQL, SQL Server, PostgreSQL, Snowflake" },
+            { title: "Visualization", desc: "Power BI, Tableau, JMP, Matplotlib, Seaborn" },
+            { title: "Statistical Analysis", desc: "Regression, Hypothesis Testing, Time-Series" },
+            { title: "Certifications", desc: "Azure AI Fundamentals, IBM Data Science, Statistics with Python" }
+          ].map((item, idx) => (
+            <div className="bg-gray-700 p-4 rounded-lg card-hover" style={{ animationDelay: `${idx * 0.3}s` }}>
+              <h3 className="text-blue-300 font-bold mb-2">{item.title}</h3>
+              <p>{item.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -75,26 +67,26 @@ function App() {
           {[
             {
               title: "AI-Driven Defect Detection",
-              desc: `Used Cognex Vision Pro for automatic breakage identification. Power BI for dashboards.`
+              desc: `Used Cognex Vision Pro for breakage identification. Power BI dashboards.`
             },
             {
               title: "Inventory Burn Down Tracker",
-              desc: `Real-time SQL + Power BI tracker. Forecasting improved by 30%.`
+              desc: `Real-time Power BI + SQL dashboard. Improved forecasting and reduced waste.`
             },
             {
               title: "Accelerometer Analytics",
-              desc: `Analyzed sensor data using Python. Visualized stress with Power BI.`
+              desc: `Processed sensor data in Python. Visualized results in Power BI.`
             },
             {
               title: "Retail Analytics Dashboard",
-              desc: `Apache Spark + ML for forecasting. Tableau dashboards for insight delivery.`
+              desc: `Spark + ML for forecasting. Tableau dashboards integrated with Azure.`
             },
             {
               title: "Flight Data Engineering",
-              desc: `API integration + PostgreSQL storage. Visualized with Plotly, Matplotlib.`
+              desc: `Fetched live flight data via API. Stored in PostgreSQL. Visualized in Plotly.`
             }
-          ].map((proj) => (
-            <div className="bg-gray-700 p-4 rounded-lg card-hover">
+          ].map((proj, idx) => (
+            <div className="bg-gray-700 p-4 rounded-lg card-hover" style={{ animationDelay: `${idx * 0.3}s` }}>
               <h3 className="text-blue-300 font-bold mb-2">{proj.title}</h3>
               <p>{proj.desc}</p>
             </div>
@@ -106,9 +98,9 @@ function App() {
       <section id="photography" className="max-w-4xl w-full py-12 text-center">
         <h2 className="section-title">Photography</h2>
         <div className="flex flex-wrap justify-center gap-4 mt-6">
-          <img src="photo1.jpg" className="w-40 h-40 object-cover rounded shadow-md" />
-          <img src="photo2.jpg" className="w-40 h-40 object-cover rounded shadow-md" />
-          <img src="photo3.jpg" className="w-40 h-40 object-cover rounded shadow-md" />
+          <img src="images/photo1.jpg" className="w-40 h-40 object-cover rounded shadow-md" />
+          <img src="images/photo2.jpg" className="w-40 h-40 object-cover rounded shadow-md" />
+          <img src="images/photo3.jpg" className="w-40 h-40 object-cover rounded shadow-md" />
         </div>
       </section>
 
