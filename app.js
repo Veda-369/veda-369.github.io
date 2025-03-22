@@ -111,7 +111,24 @@ function App() {
         </div>
       </section>
 
-      {/* Projects Section */}
+      {/* Carousel directly after Tech Stack */}
+      <section className="py-6">
+        <div className="scroll-container">
+          <div className="scroll-row">
+            {[...Array(18)].map((_, i) => (
+              <img
+                key={i}
+                src={`images/png${i + 1}.png`}
+                alt={`png${i + 1}`}
+                className="h-20 select-none pointer-events-none"
+                draggable={false}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Projects */}
       <section id="projects" className="text-center py-10 fade-up">
         <h2 className="section-title">Projects</h2>
         <div className="flex flex-col gap-10 items-center max-w-6xl mx-auto px-4">
@@ -165,24 +182,7 @@ function App() {
         </form>
       </section>
 
-      {/* Carousel Section (PNG logos) */}
-      <section className="py-6">
-        <div className="scroll-container">
-          <div className="scroll-row">
-            {[...Array(18)].map((_, i) => (
-              <img
-                key={i}
-                src={`images/png${i + 1}.png`}
-                alt={`png${i + 1}`}
-                className="h-20 select-none pointer-events-none"
-                draggable={false}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
+      {/* ✅ Final Footer */}
       <footer className="text-xs text-gray-400 flex justify-between px-6 py-4">
         <div className="text-left text-[9px] italic">
           PNGs are copyright Freepik. Wildlife photographs © Veda Bharghav.
