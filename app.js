@@ -2,10 +2,11 @@
 const { useState, useEffect } = React;
 
 const roles = ["Data Analyst", "Data Engineer", "Wildlife Photographer", "AI Enthusiast"];
+
 const summaryText = "Data Analyst with expertise in data visualization, statistical analysis, and predictive modeling. Skilled in automation, real-time analytics, and data-driven decision-making across tools like SQL, Power BI, Snowflake, and Python.";
 
 const techStack = {
-  Programming: ["SQL", "Python"],
+  Programming: ["SQL", "Python", "HTML", "CSS"],
   Databases: ["MySQL", "SQL Server", "PostgreSQL", "Snowflake"],
   Visualization: ["Power BI", "Tableau", "JMP", "Matplotlib", "Seaborn"],
   "Statistical Analysis": ["Regression", "Hypothesis Testing", "Time-Series"],
@@ -80,19 +81,21 @@ function App() {
       <section className="text-center mt-12">
         <h1 className="text-4xl name">Hi, I'm Veda Bharghav</h1>
         <h2 className="text-xl mt-2 text-blue-600">{roles[roleIndex]}</h2>
+        <img src="images/hero.jpg" alt="Banner" className="hero-image" draggable="false" />
       </section>
 
       <section id="summary" className="mt-16 text-center fade-up">
         <h2 className="section-title">About Me</h2>
         <p className="max-w-3xl mx-auto">{summaryText}</p>
-        <div className="scroll-container mt-6">
-          <div className="scroll-row">
-            {pngs.concat(pngs).map((src, i) => (
-              <img key={i} src={`images/${src}`} alt={`Tech ${i}`} draggable="false" />
-            ))}
-          </div>
-        </div>
       </section>
+
+      <div className="scroll-container">
+        <div className="scroll-row">
+          {pngs.concat(pngs).map((src, i) => (
+            <img key={i} src={`images/${src}`} alt={`Tech ${i}`} draggable="false" />
+          ))}
+        </div>
+      </div>
 
       <section id="techstack" className="mt-20 fade-up">
         <h2 className="section-title">Tech Stack</h2>
@@ -138,11 +141,11 @@ function App() {
 
       <section id="contact" className="mt-20 fade-up text-center">
         <h2 className="section-title">Contact Me</h2>
-        <form className="max-w-lg mx-auto space-y-4">
-          <input type="text" placeholder="Name" className="w-full p-3 rounded bg-gray-100" required />
-          <input type="email" placeholder="Email" className="w-full p-3 rounded bg-gray-100" required />
-          <input type="text" placeholder="Contact Number" className="w-full p-3 rounded bg-gray-100" />
-          <textarea placeholder="Message" className="w-full p-3 rounded bg-gray-100" rows="4"></textarea>
+        <form action="https://formspree.io/f/yourformid" method="POST" className="max-w-lg mx-auto space-y-4">
+          <input type="text" name="name" placeholder="Name" className="w-full p-3 rounded bg-gray-100" required />
+          <input type="email" name="email" placeholder="Email" className="w-full p-3 rounded bg-gray-100" required />
+          <input type="text" name="phone" placeholder="Contact Number" className="w-full p-3 rounded bg-gray-100" />
+          <textarea name="message" placeholder="Message" className="w-full p-3 rounded bg-gray-100" rows="4"></textarea>
           <button type="submit" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Send</button>
         </form>
       </section>
