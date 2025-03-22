@@ -2,7 +2,8 @@ const { useState, useEffect } = React;
 
 const roles = ["Data Analyst", "Data Engineer", "Wildlife Photographer", "AI Enthusiast"];
 
-const summaryText = "Data Analyst with expertise in data visualization, statistical analysis, and predictive modeling. Skilled in automation, real-time analytics, and data-driven decision-making across tools like SQL, Power BI, Snowflake, and Python.";
+const summaryText =
+  "Data Analyst with expertise in data visualization, statistical analysis, and predictive modeling. Skilled in automation, real-time analytics, and data-driven decision-making across tools like SQL, Power BI, Snowflake, and Python.";
 
 const techStack = {
   Programming: ["SQL", "Python"],
@@ -60,12 +61,21 @@ const photos = ["photo1.jpg", "photo2.jpg", "photo3.jpg"];
 function App() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [revealed, setRevealed] = useState([]);
+  const [currentPhoto, setCurrentPhoto] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setRoleIndex((prev) => (prev + 1) % roles.length);
     }, 3000);
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const element = document.getElementById("about");
+      if (element) element.scrollIntoView({ behavior: "smooth" });
+    }, 5000);
+    return () => clearTimeout(timeout);
   }, []);
 
   useEffect(() => {
@@ -77,17 +87,28 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    const slideshow = setInterval(() => {
+      setCurrentPhoto((prev) => (prev + 1) % photos.length);
+    }, 3500);
+    return () => clearInterval(slideshow);
+  }, []);
+
   return (
     <div>
-      {/* Animated Name Section */}
-      <section id="home" className="text-center mt-24">
+      {/* Animated Name */}
+      <section id="home" className="text-center mt-32">
         <h1 className="name text-4xl sm:text-5xl mb-2">Hi, I'm Veda Bharghav</h1>
         <h2 className="text-xl text-blue-700 font-semibold mb-6">{roles[roleIndex]}</h2>
-        <img src="images/banner.jpeg" alt="Banner" className="mx-auto w-full max-w-screen-xl rounded-xl mb-6" />
+        <img
+          src="images/banner.jpeg"
+          alt="Banner"
+          className="mx-auto w-full max-w-screen-xl rounded-xl mb-6"
+        />
       </section>
 
-      {/* About Me Section */}
-      <section id="summary" className="text-center mb-12">
+      {/* Summary Section */}
+      <section id="about" className="text-center mb-12">
         <h2 className="section-title">About Me</h2>
         <p className="letter-reveal max-w-4xl mx-auto text-lg">
           {summaryText.split("").map((char, i) => (
@@ -111,7 +132,7 @@ function App() {
         </div>
       </section>
 
-      {/* Carousel directly after Tech Stack */}
+      {/* PNG Carousel (Below Tech Stack) */}
       <section className="py-6">
         <div className="scroll-container">
           <div className="scroll-row">
@@ -120,8 +141,15 @@ function App() {
                 key={i}
                 src={`images/png${i + 1}.png`}
                 alt={`png${i + 1}`}
-                className="h-20 select-none pointer-events-none"
-                draggable={false}
+                draggable="false"
+              />
+            ))}
+            {[...Array(18)].map((_, i) => (
+              <img
+                key={`loop-${i}`}
+                src={`images/png${i + 1}.png`}
+                alt={`png${i + 1}`}
+                draggable="false"
               />
             ))}
           </div>
@@ -150,27 +178,24 @@ function App() {
         </div>
       </section>
 
-      {/* Photography Section */}
+      {/* Photography Slideshow */}
       <section id="photography" className="text-center py-10 fade-up">
         <h2 className="section-title">Photography</h2>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
           Wildlife photography captures the raw beauty of nature in motion. Here are a few of my best shots.
         </p>
-        <div className="flex flex-wrap justify-center gap-6">
-          {photos.map((src, i) => (
-            <img
-              key={i}
-              src={`images/${src}`}
-              alt={`Wildlife ${i + 1}`}
-              className="photo-img select-none pointer-events-none"
-              onContextMenu={(e) => e.preventDefault()}
-              draggable={false}
-            />
-          ))}
+        <div className="flex justify-center">
+          <img
+            src={`images/${photos[currentPhoto]}`}
+            alt="Wildlife"
+            className="photo-img select-none pointer-events-none transition duration-700 ease-in-out"
+            onContextMenu={(e) => e.preventDefault()}
+            draggable={false}
+          />
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Contact */}
       <section id="contact" className="text-center py-10 fade-up">
         <h2 className="section-title">Contact Me</h2>
         <form className="max-w-xl mx-auto flex flex-col gap-4">
@@ -182,12 +207,10 @@ function App() {
         </form>
       </section>
 
-      {/* ✅ Final Footer */}
-      <footer className="text-xs text-gray-400 flex justify-between px-6 py-4">
-        <div className="text-left text-[9px] italic">
-          PNGs are copyright Freepik. Wildlife photographs © Veda Bharghav.
-        </div>
-        <div className="text-right text-sm">© Veda Bharghav</div>
+      {/* Footer */}
+      <footer className="text-sm text-gray-400 flex justify-between px-6 py-4">
+        <div className="text-left text-xs italic">PNGs are copyright Freepik. Wildlife photographs © Veda Bharghav.</div>
+        <div className="text-right font-semibold text-black">© Veda Bharghav</div>
       </footer>
     </div>
   );
