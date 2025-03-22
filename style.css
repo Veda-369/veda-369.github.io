@@ -52,7 +52,6 @@ h1, h2, h3 {
   }
 }
 
-/* Carousel */
 .scroll-container {
   overflow: hidden;
   width: 100vw;
@@ -80,7 +79,6 @@ h1, h2, h3 {
   to { transform: translateX(-50%); }
 }
 
-/* Photos */
 .photo-img {
   width: 250px;
   height: 250px;
@@ -93,7 +91,6 @@ h1, h2, h3 {
   transform: scale(1.05);
 }
 
-/* Projects */
 .project-zigzag {
   display: flex;
   justify-content: space-between;
@@ -110,7 +107,6 @@ h1, h2, h3 {
   flex: 1 1 40%;
 }
 
-/* Banner image */
 .hero-image {
   max-width: 100%;
   height: auto;
@@ -119,7 +115,6 @@ h1, h2, h3 {
   border-radius: 0.5rem;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .project-zigzag {
     flex-direction: column;
