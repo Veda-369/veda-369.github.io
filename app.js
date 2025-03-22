@@ -1,3 +1,4 @@
+
 const { useState, useEffect } = React;
 
 const roles = ["Data Analyst", "Data Engineer", "Wildlife Photographer", "AI Enthusiast"];
@@ -55,16 +56,26 @@ const projects = [
   }
 ];
 
-cconst photos = ["images/photo1.jpg", "images/photo2.jpg", "images/photo3.jpg"];
+const photos = ["images/photo1.jpg", "images/photo2.jpg", "images/photo3.jpg"];
+const pngs = Array.from({ length: 18 }, (_, i) => `images/png${i + 1}.png`);
 
 function App() {
   const [roleIndex, setRoleIndex] = useState(0);
+  const [currentPhoto, setCurrentPhoto] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const roleInterval = setInterval(() => {
       setRoleIndex((prev) => (prev + 1) % roles.length);
     }, 3000);
-    return () => clearInterval(interval);
+
+    const photoInterval = setInterval(() => {
+      setCurrentPhoto((prev) => (prev + 1) % photos.length);
+    }, 4000);
+
+    return () => {
+      clearInterval(roleInterval);
+      clearInterval(photoInterval);
+    };
   }, []);
 
   return (
@@ -79,6 +90,14 @@ function App() {
         <p className="max-w-3xl mx-auto text-lg letter-reveal text-gray-700">
           {summaryText}
         </p>
+      </section>
+
+      <section className="scroll-container">
+        <div className="scroll-row">
+          {pngs.map((src, i) => (
+            <img src={src} key={i} alt={`png${i + 1}`} />
+          ))}
+        </div>
       </section>
 
       <section id="techstack" className="py-12 fade-up">
@@ -102,7 +121,7 @@ function App() {
         <h2 className="section-title">Projects</h2>
         <div className="space-y-8 max-w-4xl mx-auto">
           {projects.map((project, i) => (
-            <div key={i} className="bg-white p-6 rounded shadow">
+            <div key={i} className="bg-white p-6 rounded shadow project-card">
               <h3 className="text-xl font-bold mb-2">{project.title}</h3>
               <ul className="list-disc pl-6 text-gray-700">
                 {project.details.map((point, idx) => (
@@ -119,11 +138,7 @@ function App() {
         <p className="max-w-2xl mx-auto mb-6 text-gray-700">
           Wildlife photography captures raw beauty, emotion, and the untamed wonders of nature. Here's a glimpse of my lens at work:
         </p>
-        <div className="flex flex-wrap justify-center gap-6">
-          {photos.map((src, i) => (
-            <img key={i} src={src} alt={`Photo ${i + 1}`} className="photo-img" />
-          ))}
-        </div>
+        <img src={photos[currentPhoto]} alt={`Wildlife ${currentPhoto + 1}`} className="photo-img mx-auto" />
       </section>
 
       <section id="contact" className="py-12 text-center fade-up">
