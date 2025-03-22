@@ -98,26 +98,4 @@ function App() {
             <section data-aos="fade-up" data-aos-duration="800" id="photography" className="max-w-4xl w-full py-12 text-center">
                 <h2 className="section-title">Photography</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-                    <img src="images/photo1.jpg" className="w-full h-64 object-cover rounded shadow-md" alt="Photo 1"/>
-                    <img src="images/photo2.jpg" className="w-full h-64 object-cover rounded shadow-md" alt="Photo 2"/>
-                    <img src="images/photo3.jpg" className="w-full h-64 object-cover rounded shadow-md" alt="Photo 3"/>
-                </div>
-            </section>
-
-            {/* Contact */}
-            <section data-aos="fade-up" data-aos-duration="800" id="contact" className="max-w-md w-full py-12 text-center">
-                <h2 className="section-title">Contact Me</h2>
-                <form className="flex flex-col space-y-4 mt-6 px-2">
-                    <input type="text" placeholder="Name" className="p-3 rounded bg-gray-700 text-white" />
-                    <input type="email" placeholder="Email" className="p-3 rounded bg-gray-700 text-white" />
-                    <input type="tel" placeholder="Contact Number" className="p-3 rounded bg-gray-700 text-white" />
-                    <textarea placeholder="Message" rows="4" className="p-3 rounded bg-gray-700 text-white"></textarea>
-                    <button className="bg-blue-600 py-3 rounded text-white font-bold hover:bg-blue-700 transition">Send</button>
-                </form>
-            </section>
-
-        </div>
-    );
-}
-
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+                    <img src="images/photo1.
