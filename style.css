@@ -5,6 +5,8 @@ body {
   background-color: #f7f9fc;
   color: #333;
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
 }
 
 h1, h2, h3 {
@@ -18,6 +20,7 @@ h1, h2, h3 {
   color: #00bfa6;
   opacity: 0;
   animation: fadeIn 2s ease-in-out forwards, float 3s infinite ease-in-out 2s;
+  margin-top: -30px; /* Moves the name slightly up */
 }
 
 @keyframes float {
@@ -49,10 +52,11 @@ h1, h2, h3 {
   }
 }
 
+/* Carousel Styles */
 .scroll-container {
   overflow: hidden;
   width: 100vw;
-  margin: 0;
+  margin: 0 auto;
   padding: 1.5rem 0;
   background: transparent;
   display: flex;
@@ -76,6 +80,7 @@ h1, h2, h3 {
   to { transform: translateX(-50%); }
 }
 
+/* Image styles */
 .photo-img {
   width: 250px;
   height: 250px;
@@ -88,23 +93,45 @@ h1, h2, h3 {
   transform: scale(1.05);
 }
 
+/* Projects zigzag layout */
 .project-zigzag {
   display: flex;
   justify-content: space-between;
-  gap: 2rem;
   align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .project-zigzag .content {
-  width: 100%;
+  flex: 1 1 50%;
 }
 
 .project-zigzag .spacer {
-  flex: 1;
+  flex: 1 1 40%;
 }
 
+/* Hero banner image */
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  margin: 2rem auto 1rem;
+  display: block;
+  border-radius: 0.5rem;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .project-zigzag {
     flex-direction: column;
+  }
+
+  .scroll-row {
+    gap: 1rem;
+  }
+
+  .photo-img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
   }
 }
