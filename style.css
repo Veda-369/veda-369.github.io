@@ -2,8 +2,7 @@
 
 body {
   font-family: 'EB Garamond', serif;
-  background-color: #1f2937; /* grey */
-  color: white;
+  background-color: #2d2d2d;
   margin: 0;
   padding: 0;
 }
@@ -33,4 +32,13 @@ h1, h2, h3 {
   color: #3B82F6;
   margin-bottom: 1rem;
   text-align: center;
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
 }
