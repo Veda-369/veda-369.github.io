@@ -17,8 +17,8 @@ h1, h2, h3 {
   font-family: 'Chakra Petch', sans-serif;
   color: #00bfa6;
   opacity: 0;
-  animation: fadeIn 2s ease-in-out forwards, float 3s infinite ease-in-out 2s;
-  margin-top: -80px; /* further up */
+  animation: fadeIn 2s ease-in-out forwards, float 3s ease-in-out infinite;
+  margin-top: -80px;
 }
 
 @keyframes float {
@@ -60,30 +60,32 @@ h1, h2, h3 {
   font-weight: 500;
 }
 
-/* Photography Images */
+/* Protected Photography & PNGs */
+img[draggable="false"] {
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Photography Image Slideshow */
 .photo-img {
   width: 100%;
   max-width: 300px;
   height: auto;
   object-fit: cover;
   border-radius: 1rem;
-  transition: transform 0.3s ease, opacity 1s ease;
-}
-.photo-img:hover {
-  transform: scale(1.05);
-}
-img[draggable="false"] {
-  pointer-events: none;
-  user-select: none;
+  opacity: 0;
+  animation: fadeImage 1s ease-in-out forwards;
 }
 
-/* Letter Animation */
-.letter-reveal span {
-  opacity: 0.4;
-  transition: opacity 0.5s ease-in-out;
+@keyframes fadeImage {
+  to {
+    opacity: 1;
+  }
 }
-.letter-reveal span.visible {
-  opacity: 1;
+
+.photo-img:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
 }
 
 /* PNG Carousel */
@@ -119,7 +121,7 @@ img[draggable="false"] {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Zigzag Layout (Left / Right Alternating) */
+/* Zigzag Project Layout */
 .project-zigzag:nth-child(even) {
   flex-direction: row-reverse;
 }
