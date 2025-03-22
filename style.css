@@ -13,6 +13,7 @@ h1, h2, h3 {
   color: #1e293b;
 }
 
+/* Animated name */
 .name {
   font-family: 'Chakra Petch', sans-serif;
   color: #00bfa6;
@@ -30,6 +31,7 @@ h1, h2, h3 {
   to { opacity: 1; }
 }
 
+/* Section title */
 .section-title {
   font-size: 2rem;
   margin-bottom: 1.5rem;
@@ -37,6 +39,7 @@ h1, h2, h3 {
   color: #1e293b;
 }
 
+/* Summary fade animation */
 .fade-up {
   opacity: 0;
   transform: translateY(20px);
@@ -50,6 +53,7 @@ h1, h2, h3 {
   }
 }
 
+/* Tech Stack Pills */
 .tech-pill {
   background-color: #e0f2fe;
   color: #0369a1;
@@ -60,16 +64,38 @@ h1, h2, h3 {
   font-weight: 500;
 }
 
-/* Protected Photography & PNGs */
-img[draggable="false"] {
-  pointer-events: none;
-  user-select: none;
+/* Carousel */
+.scroll-container {
+  overflow: hidden;
+  width: 100%;
+  padding: 1rem 0;
+  background: white;
 }
 
-/* Photography Image Slideshow */
+.scroll-row {
+  display: flex;
+  gap: 40px;
+  animation: scroll-left 40s linear infinite;
+  width: max-content;
+  align-items: center;
+}
+
+.scroll-row img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Photography */
 .photo-img {
   width: 100%;
-  max-width: 300px;
+  max-width: 320px;
   height: auto;
   object-fit: cover;
   border-radius: 1rem;
@@ -83,36 +109,12 @@ img[draggable="false"] {
   }
 }
 
-.photo-img:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease;
-}
-
-/* PNG Carousel */
-.scroll-container {
-  overflow: hidden;
-  width: 100%;
-  padding: 1rem 0;
-}
-.scroll-row {
-  display: flex;
-  gap: 40px;
-  animation: scroll-left 35s linear infinite;
-  width: max-content;
-  align-items: center;
-}
-.scroll-row img {
-  height: 60px;
-  width: auto;
-  object-fit: contain;
+img[draggable="false"] {
   pointer-events: none;
-}
-@keyframes scroll-left {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  user-select: none;
 }
 
-/* Project Card Hover Effect */
+/* Project cards hover */
 .project-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -121,7 +123,7 @@ img[draggable="false"] {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Zigzag Project Layout */
+/* Zigzag layout */
 .project-zigzag:nth-child(even) {
   flex-direction: row-reverse;
 }
@@ -145,4 +147,19 @@ img[draggable="false"] {
   .project-zigzag {
     flex-direction: column !important;
   }
+}
+
+/* Hero image under name */
+.hero-image {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  margin-top: 2rem;
+  border-radius: 0.75rem;
+}
+
+/* Footer note */
+footer p {
+  font-size: 0.7rem;
+  color: #888;
 }
