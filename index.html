@@ -8,10 +8,13 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Google Fonts -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=EB+Garamond&family=PT+Serif:wght@700&display=swap" rel="stylesheet"/>
 
-  <!-- Custom CSS -->
+  <!-- Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- Custom Style -->
   <link rel="stylesheet" href="style.css"/>
 
   <!-- React & Babel -->
@@ -21,23 +24,28 @@
 
   <!-- Disable Right Click -->
   <script>
-    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    window.onload = () => {
+      setTimeout(() => {
+        document.querySelector('#summary')?.scrollIntoView({ behavior: 'smooth' });
+      }, 5000);
+    }
   </script>
 </head>
 <body class="bg-[#f7f9fc] text-gray-800 scroll-smooth">
 
-  <!-- Navigation Bar -->
+  <!-- Navigation -->
   <nav class="fixed top-0 w-full bg-white bg-opacity-90 shadow-md z-50">
-    <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       <div class="text-xl font-bold tracking-wide text-[#00bfa6]">Veda</div>
-      <div class="flex space-x-6 text-lg font-semibold">
-        <a href="#summary" class="hover:text-blue-600 transition-all">About</a>
-        <a href="#projects" class="hover:text-blue-600 transition-all">Projects</a>
-        <a href="#techstack" class="hover:text-blue-600 transition-all">Tech Stack</a>
-        <a href="#photography" class="hover:text-blue-600 transition-all">Photography</a>
-        <a href="#contact" class="hover:text-blue-600 transition-all">Contact</a>
-        <a href="https://github.com/veda-369" target="_blank" class="hover:text-blue-600 transition-all">GitHub</a>
-        <a href="https://linkedin.com/in/your-profile" target="_blank" class="hover:text-blue-600 transition-all">LinkedIn</a>
+      <div class="hidden md:flex space-x-5 text-lg font-semibold items-center">
+        <a href="#summary" class="hover:text-blue-600 transition">About</a>
+        <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
+        <a href="#techstack" class="hover:text-blue-600 transition">Tech Stack</a>
+        <a href="#photography" class="hover:text-blue-600 transition">Photography</a>
+        <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+        <a href="https://github.com/veda-369" target="_blank" class="hover:text-blue-600"><i class="fab fa-github fa-lg"></i></a>
+        <a href="https://linkedin.com/in/your-profile" target="_blank" class="hover:text-blue-600"><i class="fab fa-linkedin fa-lg"></i></a>
       </div>
     </div>
   </nav>
@@ -45,7 +53,7 @@
   <!-- React Root -->
   <div id="root" class="pt-28"></div>
 
-  <!-- React App Code -->
+  <!-- App Script -->
   <script type="text/babel" src="app.js"></script>
 </body>
 </html>
