@@ -52,29 +52,27 @@ h1, h2, h3 {
   }
 }
 
-/* --------------------
-   Carousel (PNG Tech Logos)
--------------------- */
-.scroll-container {
+/* PNG Carousel */
+.carousel-wrapper {
   overflow: hidden;
-  width: 100vw;
-  padding: 1.5rem 0;
+  width: 100%;
+  padding: 1rem 0;
+  background-color: transparent;
   display: flex;
   justify-content: center;
-  background: transparent;
 }
 
-.scroll-row {
+.carousel {
   display: flex;
-  animation: scroll 40s linear infinite;
-  gap: 2rem;
+  animation: scroll 25s linear infinite;
+  width: fit-content;
 }
 
-.scroll-row img {
-  height: 50px;
-  user-select: none;
+.carousel img {
+  height: 60px;
+  margin: 0 1rem;
   pointer-events: none;
-  -webkit-user-drag: none;
+  user-select: none;
 }
 
 @keyframes scroll {
@@ -82,64 +80,47 @@ h1, h2, h3 {
   100% { transform: translateX(-50%); }
 }
 
-/* --------------------
-   Projects Section Boxes
--------------------- */
-.project-zigzag {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-  animation: fadeUp 1s ease-out forwards;
-}
-
-.project-zigzag .content {
-  flex: 1 1 48%;
-  background-color: #f1f5f9;
-  padding: 1.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
-}
-
-.project-zigzag .content:hover {
-  transform: translateY(-5px);
-}
-
-.project-zigzag .spacer {
-  flex: 1 1 48%;
-}
-
-/* --------------------
-   Photography Section
--------------------- */
-.photo-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-}
-
+/* Photography */
 .photo-img {
   width: 250px;
   height: 250px;
   object-fit: cover;
   border-radius: 1rem;
   transition: transform 0.4s ease;
-  user-select: none;
-  pointer-events: none;
-  -webkit-user-drag: none;
 }
 
 .photo-img:hover {
   transform: scale(1.05);
 }
 
-/* --------------------
-   Hero Banner
--------------------- */
+/* Summary text letter-by-letter animation */
+.letter-reveal span {
+  opacity: 0.4;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.letter-reveal span.visible {
+  opacity: 1;
+}
+
+/* Project Cards Zigzag */
+.project-zigzag {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.project-zigzag .content {
+  flex: 1 1 50%;
+}
+
+.project-zigzag .spacer {
+  flex: 1 1 40%;
+}
+
+/* Banner Styling */
 .hero-image {
   max-width: 100%;
   height: auto;
@@ -148,16 +129,15 @@ h1, h2, h3 {
   border-radius: 0.5rem;
 }
 
-/* --------------------
-   Responsive Adjustments
--------------------- */
+/* Responsive */
 @media (max-width: 768px) {
   .project-zigzag {
     flex-direction: column;
   }
 
-  .scroll-row {
-    gap: 1rem;
+  .carousel img {
+    height: 50px;
+    margin: 0 0.5rem;
   }
 
   .photo-img {
@@ -166,7 +146,7 @@ h1, h2, h3 {
     height: auto;
   }
 
-  .project-zigzag .content, .project-zigzag .spacer {
-    flex: 1 1 100%;
+  .carousel-wrapper {
+    padding: 0.5rem 0;
   }
 }
