@@ -20,7 +20,7 @@ h1, h2, h3 {
   color: #00bfa6;
   opacity: 0;
   animation: fadeIn 2s ease-in-out forwards, float 3s infinite ease-in-out 2s;
-  margin-top: -30px; /* Moves the name slightly up */
+  margin-top: -30px;
 }
 
 @keyframes float {
@@ -52,7 +52,7 @@ h1, h2, h3 {
   }
 }
 
-/* Carousel Styles */
+/* Carousel */
 .scroll-container {
   overflow: hidden;
   width: 100vw;
@@ -80,7 +80,7 @@ h1, h2, h3 {
   to { transform: translateX(-50%); }
 }
 
-/* Image styles */
+/* Photos */
 .photo-img {
   width: 250px;
   height: 250px;
@@ -93,7 +93,7 @@ h1, h2, h3 {
   transform: scale(1.05);
 }
 
-/* Projects zigzag layout */
+/* Projects */
 .project-zigzag {
   display: flex;
   justify-content: space-between;
@@ -110,7 +110,7 @@ h1, h2, h3 {
   flex: 1 1 40%;
 }
 
-/* Hero banner image */
+/* Banner image */
 .hero-image {
   max-width: 100%;
   height: auto;
@@ -119,7 +119,7 @@ h1, h2, h3 {
   border-radius: 0.5rem;
 }
 
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 768px) {
   .project-zigzag {
     flex-direction: column;
