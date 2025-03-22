@@ -14,7 +14,7 @@
   <!-- Icons -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-  <!-- Custom Style -->
+  <!-- Style -->
   <link rel="stylesheet" href="style.css"/>
 
   <!-- React & Babel -->
@@ -22,14 +22,14 @@
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  <!-- Disable Right Click -->
+  <!-- Disable Right Click + Auto Scroll -->
   <script>
     document.addEventListener('contextmenu', e => e.preventDefault());
     window.onload = () => {
       setTimeout(() => {
         document.querySelector('#summary')?.scrollIntoView({ behavior: 'smooth' });
       }, 5000);
-    }
+    };
   </script>
 </head>
 <body class="bg-[#f7f9fc] text-gray-800 scroll-smooth">
@@ -44,16 +44,37 @@
         <a href="#techstack" class="hover:text-blue-600 transition">Tech Stack</a>
         <a href="#photography" class="hover:text-blue-600 transition">Photography</a>
         <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
-        <a href="https://github.com/veda-369" target="_blank" class="hover:text-blue-600"><i class="fab fa-github fa-lg"></i></a>
-        <a href="https://linkedin.com/in/your-profile" target="_blank" class="hover:text-blue-600"><i class="fab fa-linkedin fa-lg"></i></a>
+        <a href="https://github.com/veda-369" target="_blank" class="hover:text-blue-600"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/your-profile" target="_blank" class="hover:text-blue-600"><i class="fab fa-linkedin"></i></a>
       </div>
+      <div class="md:hidden block">
+        <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="md:hidden px-6 pb-4 hidden">
+      <a href="#summary" class="block py-1">About</a>
+      <a href="#projects" class="block py-1">Projects</a>
+      <a href="#techstack" class="block py-1">Tech Stack</a>
+      <a href="#photography" class="block py-1">Photography</a>
+      <a href="#contact" class="block py-1">Contact</a>
+      <a href="https://github.com/veda-369" target="_blank" class="block py-1">GitHub</a>
+      <a href="https://linkedin.com/in/your-profile" target="_blank" class="block py-1">LinkedIn</a>
     </div>
   </nav>
 
-  <!-- React Root -->
+  <!-- React App Mount -->
   <div id="root" class="pt-28"></div>
 
-  <!-- App Script -->
+  <!-- Footer -->
+  <footer class="text-center text-xs text-gray-400 mt-10 mb-4">
+    <p>Images used are copyright to Freepik</p>
+    <p class="mt-1 font-semibold text-sm text-black">© Veda Bharghav</p>
+  </footer>
+
+  <!-- React App -->
   <script type="text/babel" src="app.js"></script>
 </body>
 </html>
