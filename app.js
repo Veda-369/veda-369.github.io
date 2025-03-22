@@ -69,14 +69,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      const element = document.getElementById("about");
-      if (element) element.scrollIntoView({ behavior: "smooth" });
-    }, 5000);
-    return () => clearTimeout(timeout);
-  }, []);
-
-  useEffect(() => {
     const chars = summaryText.split("");
     chars.forEach((_, i) => {
       setTimeout(() => {
@@ -87,15 +79,15 @@ function App() {
 
   return (
     <div>
-      {/* Animated Name */}
-      <section id="home" className="text-center mt-32">
+      {/* Animated Name Section */}
+      <section id="home" className="text-center mt-24">
         <h1 className="name text-4xl sm:text-5xl mb-2">Hi, I'm Veda Bharghav</h1>
         <h2 className="text-xl text-blue-700 font-semibold mb-6">{roles[roleIndex]}</h2>
-        <img src="banner.jpg" alt="Banner" className="mx-auto w-full max-w-screen-xl rounded-xl mb-6" />
+        <img src="images/banner.jpeg" alt="Banner" className="mx-auto w-full max-w-screen-xl rounded-xl mb-6" />
       </section>
 
-      {/* Summary Section */}
-      <section id="about" className="text-center mb-12">
+      {/* About Me Section */}
+      <section id="summary" className="text-center mb-12">
         <h2 className="section-title">About Me</h2>
         <p className="letter-reveal max-w-4xl mx-auto text-lg">
           {summaryText.split("").map((char, i) => (
@@ -119,7 +111,7 @@ function App() {
         </div>
       </section>
 
-      {/* Projects */}
+      {/* Projects Section */}
       <section id="projects" className="text-center py-10 fade-up">
         <h2 className="section-title">Projects</h2>
         <div className="flex flex-col gap-10 items-center max-w-6xl mx-auto px-4">
@@ -141,7 +133,7 @@ function App() {
         </div>
       </section>
 
-      {/* Photography */}
+      {/* Photography Section */}
       <section id="photography" className="text-center py-10 fade-up">
         <h2 className="section-title">Photography</h2>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
@@ -161,7 +153,7 @@ function App() {
         </div>
       </section>
 
-      {/* Contact */}
+      {/* Contact Section */}
       <section id="contact" className="text-center py-10 fade-up">
         <h2 className="section-title">Contact Me</h2>
         <form className="max-w-xl mx-auto flex flex-col gap-4">
@@ -173,16 +165,16 @@ function App() {
         </form>
       </section>
 
-      {/* PNG Carousel */}
+      {/* Carousel Section (PNG logos) */}
       <section className="py-6">
-        <div className="carousel-wrapper">
-          <div className="carousel">
+        <div className="scroll-container">
+          <div className="scroll-row">
             {[...Array(18)].map((_, i) => (
               <img
                 key={i}
                 src={`images/png${i + 1}.png`}
                 alt={`png${i + 1}`}
-                className="h-20 mx-4 select-none pointer-events-none"
+                className="h-20 select-none pointer-events-none"
                 draggable={false}
               />
             ))}
@@ -191,9 +183,11 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="text-sm text-gray-400 flex justify-between px-6 py-4">
-        <div className="text-left">PNG icons are copyright Freepik. Wildlife photographs © Veda Bharghav.</div>
-        <div className="text-right">© Veda Bharghav</div>
+      <footer className="text-xs text-gray-400 flex justify-between px-6 py-4">
+        <div className="text-left text-[9px] italic">
+          PNGs are copyright Freepik. Wildlife photographs © Veda Bharghav.
+        </div>
+        <div className="text-right text-sm">© Veda Bharghav</div>
       </footer>
     </div>
   );
