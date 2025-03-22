@@ -1,24 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Nunito:wght@300;400;600&family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=EB+Garamond&family=PT+Serif:wght@700&display=swap');
 
 body {
-    font-family: 'Nunito', sans-serif;
-    background: #333;
-    color: white;
-    margin: 0;
-    padding: 0;
+  font-family: 'EB Garamond', serif;
+  background-color: #1f2937; /* grey */
+  color: white;
+  margin: 0;
+  padding: 0;
 }
 
-/* Headings */
-h1 {
-    font-family: 'Chakra Petch', sans-serif;
+h1, h2, h3 {
+  font-family: 'PT Serif', serif;
 }
 
-h2, h3 {
-    font-family: 'Montserrat', sans-serif;
+.name {
+  font-family: 'Chakra Petch', sans-serif;
+  color: #00FFFF;
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards, float 3s infinite ease-in-out 2s;
 }
 
-/* Centering Sections */
-.section {
-    text-align: center;
-    padding: 50px 0;
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #3B82F6;
+  margin-bottom: 1rem;
+  text-align: center;
 }
