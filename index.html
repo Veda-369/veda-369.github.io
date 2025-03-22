@@ -11,36 +11,41 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=EB+Garamond&family=PT+Serif:wght@700&display=swap" rel="stylesheet"/>
 
-  <!-- Custom Style -->
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css"/>
 
   <!-- React & Babel -->
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Disable Right Click -->
+  <script>
+    document.addEventListener('contextmenu', event => event.preventDefault());
+  </script>
 </head>
 <body class="bg-[#f7f9fc] text-gray-800 scroll-smooth">
 
-  <!-- Navigation -->
+  <!-- Navigation Bar -->
   <nav class="fixed top-0 w-full bg-white bg-opacity-90 shadow-md z-50">
     <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
-      <div class="text-lg font-bold tracking-wide text-[#00bfa6]">Veda</div>
-      <div class="flex space-x-6 text-base font-semibold">
-        <a href="#summary" class="hover:text-blue-600 transition">About</a>
-        <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
-        <a href="#techstack" class="hover:text-blue-600 transition">Tech Stack</a>
-        <a href="#photography" class="hover:text-blue-600 transition">Photography</a>
-        <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
-        <a href="https://github.com/veda-369" target="_blank" class="hover:text-blue-600 transition">GitHub</a>
-        <a href="https://www.linkedin.com/in/veda-bharghav-a61aa6304/" target="_blank" class="hover:text-blue-600 transition">LinkedIn</a>
+      <div class="text-xl font-bold tracking-wide text-[#00bfa6]">Veda</div>
+      <div class="flex space-x-6 text-lg font-semibold">
+        <a href="#summary" class="hover:text-blue-600 transition-all">About</a>
+        <a href="#projects" class="hover:text-blue-600 transition-all">Projects</a>
+        <a href="#techstack" class="hover:text-blue-600 transition-all">Tech Stack</a>
+        <a href="#photography" class="hover:text-blue-600 transition-all">Photography</a>
+        <a href="#contact" class="hover:text-blue-600 transition-all">Contact</a>
+        <a href="https://github.com/veda-369" target="_blank" class="hover:text-blue-600 transition-all">GitHub</a>
+        <a href="https://linkedin.com/in/your-profile" target="_blank" class="hover:text-blue-600 transition-all">LinkedIn</a>
       </div>
     </div>
   </nav>
 
   <!-- React Root -->
-  <div id="root" class="pt-24"></div>
+  <div id="root" class="pt-28"></div>
 
-  <!-- React App -->
+  <!-- React App Code -->
   <script type="text/babel" src="app.js"></script>
 </body>
 </html>
