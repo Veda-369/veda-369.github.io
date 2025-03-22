@@ -18,7 +18,7 @@ h1, h2, h3 {
   color: #00bfa6;
   opacity: 0;
   animation: fadeIn 2s ease-in-out forwards, float 3s infinite ease-in-out 2s;
-  margin-top: -60px; /* moved up */
+  margin-top: -80px; /* further up */
 }
 
 @keyframes float {
@@ -60,58 +60,87 @@ h1, h2, h3 {
   font-weight: 500;
 }
 
+/* Photography Images */
 .photo-img {
   width: 100%;
   max-width: 300px;
   height: auto;
   object-fit: cover;
   border-radius: 1rem;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, opacity 1s ease;
 }
-
 .photo-img:hover {
   transform: scale(1.05);
 }
+img[draggable="false"] {
+  pointer-events: none;
+  user-select: none;
+}
 
+/* Letter Animation */
 .letter-reveal span {
   opacity: 0.4;
   transition: opacity 0.5s ease-in-out;
 }
-
 .letter-reveal span.visible {
   opacity: 1;
 }
 
+/* PNG Carousel */
 .scroll-container {
   overflow: hidden;
   width: 100%;
   padding: 1rem 0;
 }
-
 .scroll-row {
   display: flex;
   gap: 40px;
-  animation: scroll-left 30s linear infinite;
+  animation: scroll-left 35s linear infinite;
   width: max-content;
   align-items: center;
 }
-
 .scroll-row img {
   height: 60px;
   width: auto;
   object-fit: contain;
+  pointer-events: none;
 }
-
 @keyframes scroll-left {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
 
+/* Project Card Hover Effect */
 .project-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .project-card:hover {
   transform: scale(1.03);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Zigzag Layout (Left / Right Alternating) */
+.project-zigzag:nth-child(even) {
+  flex-direction: row-reverse;
+}
+.project-zigzag {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.project-zigzag .content {
+  flex: 1;
+  padding: 1rem;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+}
+.project-zigzag .spacer {
+  flex: 1;
+}
+@media screen and (max-width: 768px) {
+  .project-zigzag {
+    flex-direction: column !important;
+  }
 }
