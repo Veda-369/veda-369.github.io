@@ -56,7 +56,6 @@ h1, h2, h3 {
   opacity: 0.4;
   transition: opacity 0.4s ease-in-out;
 }
-
 .letter-reveal span.visible {
   opacity: 1;
 }
@@ -73,21 +72,16 @@ h1, h2, h3 {
   transform: scale(1.05);
 }
 
-img.select-none {
-  user-select: none;
-  pointer-events: none;
-}
-
 input, textarea {
   outline: none;
   border: 1px solid #ccc;
 }
 
+/* PNG Carousel Styles */
 .carousel-wrapper {
   overflow: hidden;
   width: 100%;
-  margin: 0 auto;
-  padding: 1.5rem 0;
+  padding: 1rem 0;
   background: transparent;
 }
 
@@ -95,11 +89,11 @@ input, textarea {
   display: flex;
   animation: scroll 40s linear infinite;
   width: max-content;
+  gap: 2rem;
 }
 
 .carousel img {
   height: 60px;
-  margin-right: 2rem;
   pointer-events: none;
   user-select: none;
 }
@@ -118,7 +112,6 @@ input, textarea {
 
   .carousel img {
     height: 50px;
-    margin-right: 1.5rem;
   }
 
   .section-title {
