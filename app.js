@@ -184,7 +184,7 @@ function App() {
       <section id="contact" className="text-center py-10 fade-up">
         <h2 className="section-title">Contact Me</h2>
         <form
-          action="https://formsubmit.co/el/worowa"
+          action="https://formsubmit.co/el/8bcce5c779164f6884e3fd07bb16a95d"
           method="POST"
           target="hidden_iframe"
           onSubmit={() => setShowThankYou(true)}
