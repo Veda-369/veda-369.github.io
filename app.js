@@ -184,8 +184,7 @@ function App() {
       <section id="contact" className="text-center py-10 fade-up">
         <h2 className="section-title">Contact Me</h2>
         <form
-          action="https://formsubmit.co/el/confirm/c8196a78295e4401ff87818311bb1e72"
-          method="POST"
+          action="https://formsubmit.co/el/gosopi" method="POST"
           target="hidden_iframe"
           onSubmit={() => setShowThankYou(true)}
           className="max-w-xl mx-auto flex flex-col gap-4"
