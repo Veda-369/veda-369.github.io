@@ -11,7 +11,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=EB+Garamond&family=PT+Serif:wght@700&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome -->
+  <!-- Font Awesome Icons -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
 
   <!-- Custom CSS -->
@@ -25,7 +25,6 @@
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  <!-- Disable Right Click + Auto Scroll -->
   <script>
     document.addEventListener('contextmenu', e => e.preventDefault());
     window.onload = () => {
@@ -37,7 +36,7 @@
 </head>
 
 <body class="bg-[#f7f9fc] text-gray-800 scroll-smooth">
-  <!-- Navigation -->
+  <!-- Navigation Bar -->
   <nav class="fixed top-0 w-full bg-white bg-opacity-90 shadow-md z-50">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       <div class="text-xl font-bold tracking-wide text-[#00bfa6]">Veda</div>
@@ -47,8 +46,8 @@
         <a href="#techstack" class="hover:text-blue-600 transition">Tech Stack</a>
         <a href="#photography" class="hover:text-blue-600 transition">Photography</a>
         <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
-        <a href="https://github.com/veda-369" target="_blank"><i class="fab fa-github fa-lg"></i></a>
-        <a href="https://www.linkedin.com/in/veda-bharghav-a61aa6304/" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a>
+        <a href="https://github.com/veda-369" target="_blank"><i class="fab fa-github fa-lg hover:text-blue-600"></i></a>
+        <a href="https://www.linkedin.com/in/veda-bharghav-a61aa6304/" target="_blank"><i class="fab fa-linkedin fa-lg hover:text-blue-600"></i></a>
       </div>
       <div class="md:hidden block">
         <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
@@ -56,6 +55,7 @@
         </button>
       </div>
     </div>
+    <!-- Mobile Menu -->
     <div id="mobileMenu" class="md:hidden px-6 pb-4 hidden">
       <a href="#summary" class="block py-1">About</a>
       <a href="#projects" class="block py-1">Projects</a>
@@ -65,60 +65,10 @@
     </div>
   </nav>
 
-  <!-- React Root -->
+  <!-- React App Mount Point -->
   <div id="root" class="pt-28"></div>
 
-  <!-- PNG Carousel -->
-  <section class="carousel-wrapper">
-    <div class="carousel">
-      <!-- 36 images -->
-      <img src="images/png1.png" alt="png1" draggable="false" />
-      <img src="images/png2.png" alt="png2" draggable="false" />
-      <img src="images/png3.png" alt="png3" draggable="false" />
-      <img src="images/png4.png" alt="png4" draggable="false" />
-      <img src="images/png5.png" alt="png5" draggable="false" />
-      <img src="images/png6.png" alt="png6" draggable="false" />
-      <img src="images/png7.png" alt="png7" draggable="false" />
-      <img src="images/png8.png" alt="png8" draggable="false" />
-      <img src="images/png9.png" alt="png9" draggable="false" />
-      <img src="images/png10.png" alt="png10" draggable="false" />
-      <img src="images/png11.png" alt="png11" draggable="false" />
-      <img src="images/png12.png" alt="png12" draggable="false" />
-      <img src="images/png13.png" alt="png13" draggable="false" />
-      <img src="images/png14.png" alt="png14" draggable="false" />
-      <img src="images/png15.png" alt="png15" draggable="false" />
-      <img src="images/png16.png" alt="png16" draggable="false" />
-      <img src="images/png17.png" alt="png17" draggable="false" />
-      <img src="images/png18.png" alt="png18" draggable="false" />
-      <!-- Repeated for seamless scroll -->
-      <img src="images/png1.png" alt="png1" draggable="false" />
-      <img src="images/png2.png" alt="png2" draggable="false" />
-      <img src="images/png3.png" alt="png3" draggable="false" />
-      <img src="images/png4.png" alt="png4" draggable="false" />
-      <img src="images/png5.png" alt="png5" draggable="false" />
-      <img src="images/png6.png" alt="png6" draggable="false" />
-      <img src="images/png7.png" alt="png7" draggable="false" />
-      <img src="images/png8.png" alt="png8" draggable="false" />
-      <img src="images/png9.png" alt="png9" draggable="false" />
-      <img src="images/png10.png" alt="png10" draggable="false" />
-      <img src="images/png11.png" alt="png11" draggable="false" />
-      <img src="images/png12.png" alt="png12" draggable="false" />
-      <img src="images/png13.png" alt="png13" draggable="false" />
-      <img src="images/png14.png" alt="png14" draggable="false" />
-      <img src="images/png15.png" alt="png15" draggable="false" />
-      <img src="images/png16.png" alt="png16" draggable="false" />
-      <img src="images/png17.png" alt="png17" draggable="false" />
-      <img src="images/png18.png" alt="png18" draggable="false" />
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="flex justify-between items-center text-xs text-gray-400 mt-10 mb-4 px-6">
-    <p class="text-[10px] italic text-left">&copy; PNGs from Freepik</p>
-    <p class="text-sm font-semibold text-black text-right">&copy; Veda Bharghav</p>
-  </footer>
-
-  <!-- React App -->
+  <!-- React App Script -->
   <script type="text/babel" src="app.js"></script>
 </body>
 </html>
