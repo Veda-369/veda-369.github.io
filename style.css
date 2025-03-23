@@ -52,63 +52,92 @@ h1, h2, h3 {
   }
 }
 
-/* Tech Stack Cards */
-.bg-slate-800 {
-  background-color: #1e293b;
-}
-
-/* Photo Slideshow */
-.photo-img {
-  width: 100%;
-  max-width: 400px;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 1rem;
-  transition: opacity 1s ease;
-  display: block;
-}
-
-/* Responsive Projects and Images */
-.project-zigzag {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-.project-zigzag .content {
-  flex: 1 1 50%;
-}
-
-.project-zigzag .spacer {
-  flex: 1 1 40%;
-}
-
-@media (max-width: 768px) {
-  .project-zigzag {
-    flex-direction: column;
-  }
-
-  .photo-img {
-    max-width: 100%;
-    height: auto;
-  }
-}
-
-/* Letter Reveal Animation */
+/* Summary animation */
 .letter-reveal span {
   opacity: 0.4;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
 }
-
 .letter-reveal span.visible {
   opacity: 1;
 }
 
-/* Disable image interactions */
-img {
-  -webkit-user-drag: none;
-  user-select: none;
+/* Project Cards */
+.project-card {
+  border: 1px solid #d1d5db;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+.project-card:hover {
+  transform: scale(1.01);
+}
+
+/* Carousel section */
+.carousel-wrapper {
+  overflow: hidden;
+  width: 100%;
+  padding: 1rem 0;
+}
+.carousel {
+  display: flex;
+  gap: 2rem;
+  animation: scroll 25s linear infinite;
+}
+.carousel img {
+  height: 60px;
   pointer-events: none;
+  user-select: none;
+}
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Photography Section */
+.photo-img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 1rem;
+  transition: transform 0.4s ease;
+}
+.photo-img:hover {
+  transform: scale(1.05);
+}
+
+/* Slideshow */
+.slideshow {
+  display: flex;
+  overflow: hidden;
+  max-width: 100%;
+  margin-top: 2rem;
+  justify-content: center;
+}
+.slideshow img {
+  max-height: 300px;
+  border-radius: 1rem;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Footer */
+footer {
+  font-size: 12px;
+  padding: 1rem;
+  color: #6b7280;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel img {
+    height: 40px;
+  }
+  .photo-img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+  }
 }
