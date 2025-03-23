@@ -63,10 +63,10 @@ function App() {
   const [photoIndex, setPhotoIndex] = useState(0);
 
   useEffect(() => {
-    const roleInterval = setInterval(() => {
+    const interval = setInterval(() => {
       setRoleIndex((prev) => (prev + 1) % roles.length);
     }, 3000);
-    return () => clearInterval(roleInterval);
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -87,22 +87,22 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const slideshow = setInterval(() => {
+    const timer = setInterval(() => {
       setPhotoIndex((prev) => (prev + 1) % photos.length);
-    }, 3500);
-    return () => clearInterval(slideshow);
+    }, 3000);
+    return () => clearInterval(timer);
   }, []);
 
   return (
     <div>
-      {/* Hero Section */}
+      {/* Intro Section */}
       <section id="home" className="text-center mt-32">
         <h1 className="name text-4xl sm:text-5xl mb-2">Hi, I'm Veda Bharghav</h1>
         <h2 className="text-xl text-blue-700 font-semibold mb-6">{roles[roleIndex]}</h2>
         <img src="images/banner.jpeg" alt="Banner" className="mx-auto w-full max-w-screen-xl rounded-xl mb-6" />
       </section>
 
-      {/* About Summary */}
+      {/* About */}
       <section id="about" className="text-center mb-12">
         <h2 className="section-title">About Me</h2>
         <p className="letter-reveal max-w-4xl mx-auto text-lg">
@@ -127,6 +127,23 @@ function App() {
         </div>
       </section>
 
+      {/* Carousel below Tech Stack */}
+      <section className="py-6">
+        <div className="carousel-wrapper">
+          <div className="carousel">
+            {[...Array(18)].map((_, i) => (
+              <img
+                key={i}
+                src={`images/png${i + 1}.png`}
+                alt={`png${i + 1}`}
+                className="select-none pointer-events-none"
+                draggable={false}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Projects */}
       <section id="projects" className="text-center py-10 fade-up">
         <h2 className="section-title">Projects</h2>
@@ -134,7 +151,7 @@ function App() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className={`bg-white border border-gray-300 p-6 shadow-md rounded-xl w-full sm:w-5/6 md:w-3/4 lg:w-2/3 text-left transition transform hover:scale-[1.01] ${
+              className={`project-card w-full sm:w-5/6 md:w-3/4 lg:w-2/3 ${
                 index % 2 === 0 ? "self-start" : "self-end"
               }`}
             >
@@ -155,14 +172,19 @@ function App() {
         <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
           Wildlife photography captures the raw beauty of nature in motion. Here are a few of my best shots.
         </p>
-        <div className="flex justify-center">
-          <img
-            src={`images/${photos[photoIndex]}`}
-            alt={`Wildlife ${photoIndex + 1}`}
-            className="photo-img select-none pointer-events-none"
-            onContextMenu={(e) => e.preventDefault()}
-            draggable={false}
-          />
+
+        <div className="slideshow">
+          {photos.map((src, i) => (
+            <img
+              key={i}
+              src={`images/${src}`}
+              alt={`photo${i + 1}`}
+              className={`photo-img ${i === photoIndex ? "opacity-100" : "opacity-0"} absolute`}
+              style={{ transition: "opacity 1s ease-in-out" }}
+              onContextMenu={(e) => e.preventDefault()}
+              draggable={false}
+            />
+          ))}
         </div>
       </section>
 
@@ -180,8 +202,8 @@ function App() {
 
       {/* Footer */}
       <footer className="text-sm text-gray-400 flex justify-between px-6 py-4">
-        <div className="text-left italic text-[10px]">PNGs are copyright Freepik. Wildlife photographs © Veda Bharghav.</div>
-        <div className="text-right font-bold text-black">© Veda Bharghav</div>
+        <div className="text-left text-xs italic">PNGs are copyright Freepik. Wildlife photographs © Veda Bharghav.</div>
+        <div className="text-right font-semibold text-black">© Veda Bharghav</div>
       </footer>
     </div>
   );
