@@ -11,21 +11,21 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=EB+Garamond&family=PT+Serif:wght@700&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome Icons -->
+  <!-- Font Awesome -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
 
-  <!-- Styles -->
+  <!-- Custom Styles -->
   <link rel="stylesheet" href="style.css" />
 
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>V</text></svg>">
 
-  <!-- React -->
+  <!-- React + Babel -->
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  <!-- Disable Right Click & Auto Scroll -->
+  <!-- Auto Scroll + Disable Right Click -->
   <script>
     document.addEventListener('contextmenu', e => e.preventDefault());
     window.onload = () => {
@@ -57,8 +57,7 @@
         </button>
       </div>
     </div>
-
-    <!-- Mobile Navigation -->
+    <!-- Mobile Menu -->
     <div id="mobileMenu" class="md:hidden px-6 pb-4 hidden">
       <a href="#summary" class="block py-1">About</a>
       <a href="#projects" class="block py-1">Projects</a>
@@ -70,31 +69,16 @@
     </div>
   </nav>
 
-  <!-- React Mount -->
+  <!-- React Root -->
   <div id="root" class="pt-28"></div>
 
   <!-- PNG Carousel Below Tech Stack -->
   <section class="py-6">
     <div class="carousel-wrapper">
       <div class="carousel">
-        <!-- Duplicated for infinite scroll -->
-        <script type="text/babel">
-          const pngs = [...Array(18)].map((_, i) => `images/png${i + 1}.png`);
-          const repeated = [...pngs, ...pngs];
-          ReactDOM.createRoot(document.currentScript.parentElement).render(
-            <>
-              {repeated.map((src, i) => (
-                <img
-                  key={i}
-                  src={src}
-                  alt={`png${i + 1}`}
-                  className="h-14 mx-4 select-none pointer-events-none"
-                  draggable="false"
-                />
-              ))}
-            </>
-          );
-        </script>
+        <!-- 2 Sets of 18 PNGs -->
+        ${[...Array(18)].map((_, i) => `<img src="images/png${i + 1}.png" alt="png${i + 1}" class="select-none" draggable="false" />`).join('')}
+        ${[...Array(18)].map((_, i) => `<img src="images/png${i + 1}.png" alt="png${i + 1}" class="select-none" draggable="false" />`).join('')}
       </div>
     </div>
   </section>
@@ -102,10 +86,10 @@
   <!-- Footer -->
   <footer class="flex justify-between items-center text-xs text-gray-400 mt-10 mb-4 px-6">
     <p class="text-[10px] italic text-left">&copy; PNGs from Freepik</p>
-    <p class="text-sm font-semibold text-black text-right w-full text-center">&copy; Veda Bharghav</p>
+    <p class="text-sm font-semibold text-black text-center w-full">&copy; Veda Bharghav</p>
   </footer>
 
-  <!-- App -->
+  <!-- React App -->
   <script type="text/babel" src="app.js"></script>
 </body>
 </html>
