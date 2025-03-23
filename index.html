@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="style.css" />
 
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>V</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>V</text></svg>">
 
   <!-- React + Babel -->
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -38,7 +38,7 @@
 
 <body class="bg-[#f7f9fc] text-gray-800 scroll-smooth">
 
-  <!-- Navbar -->
+  <!-- Navigation -->
   <nav class="fixed top-0 w-full bg-white bg-opacity-90 shadow-md z-50">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       <div class="text-xl font-bold tracking-wide text-[#00bfa6]">Veda</div>
@@ -68,30 +68,10 @@
     </div>
   </nav>
 
-  <!-- React App Root -->
+  <!-- Root for React App -->
   <div id="root" class="pt-28"></div>
 
-  <!-- PNG Carousel -->
-  <section class="carousel-wrapper">
-    <div class="carousel">
-      <!-- Repeat PNGs 1–18 twice -->
-      <script>
-        document.write(
-          [...Array(36)].map((_, i) =>
-            `<img src="images/png${(i % 18) + 1}.png" alt="png${(i % 18) + 1}" class="h-14 mx-4 select-none pointer-events-none" draggable="false" />`
-          ).join("")
-        );
-      </script>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="flex justify-between items-center text-xs text-gray-400 mt-10 mb-4 px-6">
-    <p class="text-[10px] italic text-left">&copy; PNGs from Freepik</p>
-    <p class="text-sm font-semibold text-black text-right">&copy; Veda Bharghav</p>
-  </footer>
-
-  <!-- React Mount -->
+  <!-- React App -->
   <script type="text/babel" src="app.js"></script>
 </body>
 </html>
