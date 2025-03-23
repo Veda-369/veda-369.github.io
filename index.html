@@ -11,20 +11,21 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=EB+Garamond&family=PT+Serif:wght@700&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome -->
+  <!-- Font Awesome Icons -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css" />
 
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>V</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>V</text></svg>">
 
   <!-- React + Babel -->
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
+  <!-- Disable Right Click + Auto Scroll -->
   <script>
     document.addEventListener('contextmenu', e => e.preventDefault());
     window.onload = () => {
@@ -37,7 +38,7 @@
 
 <body class="bg-[#f7f9fc] text-gray-800 scroll-smooth">
 
-  <!-- Navigation -->
+  <!-- Navbar -->
   <nav class="fixed top-0 w-full bg-white bg-opacity-90 shadow-md z-50">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       <div class="text-xl font-bold tracking-wide text-[#00bfa6]">Veda</div>
@@ -47,8 +48,8 @@
         <a href="#techstack" class="hover:text-blue-600 transition">Tech Stack</a>
         <a href="#photography" class="hover:text-blue-600 transition">Photography</a>
         <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
-        <a href="https://github.com/veda-369" target="_blank"><i class="fab fa-github fa-lg"></i></a>
-        <a href="https://www.linkedin.com/in/veda-bharghav-a61aa6304/" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a>
+        <a href="https://github.com/veda-369" target="_blank" class="hover:text-blue-600"><i class="fab fa-github fa-lg"></i></a>
+        <a href="https://www.linkedin.com/in/veda-bharghav-a61aa6304/" target="_blank" class="hover:text-blue-600"><i class="fab fa-linkedin fa-lg"></i></a>
       </div>
       <div class="md:hidden block">
         <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
@@ -62,25 +63,32 @@
       <a href="#techstack" class="block py-1">Tech Stack</a>
       <a href="#photography" class="block py-1">Photography</a>
       <a href="#contact" class="block py-1">Contact</a>
+      <a href="https://github.com/veda-369" target="_blank" class="block py-1">GitHub</a>
+      <a href="https://www.linkedin.com/in/veda-bharghav-a61aa6304/" target="_blank" class="block py-1">LinkedIn</a>
     </div>
   </nav>
 
-  <!-- React App -->
+  <!-- React App Root -->
   <div id="root" class="pt-28"></div>
 
   <!-- PNG Carousel -->
   <section class="carousel-wrapper">
     <div class="carousel">
-      ${[...Array(36)].map((_, i) => `
-        <img src="images/png${(i % 18) + 1}.png" alt="png${(i % 18) + 1}" class="h-14 mx-4 select-none pointer-events-none" draggable="false" />
-      `).join("")}
+      <!-- Repeat PNGs 1–18 twice -->
+      <script>
+        document.write(
+          [...Array(36)].map((_, i) =>
+            `<img src="images/png${(i % 18) + 1}.png" alt="png${(i % 18) + 1}" class="h-14 mx-4 select-none pointer-events-none" draggable="false" />`
+          ).join("")
+        );
+      </script>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="w-full flex justify-between items-center text-xs text-gray-400 mt-6 mb-3 px-6">
-    <p class="text-[10px] italic">&copy; PNGs from Freepik</p>
-    <p class="text-sm font-semibold text-black text-center w-full">&copy; Veda Bharghav</p>
+  <footer class="flex justify-between items-center text-xs text-gray-400 mt-10 mb-4 px-6">
+    <p class="text-[10px] italic text-left">&copy; PNGs from Freepik</p>
+    <p class="text-sm font-semibold text-black text-right">&copy; Veda Bharghav</p>
   </footer>
 
   <!-- React Mount -->
