@@ -52,49 +52,14 @@ h1, h2, h3 {
   }
 }
 
-/* Summary animation */
 .letter-reveal span {
   opacity: 0.4;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
 }
 .letter-reveal span.visible {
   opacity: 1;
 }
 
-/* Project Cards */
-.project-card {
-  border: 1px solid #d1d5db;
-  padding: 1.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
-}
-.project-card:hover {
-  transform: scale(1.01);
-}
-
-/* Carousel section */
-.carousel-wrapper {
-  overflow: hidden;
-  width: 100%;
-  padding: 1rem 0;
-}
-.carousel {
-  display: flex;
-  gap: 2rem;
-  animation: scroll 25s linear infinite;
-}
-.carousel img {
-  height: 60px;
-  pointer-events: none;
-  user-select: none;
-}
-@keyframes scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-/* Photography Section */
 .photo-img {
   width: 250px;
   height: 250px;
@@ -102,42 +67,64 @@ h1, h2, h3 {
   border-radius: 1rem;
   transition: transform 0.4s ease;
 }
+
 .photo-img:hover {
   transform: scale(1.05);
 }
 
-/* Slideshow */
-.slideshow {
-  display: flex;
+img.select-none {
+  user-select: none;
+  pointer-events: none;
+}
+
+input, textarea {
+  outline: none;
+  border: 1px solid #ccc;
+}
+
+.carousel-wrapper {
   overflow: hidden;
-  max-width: 100%;
-  margin-top: 2rem;
-  justify-content: center;
-}
-.slideshow img {
-  max-height: 300px;
-  border-radius: 1rem;
-  transition: opacity 1s ease-in-out;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem 0;
+  background: transparent;
 }
 
-/* Footer */
-footer {
-  font-size: 12px;
-  padding: 1rem;
-  color: #6b7280;
+.carousel {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  animation: scroll 30s linear infinite;
+  width: max-content;
 }
 
-/* Responsive */
+.carousel img {
+  height: 60px;
+  margin-right: 2rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
 @media (max-width: 768px) {
-  .carousel img {
-    height: 40px;
-  }
   .photo-img {
     width: 100%;
-    max-width: 320px;
+    max-width: 300px;
     height: auto;
   }
+
+  .carousel img {
+    height: 50px;
+    margin-right: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+}
+
+footer {
+  font-family: 'EB Garamond', serif;
 }
