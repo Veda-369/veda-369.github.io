@@ -94,14 +94,14 @@ function App() {
 
   return (
     <div>
-      {/* Intro Section */}
+      {/* Intro */}
       <section id="home" className="text-center mt-32">
         <h1 className="name text-4xl sm:text-5xl mb-2">Hi, I'm Veda Bharghav</h1>
         <h2 className="text-xl text-blue-700 font-semibold mb-6">{roles[roleIndex]}</h2>
         <img src="images/banner.jpeg" alt="Banner" className="hero-image" />
       </section>
 
-      {/* About Me Section */}
+      {/* About Me */}
       <section id="summary" className="text-center mb-12">
         <h2 className="section-title">About Me</h2>
         <p className="letter-reveal max-w-4xl mx-auto text-lg">
@@ -126,7 +126,19 @@ function App() {
         </div>
       </section>
 
-      {/* Projects Section */}
+      {/* PNG Carousel */}
+      <section className="carousel-wrapper">
+        <div className="carousel">
+          {[...Array(18)].map((_, i) => (
+            <img key={`a-${i}`} src={`images/png${i + 1}.png`} alt={`png${i + 1}`} />
+          ))}
+          {[...Array(18)].map((_, i) => (
+            <img key={`b-${i}`} src={`images/png${i + 1}.png`} alt={`png${i + 1}`} />
+          ))}
+        </div>
+      </section>
+
+      {/* Projects */}
       <section id="projects" className="text-center py-10 fade-up">
         <h2 className="section-title">Projects</h2>
         <div className="flex flex-col gap-10 items-center max-w-6xl mx-auto px-4">
@@ -148,7 +160,7 @@ function App() {
         </div>
       </section>
 
-      {/* Photography Section */}
+      {/* Photography */}
       <section id="photography" className="text-center py-10 fade-up">
         <h2 className="section-title">Photography</h2>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
@@ -165,7 +177,7 @@ function App() {
         </div>
       </section>
 
-      {/* Contact Form */}
+      {/* Contact */}
       <section id="contact" className="text-center py-10 fade-up">
         <h2 className="section-title">Contact Me</h2>
         <form
