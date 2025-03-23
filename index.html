@@ -11,7 +11,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=EB+Garamond&family=PT+Serif:wght@700&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome Icons -->
+  <!-- Font Awesome -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
 
   <!-- Custom CSS -->
@@ -36,7 +36,8 @@
 </head>
 
 <body class="bg-[#f7f9fc] text-gray-800 scroll-smooth">
-  <!-- Navigation Bar -->
+
+  <!-- Navigation -->
   <nav class="fixed top-0 w-full bg-white bg-opacity-90 shadow-md z-50">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       <div class="text-xl font-bold tracking-wide text-[#00bfa6]">Veda</div>
@@ -46,8 +47,8 @@
         <a href="#techstack" class="hover:text-blue-600 transition">Tech Stack</a>
         <a href="#photography" class="hover:text-blue-600 transition">Photography</a>
         <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
-        <a href="https://github.com/veda-369" target="_blank"><i class="fab fa-github fa-lg hover:text-blue-600"></i></a>
-        <a href="https://www.linkedin.com/in/veda-bharghav-a61aa6304/" target="_blank"><i class="fab fa-linkedin fa-lg hover:text-blue-600"></i></a>
+        <a href="https://github.com/veda-369" target="_blank"><i class="fab fa-github fa-lg"></i></a>
+        <a href="https://www.linkedin.com/in/veda-bharghav-a61aa6304/" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a>
       </div>
       <div class="md:hidden block">
         <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
@@ -55,7 +56,6 @@
         </button>
       </div>
     </div>
-    <!-- Mobile Menu -->
     <div id="mobileMenu" class="md:hidden px-6 pb-4 hidden">
       <a href="#summary" class="block py-1">About</a>
       <a href="#projects" class="block py-1">Projects</a>
@@ -65,10 +65,25 @@
     </div>
   </nav>
 
-  <!-- React App Mount Point -->
+  <!-- React App -->
   <div id="root" class="pt-28"></div>
 
-  <!-- React App Script -->
+  <!-- PNG Carousel -->
+  <section class="carousel-wrapper">
+    <div class="carousel">
+      ${[...Array(36)].map((_, i) => `
+        <img src="images/png${(i % 18) + 1}.png" alt="png${(i % 18) + 1}" class="h-14 mx-4 select-none pointer-events-none" draggable="false" />
+      `).join("")}
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="w-full flex justify-between items-center text-xs text-gray-400 mt-6 mb-3 px-6">
+    <p class="text-[10px] italic">&copy; PNGs from Freepik</p>
+    <p class="text-sm font-semibold text-black text-center w-full">&copy; Veda Bharghav</p>
+  </footer>
+
+  <!-- React Mount -->
   <script type="text/babel" src="app.js"></script>
 </body>
 </html>
