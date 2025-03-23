@@ -148,28 +148,28 @@ function App() {
         </div>
       </section>
 
-      {/* Photography Slideshow */}
-      <section id="photography" className="text-center py-10 fade-up">
-        <h2 className="section-title">Photography</h2>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
-          Wildlife photography captures the raw beauty of nature in motion. Here are a few of my best shots.
-        </p>
-        <div className="flex justify-center">
-          <img
-            src={`images/${photos[photoIndex]}`}
-            alt="Wildlife"
-            className="photo-img select-none pointer-events-none"
-            onContextMenu={(e) => e.preventDefault()}
-            draggable={false}
-          />
-        </div>
-      </section>
+<section id="photography" className="text-center py-10 fade-up">
+  <h2 className="section-title">Photography</h2>
+  <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
+    Wildlife photography captures the raw beauty of nature in motion. Here are a few of my best shots.
+  </p>
+  <div className="relative max-w-2xl mx-auto overflow-hidden rounded-xl shadow-md">
+    <img
+      src={`images/${photos[photoIndex]}`}
+      alt="Wildlife"
+      className="w-full h-auto object-cover transition duration-1000 ease-in-out"
+      onContextMenu={(e) => e.preventDefault()}
+      draggable={false}
+    />
+  </div>
+</section>
+
 
       {/* Contact Form */}
       <section id="contact" className="text-center py-10 fade-up">
         <h2 className="section-title">Contact Me</h2>
         <form
-          action="https://formsubmit.co/8bcce5c779164f6884e3fd07bb16a95d"
+          action="https://formsubmit.co/el/fehage"
           method="POST"
           target="hidden_iframe"
           onSubmit={() => setShowThankYou(true)}
