@@ -11,10 +11,10 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=EB+Garamond&family=PT+Serif:wght@700&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome Icons -->
+  <!-- Font Awesome -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
 
-  <!-- Styles -->
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css" />
 
   <!-- Favicon -->
@@ -25,7 +25,7 @@
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  <!-- Disable Right Click & Auto Scroll -->
+  <!-- Disable Right Click + Auto Scroll -->
   <script>
     document.addEventListener('contextmenu', e => e.preventDefault());
     window.onload = () => {
@@ -68,15 +68,24 @@
     </div>
   </nav>
 
-  <!-- Root -->
+  <!-- React Mount -->
   <div id="root" class="pt-28"></div>
-  
-<!-- Footer -->
-<footer class="flex justify-between items-center text-xs text-gray-400 mt-10 mb-4 px-6">
-  <p class="text-[3px] italic text-left">&copy; PNGs from ©Freepik</p>
-  <p class="text-sm font-semibold text-center w-full text-black">&copy; ©Veda Bharghav</p>
-</footer>
 
+  <!-- PNG Carousel -->
+  <section class="py-6">
+    <div class="scroll-container">
+      <div class="scroll-row">
+        ${[...Array(18)].map((_, i) => `<img src="images/png${i + 1}.png" alt="png${i + 1}" class="h-14 mx-4 select-none pointer-events-none" draggable="false" />`).join("")}
+        ${[...Array(18)].map((_, i) => `<img src="images/png${i + 1}.png" alt="png${i + 1}" class="h-14 mx-4 select-none pointer-events-none" draggable="false" />`).join("")}
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="flex justify-between items-center text-xs text-gray-400 mt-10 mb-4 px-6">
+    <p class="text-[10px] italic text-left">&copy; PNGs from Freepik</p>
+    <p class="text-sm font-semibold text-black text-right">&copy; Veda Bharghav</p>
+  </footer>
 
   <!-- React App -->
   <script type="text/babel" src="app.js"></script>
