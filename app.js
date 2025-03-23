@@ -1,11 +1,17 @@
 const { useState, useEffect } = React;
 
-const roles = ["Data Analyst", "Data Engineer", "Wildlife Photographer", "AI Enthusiast""Transforming Data into Decisions, Pipelines into Performance"];
+const roles = [
+  "Data Analyst",
+  "Data Engineer",
+  "Wildlife Photographer",
+  "AI Enthusiast",
+  "Transforming Data into Decisions, Pipelines into Performance"
+];
 
 const summaryText = "Data Analyst with expertise in data visualization, statistical analysis, and predictive modeling. Skilled in automation, real-time analytics, and data-driven decision-making across tools like SQL, Power BI, Snowflake, and Python.";
 
 const techStack = {
-  Programming: ["SQL", "Python","HTML","CSS"],
+  Programming: ["SQL", "Python", "HTML", "CSS"],
   Databases: ["MySQL", "SQL Server", "PostgreSQL", "Snowflake"],
   Visualization: ["Power BI", "Tableau", "JMP", "Matplotlib", "Seaborn"],
   "Statistical Analysis": ["Regression", "Hypothesis Testing", "Time-Series"],
@@ -88,14 +94,14 @@ function App() {
 
   return (
     <div>
-      {/* Intro */}
+      {/* Intro Section */}
       <section id="home" className="text-center mt-32">
         <h1 className="name text-4xl sm:text-5xl mb-2">Hi, I'm Veda Bharghav</h1>
         <h2 className="text-xl text-blue-700 font-semibold mb-6">{roles[roleIndex]}</h2>
         <img src="images/banner.jpeg" alt="Banner" className="hero-image" />
       </section>
 
-      {/* Summary */}
+      {/* About Me Section */}
       <section id="summary" className="text-center mb-12">
         <h2 className="section-title">About Me</h2>
         <p className="letter-reveal max-w-4xl mx-auto text-lg">
@@ -142,7 +148,7 @@ function App() {
         </div>
       </section>
 
-      {/* Photography */}
+      {/* Photography Slideshow */}
       <section id="photography" className="text-center py-10 fade-up">
         <h2 className="section-title">Photography</h2>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
@@ -159,7 +165,7 @@ function App() {
         </div>
       </section>
 
-      {/* Contact */}
+      {/* Contact Form */}
       <section id="contact" className="text-center py-10 fade-up">
         <h2 className="section-title">Contact Me</h2>
         <form
