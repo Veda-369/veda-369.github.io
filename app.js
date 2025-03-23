@@ -161,21 +161,22 @@ function App() {
           Wildlife photography captures the raw beauty of nature in motion. Here are a few of my best shots.
         </p>
         <div className="w-full flex justify-center mb-8">
-          <img
-            src={`images/${photos[photoIndex]}`}
-            alt={`Wildlife ${photoIndex + 1}`}
-            className="photo-img select-none pointer-events-none"
-            onContextMenu={(e) => e.preventDefault()}
-            draggable={false}
-          />
-        </div>
+  <img
+    src={`images/${photos[photoIndex]}`}
+    alt={`Wildlife ${photoIndex + 1}`}
+    className="photo-img select-none pointer-events-none"
+    onContextMenu={(e) => e.preventDefault()}
+    draggable={false}
+  />
+</div>
+
       </section>
 
       {/* Contact Form */}
       <section id="contact" className="text-center py-10 fade-up">
         <h2 className="section-title">Contact Me</h2>
         <form
-          action="https://formsubmit.co/YOUR_EMAIL_HERE"
+          action="https://formsubmit.co/V.Bharghav3@Gmail.com"
           method="POST"
           className="max-w-xl mx-auto flex flex-col gap-4"
         >
