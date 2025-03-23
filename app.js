@@ -126,7 +126,7 @@ function App() {
         </div>
       </section>
 
-      {/* Projects */}
+      {/* Projects Section */}
       <section id="projects" className="text-center py-10 fade-up">
         <h2 className="section-title">Projects</h2>
         <div className="flex flex-col gap-10 items-center max-w-6xl mx-auto px-4">
@@ -148,22 +148,22 @@ function App() {
         </div>
       </section>
 
-<section id="photography" className="text-center py-10 fade-up">
-  <h2 className="section-title">Photography</h2>
-  <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
-    Wildlife photography captures the raw beauty of nature in motion. Here are a few of my best shots.
-  </p>
-  <div className="relative max-w-2xl mx-auto overflow-hidden rounded-xl shadow-md">
-    <img
-      src={`images/${photos[photoIndex]}`}
-      alt="Wildlife"
-      className="w-full h-auto object-cover transition duration-1000 ease-in-out"
-      onContextMenu={(e) => e.preventDefault()}
-      draggable={false}
-    />
-  </div>
-</section>
-
+      {/* Photography Section */}
+      <section id="photography" className="text-center py-10 fade-up">
+        <h2 className="section-title">Photography</h2>
+        <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
+          Wildlife photography captures the raw beauty of nature in motion. Here are a few of my best shots.
+        </p>
+        <div className="relative max-w-2xl mx-auto overflow-hidden rounded-xl shadow-md">
+          <img
+            src={`images/${photos[photoIndex]}`}
+            alt="Wildlife"
+            className="w-full h-auto object-cover transition duration-1000 ease-in-out"
+            onContextMenu={(e) => e.preventDefault()}
+            draggable={false}
+          />
+        </div>
+      </section>
 
       {/* Contact Form */}
       <section id="contact" className="text-center py-10 fade-up">
