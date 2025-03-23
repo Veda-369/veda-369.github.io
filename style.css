@@ -52,7 +52,23 @@ h1, h2, h3 {
   }
 }
 
-/* Project layout */
+/* Tech Stack Cards */
+.bg-slate-800 {
+  background-color: #1e293b;
+}
+
+/* Photo Slideshow */
+.photo-img {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 1rem;
+  transition: opacity 1s ease;
+  display: block;
+}
+
+/* Responsive Projects and Images */
 .project-zigzag {
   display: flex;
   justify-content: space-between;
@@ -69,61 +85,25 @@ h1, h2, h3 {
   flex: 1 1 40%;
 }
 
-/* Carousel layout (if needed again later) */
-.carousel-wrapper {
-  overflow: hidden;
-  width: 100%;
-  background: transparent;
-  margin-top: 1rem;
-}
-
-.carousel {
-  display: flex;
-  animation: scroll 25s linear infinite;
-  gap: 2rem;
-}
-
-.carousel img {
-  height: 50px;
-  user-select: none;
-  pointer-events: none;
-}
-
-@keyframes scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-/* Photo styles + Slideshow */
-.photo-img {
-  width: 100%;
-  max-width: 400px;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 1rem;
-  transition: opacity 1s ease;
-  display: none;
-}
-
-.photo-img.active {
-  display: block;
-  opacity: 1;
-}
-
-/* Responsive Images */
 @media (max-width: 768px) {
   .project-zigzag {
     flex-direction: column;
-  }
-
-  .carousel {
-    gap: 1rem;
   }
 
   .photo-img {
     max-width: 100%;
     height: auto;
   }
+}
+
+/* Letter Reveal Animation */
+.letter-reveal span {
+  opacity: 0.4;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.letter-reveal span.visible {
+  opacity: 1;
 }
 
 /* Disable image interactions */
