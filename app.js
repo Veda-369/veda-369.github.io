@@ -1,8 +1,9 @@
 const { useState, useEffect } = React;
 
 const roles = ["Data Analyst", "Data Engineer", "Wildlife Photographer", "AI Enthusiast"];
-
 const summaryText = "Data Analyst with expertise in data visualization, statistical analysis, and predictive modeling. Skilled in automation, real-time analytics, and data-driven decision-making across tools like SQL, Power BI, Snowflake, and Python.";
+const photos = ["photo1.jpg", "photo2.jpg", "photo3.jpg"];
+const pngs = Array.from({ length: 18 }, (_, i) => `images/png${i + 1}.png`);
 
 const techStack = {
   Programming: ["SQL", "Python"],
@@ -55,8 +56,6 @@ const projects = [
   }
 ];
 
-const photos = ["photo1.jpg", "photo2.jpg", "photo3.jpg"];
-
 function App() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [revealed, setRevealed] = useState([]);
@@ -70,14 +69,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      const element = document.getElementById("about");
-      if (element) element.scrollIntoView({ behavior: "smooth" });
-    }, 5000);
-    return () => clearTimeout(timeout);
-  }, []);
-
-  useEffect(() => {
     const chars = summaryText.split("");
     chars.forEach((_, i) => {
       setTimeout(() => {
@@ -87,23 +78,23 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const slideshow = setInterval(() => {
       setPhotoIndex((prev) => (prev + 1) % photos.length);
-    }, 3000);
-    return () => clearInterval(timer);
+    }, 3500);
+    return () => clearInterval(slideshow);
   }, []);
 
   return (
     <div>
-      {/* Intro Section */}
+      {/* Intro */}
       <section id="home" className="text-center mt-32">
         <h1 className="name text-4xl sm:text-5xl mb-2">Hi, I'm Veda Bharghav</h1>
         <h2 className="text-xl text-blue-700 font-semibold mb-6">{roles[roleIndex]}</h2>
         <img src="images/banner.jpeg" alt="Banner" className="mx-auto w-full max-w-screen-xl rounded-xl mb-6" />
       </section>
 
-      {/* About */}
-      <section id="about" className="text-center mb-12">
+      {/* About / Summary */}
+      <section id="summary" className="text-center mb-12">
         <h2 className="section-title">About Me</h2>
         <p className="letter-reveal max-w-4xl mx-auto text-lg">
           {summaryText.split("").map((char, i) => (
@@ -127,18 +118,15 @@ function App() {
         </div>
       </section>
 
-      {/* Carousel below Tech Stack */}
+      {/* PNG Carousel */}
       <section className="py-6">
         <div className="carousel-wrapper">
           <div className="carousel">
-            {[...Array(18)].map((_, i) => (
-              <img
-                key={i}
-                src={`images/png${i + 1}.png`}
-                alt={`png${i + 1}`}
-                className="select-none pointer-events-none"
-                draggable={false}
-              />
+            {pngs.map((src, i) => (
+              <img key={i} src={src} alt={`png${i + 1}`} className="select-none" draggable="false" />
+            ))}
+            {pngs.map((src, i) => (
+              <img key={`dup-${i}`} src={src} alt={`png${i + 1}`} className="select-none" draggable="false" />
             ))}
           </div>
         </div>
@@ -151,7 +139,7 @@ function App() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className={`project-card w-full sm:w-5/6 md:w-3/4 lg:w-2/3 ${
+              className={`bg-white border border-gray-300 p-6 shadow-md rounded-xl w-full sm:w-5/6 md:w-3/4 lg:w-2/3 text-left transition transform hover:scale-[1.01] ${
                 index % 2 === 0 ? "self-start" : "self-end"
               }`}
             >
@@ -166,44 +154,47 @@ function App() {
         </div>
       </section>
 
-      {/* Photography */}
+      {/* Photography Slideshow */}
       <section id="photography" className="text-center py-10 fade-up">
         <h2 className="section-title">Photography</h2>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
           Wildlife photography captures the raw beauty of nature in motion. Here are a few of my best shots.
         </p>
-
-        <div className="slideshow">
-          {photos.map((src, i) => (
-            <img
-              key={i}
-              src={`images/${src}`}
-              alt={`photo${i + 1}`}
-              className={`photo-img ${i === photoIndex ? "opacity-100" : "opacity-0"} absolute`}
-              style={{ transition: "opacity 1s ease-in-out" }}
-              onContextMenu={(e) => e.preventDefault()}
-              draggable={false}
-            />
-          ))}
+        <div className="w-full flex justify-center mb-8">
+          <img
+            src={`images/${photos[photoIndex]}`}
+            alt={`Wildlife ${photoIndex + 1}`}
+            className="photo-img select-none pointer-events-none"
+            onContextMenu={(e) => e.preventDefault()}
+            draggable={false}
+          />
         </div>
       </section>
 
-      {/* Contact */}
+      {/* Contact Form */}
       <section id="contact" className="text-center py-10 fade-up">
         <h2 className="section-title">Contact Me</h2>
-        <form className="max-w-xl mx-auto flex flex-col gap-4">
-          <input type="text" placeholder="Name" className="p-3 rounded-md border" required />
-          <input type="email" placeholder="Email" className="p-3 rounded-md border" required />
-          <input type="text" placeholder="Contact Number" className="p-3 rounded-md border" />
-          <textarea placeholder="Message" rows="4" className="p-3 rounded-md border" required></textarea>
-          <button className="bg-blue-700 text-white font-bold py-2 rounded-md hover:bg-blue-900 transition">Send</button>
+        <form
+          action="https://formsubmit.co/YOUR_EMAIL_HERE"
+          method="POST"
+          className="max-w-xl mx-auto flex flex-col gap-4"
+        >
+          <input type="text" name="name" placeholder="Name" className="p-3 rounded-md border" required />
+          <input type="email" name="email" placeholder="Email" className="p-3 rounded-md border" required />
+          <input type="text" name="contact" placeholder="Contact Number" className="p-3 rounded-md border" />
+          <textarea name="message" placeholder="Message" rows="4" className="p-3 rounded-md border" required></textarea>
+          <button className="bg-blue-700 text-white font-bold py-2 rounded-md hover:bg-blue-900 transition">
+            Send
+          </button>
         </form>
       </section>
 
       {/* Footer */}
       <footer className="text-sm text-gray-400 flex justify-between px-6 py-4">
-        <div className="text-left text-xs italic">PNGs are copyright Freepik. Wildlife photographs © Veda Bharghav.</div>
-        <div className="text-right font-semibold text-black">© Veda Bharghav</div>
+        <div className="text-left text-xs italic">
+          PNGs are copyright Freepik. Wildlife photographs © Veda Bharghav.
+        </div>
+        <div className="text-right font-semibold text-black text-sm">© Veda Bharghav</div>
       </footer>
     </div>
   );
