@@ -106,7 +106,6 @@ input, textarea {
   }
 }
 
-
 .carousel-wrapper {
   overflow: hidden;
   width: 100%;
@@ -126,11 +125,6 @@ input, textarea {
   margin-right: 2rem;
   pointer-events: none;
   user-select: none;
-}
-
-@keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
 }
 
 @media (max-width: 768px) {
