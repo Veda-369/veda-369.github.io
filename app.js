@@ -180,7 +180,34 @@ function App() {
       {/* Contact */}
       <section id="contact" className="text-center py-10 fade-up">
         <h2 className="section-title">Contact Me</h2>
-        <form
+        
+       <form
+  action="https://formsubmit.co/el/fehage"
+  method="POST"
+  target="hidden_iframe"
+  onSubmit={() => setShowThankYou(true)}
+  className="max-w-xl mx-auto flex flex-col gap-4"
+>
+  <input type="hidden" name="_captcha" value="true" />
+  <input type="hidden" name="_next" value="https://veda-369.github.io/#contact" />
+
+  <input type="text" name="name" placeholder="Name" className="p-3 rounded-md border" required />
+  <input type="email" name="email" placeholder="Email" className="p-3 rounded-md border" required />
+  <input type="text" name="contact" placeholder="Contact Number" className="p-3 rounded-md border" />
+  <textarea name="message" placeholder="Message" rows="4" className="p-3 rounded-md border" required></textarea>
+
+  <button type="submit" className="bg-blue-700 text-white font-bold py-2 rounded-md hover:bg-blue-900 transition">
+    Send
+  </button>
+
+  {showThankYou && (
+    <p className="text-green-600 font-semibold mt-2 text-center">
+      Thanks! Your message has been sent.
+    </p>
+  )}
+</form>
+<iframe name="hidden_iframe" style={{ display: "none" }}></iframe>
+ <form
           action="https://formsubmit.co/v.bharghav3@gmail.com"
           method="POST"
           target="hidden_iframe"
