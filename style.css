@@ -52,16 +52,15 @@ h1, h2, h3 {
   }
 }
 
-/* About Text Reveal */
 .letter-reveal span {
   opacity: 0.4;
   transition: opacity 0.4s ease-in-out;
 }
+
 .letter-reveal span.visible {
   opacity: 1;
 }
 
-/* Photography Image */
 .photo-img {
   width: 250px;
   height: 250px;
@@ -79,23 +78,22 @@ img.select-none {
   pointer-events: none;
 }
 
-/* Form Fields */
 input, textarea {
   outline: none;
   border: 1px solid #ccc;
 }
 
-/* Carousel PNGs */
 .carousel-wrapper {
   overflow: hidden;
   width: 100%;
-  padding: 1rem 0;
+  margin: 0 auto;
+  padding: 1.5rem 0;
   background: transparent;
 }
 
 .carousel {
   display: flex;
-  animation: scroll 30s linear infinite;
+  animation: scroll 40s linear infinite;
   width: max-content;
 }
 
@@ -111,7 +109,6 @@ input, textarea {
   100% { transform: translateX(-50%); }
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .photo-img {
     width: 100%;
@@ -129,7 +126,6 @@ input, textarea {
   }
 }
 
-/* Footer Font */
 footer {
   font-family: 'EB Garamond', serif;
 }
