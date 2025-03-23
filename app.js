@@ -1,12 +1,11 @@
 const { useState, useEffect } = React;
 
-const roles = ["Data Analyst", "Data Engineer", "Wildlife Photographer", "AI Enthusiast"];
+const roles = ["Data Analyst", "Data Engineer", "Wildlife Photographer", "AI Enthusiast""Transforming Data into Decisions, Pipelines into Performance"];
+
 const summaryText = "Data Analyst with expertise in data visualization, statistical analysis, and predictive modeling. Skilled in automation, real-time analytics, and data-driven decision-making across tools like SQL, Power BI, Snowflake, and Python.";
-const photos = ["photo1.jpg", "photo2.jpg", "photo3.jpg"];
-const pngs = Array.from({ length: 18 }, (_, i) => `images/png${i + 1}.png`);
 
 const techStack = {
-  Programming: ["SQL", "Python"],
+  Programming: ["SQL", "Python","HTML","CSS"],
   Databases: ["MySQL", "SQL Server", "PostgreSQL", "Snowflake"],
   Visualization: ["Power BI", "Tableau", "JMP", "Matplotlib", "Seaborn"],
   "Statistical Analysis": ["Regression", "Hypothesis Testing", "Time-Series"],
@@ -56,9 +55,12 @@ const projects = [
   }
 ];
 
+const photos = ["photo1.jpg", "photo2.jpg", "photo3.jpg"];
+
 function App() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [revealed, setRevealed] = useState([]);
+  const [showThankYou, setShowThankYou] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
 
   useEffect(() => {
@@ -78,10 +80,10 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const slideshow = setInterval(() => {
+    const interval = setInterval(() => {
       setPhotoIndex((prev) => (prev + 1) % photos.length);
-    }, 3500);
-    return () => clearInterval(slideshow);
+    }, 4000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -90,10 +92,10 @@ function App() {
       <section id="home" className="text-center mt-32">
         <h1 className="name text-4xl sm:text-5xl mb-2">Hi, I'm Veda Bharghav</h1>
         <h2 className="text-xl text-blue-700 font-semibold mb-6">{roles[roleIndex]}</h2>
-        <img src="images/banner.jpeg" alt="Banner" className="mx-auto w-full max-w-screen-xl rounded-xl mb-6" />
+        <img src="images/banner.jpeg" alt="Banner" className="hero-image" />
       </section>
 
-      {/* About / Summary */}
+      {/* Summary */}
       <section id="summary" className="text-center mb-12">
         <h2 className="section-title">About Me</h2>
         <p className="letter-reveal max-w-4xl mx-auto text-lg">
@@ -115,20 +117,6 @@ function App() {
               <p className="text-sm">{items.join(", ")}</p>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* PNG Carousel */}
-      <section className="py-6">
-        <div className="carousel-wrapper">
-          <div className="carousel">
-            {pngs.map((src, i) => (
-              <img key={i} src={src} alt={`png${i + 1}`} className="select-none" draggable="false" />
-            ))}
-            {pngs.map((src, i) => (
-              <img key={`dup-${i}`} src={src} alt={`png${i + 1}`} className="select-none" draggable="false" />
-            ))}
-          </div>
         </div>
       </section>
 
@@ -154,49 +142,53 @@ function App() {
         </div>
       </section>
 
-      {/* Photography Slideshow */}
+      {/* Photography */}
       <section id="photography" className="text-center py-10 fade-up">
         <h2 className="section-title">Photography</h2>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
           Wildlife photography captures the raw beauty of nature in motion. Here are a few of my best shots.
         </p>
-        <div className="w-full flex justify-center mb-8">
-  <img
-    src={`images/${photos[photoIndex]}`}
-    alt={`Wildlife ${photoIndex + 1}`}
-    className="photo-img select-none pointer-events-none"
-    onContextMenu={(e) => e.preventDefault()}
-    draggable={false}
-  />
-</div>
-
+        <div className="flex justify-center">
+          <img
+            src={`images/${photos[photoIndex]}`}
+            alt="Wildlife"
+            className="photo-img select-none pointer-events-none"
+            onContextMenu={(e) => e.preventDefault()}
+            draggable={false}
+          />
+        </div>
       </section>
 
-      {/* Contact Form */}
+      {/* Contact */}
       <section id="contact" className="text-center py-10 fade-up">
         <h2 className="section-title">Contact Me</h2>
         <form
-          action="https://formsubmit.co/V.Bharghav3@Gmail.com"
+          action="https://formsubmit.co/8bcce5c779164f6884e3fd07bb16a95d"
           method="POST"
+          target="hidden_iframe"
+          onSubmit={() => setShowThankYou(true)}
           className="max-w-xl mx-auto flex flex-col gap-4"
         >
+          <input type="hidden" name="_captcha" value="true" />
+          <input type="hidden" name="_next" value="https://veda-369.github.io/#contact" />
+
           <input type="text" name="name" placeholder="Name" className="p-3 rounded-md border" required />
           <input type="email" name="email" placeholder="Email" className="p-3 rounded-md border" required />
           <input type="text" name="contact" placeholder="Contact Number" className="p-3 rounded-md border" />
           <textarea name="message" placeholder="Message" rows="4" className="p-3 rounded-md border" required></textarea>
-          <button className="bg-blue-700 text-white font-bold py-2 rounded-md hover:bg-blue-900 transition">
+
+          <button type="submit" className="bg-blue-700 text-white font-bold py-2 rounded-md hover:bg-blue-900 transition">
             Send
           </button>
-        </form>
-      </section>
 
-      {/* Footer */}
-      <footer className="text-sm text-gray-400 flex justify-between px-6 py-4">
-        <div className="text-left text-xs italic">
-          PNGs are copyright Freepik. Wildlife photographs © Veda Bharghav.
-        </div>
-        <div className="text-right font-semibold text-black text-sm">© Veda Bharghav</div>
-      </footer>
+          {showThankYou && (
+            <p className="text-green-600 font-semibold mt-2 text-center">
+              Thanks! Your message has been sent.
+            </p>
+          )}
+        </form>
+        <iframe name="hidden_iframe" style={{ display: "none" }}></iframe>
+      </section>
     </div>
   );
 }
