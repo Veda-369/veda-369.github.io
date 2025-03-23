@@ -52,58 +52,7 @@ h1, h2, h3 {
   }
 }
 
-/* PNG Carousel */
-.carousel-wrapper {
-  overflow: hidden;
-  width: 100%;
-  padding: 1rem 0;
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-}
-
-.carousel {
-  display: flex;
-  animation: scroll 25s linear infinite;
-  width: fit-content;
-}
-
-.carousel img {
-  height: 60px;
-  margin: 0 1rem;
-  pointer-events: none;
-  user-select: none;
-}
-
-@keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* Photography */
-.photo-img {
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 1rem;
-  transition: transform 0.4s ease;
-}
-
-.photo-img:hover {
-  transform: scale(1.05);
-}
-
-/* Summary text letter-by-letter animation */
-.letter-reveal span {
-  opacity: 0.4;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.letter-reveal span.visible {
-  opacity: 1;
-}
-
-/* Project Cards Zigzag */
+/* Project layout */
 .project-zigzag {
   display: flex;
   justify-content: space-between;
@@ -120,33 +69,66 @@ h1, h2, h3 {
   flex: 1 1 40%;
 }
 
-/* Banner Styling */
-.hero-image {
-  max-width: 100%;
-  height: auto;
-  margin: 2rem auto 1rem;
-  display: block;
-  border-radius: 0.5rem;
+/* Carousel layout (if needed again later) */
+.carousel-wrapper {
+  overflow: hidden;
+  width: 100%;
+  background: transparent;
+  margin-top: 1rem;
 }
 
-/* Responsive */
+.carousel {
+  display: flex;
+  animation: scroll 25s linear infinite;
+  gap: 2rem;
+}
+
+.carousel img {
+  height: 50px;
+  user-select: none;
+  pointer-events: none;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Photo styles + Slideshow */
+.photo-img {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 1rem;
+  transition: opacity 1s ease;
+  display: none;
+}
+
+.photo-img.active {
+  display: block;
+  opacity: 1;
+}
+
+/* Responsive Images */
 @media (max-width: 768px) {
   .project-zigzag {
     flex-direction: column;
   }
 
-  .carousel img {
-    height: 50px;
-    margin: 0 0.5rem;
+  .carousel {
+    gap: 1rem;
   }
 
   .photo-img {
-    width: 100%;
-    max-width: 300px;
+    max-width: 100%;
     height: auto;
   }
+}
 
-  .carousel-wrapper {
-    padding: 0.5rem 0;
-  }
+/* Disable image interactions */
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
 }
