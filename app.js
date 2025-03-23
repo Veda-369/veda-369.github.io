@@ -1,4 +1,3 @@
-
 const { useState, useEffect } = React;
 
 const roles = ["Data Analyst", "Data Engineer", "Wildlife Photographer", "AI Enthusiast"];
@@ -61,13 +60,21 @@ const photos = ["photo1.jpg", "photo2.jpg", "photo3.jpg"];
 function App() {
   const [roleIndex, setRoleIndex] = useState(0);
   const [revealed, setRevealed] = useState([]);
-  const [currentPhoto, setCurrentPhoto] = useState(0);
+  const [photoIndex, setPhotoIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const roleInterval = setInterval(() => {
       setRoleIndex((prev) => (prev + 1) % roles.length);
     }, 3000);
-    return () => clearInterval(interval);
+    return () => clearInterval(roleInterval);
+  }, []);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      const element = document.getElementById("about");
+      if (element) element.scrollIntoView({ behavior: "smooth" });
+    }, 5000);
+    return () => clearTimeout(timeout);
   }, []);
 
   useEffect(() => {
@@ -81,19 +88,21 @@ function App() {
 
   useEffect(() => {
     const slideshow = setInterval(() => {
-      setCurrentPhoto((prev) => (prev + 1) % photos.length);
-    }, 3000);
+      setPhotoIndex((prev) => (prev + 1) % photos.length);
+    }, 3500);
     return () => clearInterval(slideshow);
   }, []);
 
   return (
     <div>
+      {/* Hero Section */}
       <section id="home" className="text-center mt-32">
         <h1 className="name text-4xl sm:text-5xl mb-2">Hi, I'm Veda Bharghav</h1>
         <h2 className="text-xl text-blue-700 font-semibold mb-6">{roles[roleIndex]}</h2>
         <img src="images/banner.jpeg" alt="Banner" className="mx-auto w-full max-w-screen-xl rounded-xl mb-6" />
       </section>
 
+      {/* About Summary */}
       <section id="about" className="text-center mb-12">
         <h2 className="section-title">About Me</h2>
         <p className="letter-reveal max-w-4xl mx-auto text-lg">
@@ -105,6 +114,7 @@ function App() {
         </p>
       </section>
 
+      {/* Tech Stack */}
       <section id="techstack" className="text-center py-10 fade-up">
         <h2 className="section-title">Tech Stack</h2>
         <div className="flex flex-wrap justify-center items-start gap-4 max-w-5xl mx-auto">
@@ -117,11 +127,17 @@ function App() {
         </div>
       </section>
 
+      {/* Projects */}
       <section id="projects" className="text-center py-10 fade-up">
         <h2 className="section-title">Projects</h2>
         <div className="flex flex-col gap-10 items-center max-w-6xl mx-auto px-4">
           {projects.map((project, index) => (
-            <div key={index} className={\`bg-white border border-gray-300 p-6 shadow-md rounded-xl w-full sm:w-5/6 md:w-3/4 lg:w-2/3 text-left transition transform hover:scale-[1.01] \${index % 2 === 0 ? "self-start" : "self-end"}\`}>
+            <div
+              key={index}
+              className={`bg-white border border-gray-300 p-6 shadow-md rounded-xl w-full sm:w-5/6 md:w-3/4 lg:w-2/3 text-left transition transform hover:scale-[1.01] ${
+                index % 2 === 0 ? "self-start" : "self-end"
+              }`}
+            >
               <h3 className="text-xl font-semibold text-blue-800 mb-2">{project.title}</h3>
               <ul className="list-disc list-inside text-gray-700">
                 {project.details.map((point, i) => (
@@ -133,21 +149,24 @@ function App() {
         </div>
       </section>
 
+      {/* Photography */}
       <section id="photography" className="text-center py-10 fade-up">
         <h2 className="section-title">Photography</h2>
         <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-6">
           Wildlife photography captures the raw beauty of nature in motion. Here are a few of my best shots.
         </p>
-        <div className="mx-auto w-full max-w-md relative h-[300px]">
+        <div className="flex justify-center">
           <img
-            src={\`images/\${photos[currentPhoto]}\`}
-            alt="Slideshow"
-            className="w-full h-full object-cover rounded-xl transition-opacity duration-700 ease-in-out"
-            style={{ opacity: 1 }}
+            src={`images/${photos[photoIndex]}`}
+            alt={`Wildlife ${photoIndex + 1}`}
+            className="photo-img select-none pointer-events-none"
+            onContextMenu={(e) => e.preventDefault()}
+            draggable={false}
           />
         </div>
       </section>
 
+      {/* Contact */}
       <section id="contact" className="text-center py-10 fade-up">
         <h2 className="section-title">Contact Me</h2>
         <form className="max-w-xl mx-auto flex flex-col gap-4">
@@ -158,6 +177,12 @@ function App() {
           <button className="bg-blue-700 text-white font-bold py-2 rounded-md hover:bg-blue-900 transition">Send</button>
         </form>
       </section>
+
+      {/* Footer */}
+      <footer className="text-sm text-gray-400 flex justify-between px-6 py-4">
+        <div className="text-left italic text-[10px]">PNGs are copyright Freepik. Wildlife photographs © Veda Bharghav.</div>
+        <div className="text-right font-bold text-black">© Veda Bharghav</div>
+      </footer>
     </div>
   );
 }
