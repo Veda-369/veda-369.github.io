@@ -184,7 +184,7 @@ function App() {
       <section id="contact" className="text-center py-10 fade-up">
         <h2 className="section-title">Contact Me</h2>
         <form
-          action="https://formsubmit.co/el/8bcce5c779164f6884e3fd07bb16a95d"
+          action="https://formsubmit.co/el/confirm/c8196a78295e4401ff87818311bb1e72"
           method="POST"
           target="hidden_iframe"
           onSubmit={() => setShowThankYou(true)}
@@ -213,7 +213,7 @@ function App() {
 
       {/* Footer */}
       <footer className="flex justify-between items-center text-xs text-gray-400 mt-10 mb-4 px-6">
-        <p className="text-[10px] italic text-left">&copy; PNGs from Freepik</p>
+        <p className="text-[02px] italic text-left">&copy; PNGs from Freepik</p>
         <p className="text-sm font-semibold text-black text-right">&copy; Veda Bharghav</p>
       </footer>
     </div>
