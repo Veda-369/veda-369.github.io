@@ -11,8 +11,8 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=EB+Garamond&family=PT+Serif:wght@700&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <!-- Font Awesome Icons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
 
   <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
@@ -20,35 +20,36 @@
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>V</text></svg>">
 
-  <!-- React + Babel -->
+  <!-- React -->
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-  <!-- Disable Right Click + Scroll After 5s -->
+  <!-- Disable Right Click & Auto Scroll -->
   <script>
     document.addEventListener('contextmenu', e => e.preventDefault());
     window.onload = () => {
       setTimeout(() => {
-        document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
+        document.querySelector('#summary')?.scrollIntoView({ behavior: 'smooth' });
       }, 5000);
     };
   </script>
 </head>
 
 <body class="bg-[#f7f9fc] text-gray-800 scroll-smooth">
-  <!-- Navbar -->
+
+  <!-- Navigation -->
   <nav class="fixed top-0 w-full bg-white bg-opacity-90 shadow-md z-50">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       <div class="text-xl font-bold tracking-wide text-[#00bfa6]">Veda</div>
-      <div class="hidden md:flex space-x-6 text-lg font-semibold items-center">
-        <a href="#about" class="hover:text-blue-600 transition">About</a>
+      <div class="hidden md:flex space-x-5 text-lg font-semibold items-center">
+        <a href="#summary" class="hover:text-blue-600 transition">About</a>
         <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
         <a href="#techstack" class="hover:text-blue-600 transition">Tech Stack</a>
         <a href="#photography" class="hover:text-blue-600 transition">Photography</a>
         <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
         <a href="https://github.com/veda-369" target="_blank" class="hover:text-blue-600"><i class="fab fa-github fa-lg"></i></a>
-        <a href="https://linkedin.com/in/your-profile" target="_blank" class="hover:text-blue-600"><i class="fab fa-linkedin fa-lg"></i></a>
+        <a href="https://www.linkedin.com/in/veda-bharghav-a61aa6304/" target="_blank" class="hover:text-blue-600"><i class="fab fa-linkedin fa-lg"></i></a>
       </div>
       <div class="md:hidden block">
         <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
@@ -57,7 +58,7 @@
       </div>
     </div>
     <div id="mobileMenu" class="md:hidden px-6 pb-4 hidden">
-      <a href="#about" class="block py-1">About</a>
+      <a href="#summary" class="block py-1">About</a>
       <a href="#projects" class="block py-1">Projects</a>
       <a href="#techstack" class="block py-1">Tech Stack</a>
       <a href="#photography" class="block py-1">Photography</a>
@@ -67,10 +68,16 @@
     </div>
   </nav>
 
-  <!-- React Root -->
+  <!-- Root -->
   <div id="root" class="pt-28"></div>
 
-  <!-- Mount App -->
+  <!-- Footer -->
+  <footer class="text-sm text-gray-400 flex justify-between px-6 py-4">
+    <div class="text-left text-xs italic">PNGs are copyright Freepik. Wildlife photographs © Veda Bharghav.</div>
+    <div class="text-right font-bold text-black">© Veda Bharghav</div>
+  </footer>
+
+  <!-- React App -->
   <script type="text/babel" src="app.js"></script>
 </body>
 </html>
