@@ -101,7 +101,7 @@ function App() {
         <img src="images/banner.jpeg" alt="Banner" className="hero-image" />
       </section>
 
-      {/* About Me */}
+      {/* About */}
       <section id="summary" className="text-center mb-12">
         <h2 className="section-title">About Me</h2>
         <p className="letter-reveal max-w-4xl mx-auto text-lg">
@@ -129,11 +129,14 @@ function App() {
       {/* PNG Carousel */}
       <section className="carousel-wrapper">
         <div className="carousel">
-          {[...Array(18)].map((_, i) => (
-            <img key={`a-${i}`} src={`images/png${i + 1}.png`} alt={`png${i + 1}`} />
-          ))}
-          {[...Array(18)].map((_, i) => (
-            <img key={`b-${i}`} src={`images/png${i + 1}.png`} alt={`png${i + 1}`} />
+          {[...Array(36)].map((_, i) => (
+            <img
+              key={i}
+              src={`images/png${(i % 18) + 1}.png`}
+              alt={`png${(i % 18) + 1}`}
+              className="h-14 mx-4 select-none pointer-events-none"
+              draggable={false}
+            />
           ))}
         </div>
       </section>
@@ -177,38 +180,11 @@ function App() {
         </div>
       </section>
 
-      {/* Contact */}
+      {/* Contact Form */}
       <section id="contact" className="text-center py-10 fade-up">
         <h2 className="section-title">Contact Me</h2>
-        
-       <form
-  action="https://formsubmit.co/el/fehage"
-  method="POST"
-  target="hidden_iframe"
-  onSubmit={() => setShowThankYou(true)}
-  className="max-w-xl mx-auto flex flex-col gap-4"
->
-  <input type="hidden" name="_captcha" value="true" />
-  <input type="hidden" name="_next" value="https://veda-369.github.io/#contact" />
-
-  <input type="text" name="name" placeholder="Name" className="p-3 rounded-md border" required />
-  <input type="email" name="email" placeholder="Email" className="p-3 rounded-md border" required />
-  <input type="text" name="contact" placeholder="Contact Number" className="p-3 rounded-md border" />
-  <textarea name="message" placeholder="Message" rows="4" className="p-3 rounded-md border" required></textarea>
-
-  <button type="submit" className="bg-blue-700 text-white font-bold py-2 rounded-md hover:bg-blue-900 transition">
-    Send
-  </button>
-
-  {showThankYou && (
-    <p className="text-green-600 font-semibold mt-2 text-center">
-      Thanks! Your message has been sent.
-    </p>
-  )}
-</form>
-<iframe name="hidden_iframe" style={{ display: "none" }}></iframe>
- <form
-          action="https://formsubmit.co/v.bharghav3@gmail.com"
+        <form
+          action="https://formsubmit.co/el/fehage"
           method="POST"
           target="hidden_iframe"
           onSubmit={() => setShowThankYou(true)}
@@ -234,6 +210,12 @@ function App() {
         </form>
         <iframe name="hidden_iframe" style={{ display: "none" }}></iframe>
       </section>
+
+      {/* Footer */}
+      <footer className="flex justify-between items-center text-xs text-gray-400 mt-10 mb-4 px-6">
+        <p className="text-[10px] italic text-left">&copy; PNGs from Freepik</p>
+        <p className="text-sm font-semibold text-black text-right">&copy; Veda Bharghav</p>
+      </footer>
     </div>
   );
 }
