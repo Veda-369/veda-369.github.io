@@ -44,6 +44,15 @@ const projects = [
     ]
   },
   {
+  title: "Accident Severity & Trend Analysis – India",
+  details: [
+    "Developed a Power BI dashboard analyzing 3,000+ road accident records (2018–2023) across Indian states.",
+    "Explored accident severity, monthly trends, road types, weather conditions, speed limits, and driver behavior.",
+    "Created custom DAX measures for KPIs like alcohol involvement %, average vehicles per accident, and casualties per 100 accidents.",
+    "Designed interactive visuals with slicers for severity, state, year, and environment filters to enable dynamic insights."
+  ]
+},
+  {
     title: "Retail Analytics Dashboard",
     details: [
       "Optimized Spark jobs on Databricks for retail demand forecasting.",
