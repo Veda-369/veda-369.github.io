@@ -1,58 +1,37 @@
-# Veda Bharghav — Portfolio V2
+# Veda Bharghav — Portfolio V3
 
-Static GitHub Pages portfolio. No build step is required.
+Static multi-page GitHub Pages portfolio.
 
-## Pages / URLs
+## Routes
 - `index.html` — Home
 - `experience.html` — Experience
-- `work.html` — Selected Work
+- `work.html` — Selected work
 - `skills.html` — Skills
 - `photography.html` — Photography
 - `contact.html` — Contact
 
-Every primary section has its own URL. Navigation does not use `#section` anchors.
+## Photography replacement guide
+Do not edit `photography.html` just to swap photographs. Replace the JPG file in `/photos` and keep the same filename.
 
-## Photography replacement map
+| File | Best image type |
+| --- | --- |
+| `photo-01.jpg` | **Strongest image on the site.** Wide landscape / cinematic, 16:9 or 3:2. This is also used on the homepage teaser. |
+| `photo-02.jpg` | Portrait 4:5. Used on homepage teaser + gallery. |
+| `photo-03.jpg` | Landscape 3:2. |
+| `photo-04.jpg` | Portrait 4:5. |
+| `photo-05.jpg` | Landscape 3:2. |
+| `photo-06.jpg` | Landscape 3:2. |
+| `photo-07.jpg` | Landscape 3:2. |
+| `photo-08.jpg` | Square 1:1. |
+| `photo-09.jpg` | Square 1:1. |
+| `photo-10.jpg` | Square 1:1. |
+| `photo-11.jpg` | Portrait 4:5. |
+| `photo-12.jpg` | Landscape 3:2. |
 
-Replace the files below **with the exact same file names**. You do not need to edit HTML or CSS.
-
-| File | Best image orientation | Role in layout |
-|---|---|---|
-| `photos/photo-01.jpg` | Landscape 3:2 | Main gallery hero / strongest photo |
-| `photos/photo-02.jpg` | Portrait 4:5 | Tall companion image |
-| `photos/photo-03.jpg` | Landscape 3:2 | Medium landscape |
-| `photos/photo-04.jpg` | Portrait or flexible | Large companion frame |
-| `photos/photo-05.jpg` | Square 1:1 | Detail / close shot |
-| `photos/photo-06.jpg` | Wide 16:9 | Cinematic landscape |
-| `photos/photo-07.jpg` | Portrait 4:5 | Tall image |
-| `photos/photo-08.jpg` | Landscape 3:2 | Large landscape |
-| `photos/photo-09.jpg` | Portrait 4:5 | Detail / subject shot |
-| `photos/photo-10.jpg` | Landscape 3:2 | Large landscape |
-| `photos/photo-11.jpg` | Square 1:1 | Detail / texture / close crop |
-| `photos/photo-12.jpg` | Wide 16:9 | Closing panorama / finale |
-
-### Recommendation
-Use `photo-01`, `photo-06`, `photo-08`, and `photo-12` for the four strongest landscape images. Use `photo-02`, `photo-07`, and `photo-09` for the strongest portrait-oriented images.
-
-## Resume
-The résumé button points to:
-`resume/Veda_Bharghav_Resume.pdf`
-
-Replace that file with the same filename whenever the résumé changes.
+JPG is simplest. Keep each image reasonably optimized for the web (roughly 1600–2400 px on the long edge is plenty for this portfolio).
 
 ## Contact form
-The existing FormSubmit integration is preserved on `contact.html` and posts to `V.bharghav3@gmail.com` through a hidden iframe.
+The existing FormSubmit flow is preserved in `contact.html`.
 
-## Design system
-- Vanilla HTML / CSS / JavaScript
-- No build pipeline
-- Responsive desktop/tablet/mobile layouts
-- Interactive particle network background
-- Cursor aura
-- Intersection reveal animations
-- Magnetic buttons
-- 3D hover tilt
-- Animated KPI counters
-- Photography-only editorial theme
-- Image lightbox
-- `prefers-reduced-motion` accessibility support
+## Deploy
+Replace the files in the root of the `veda-369.github.io` repository with this folder's contents, commit to `main`, and push.
