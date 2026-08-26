@@ -115,7 +115,7 @@ qa('a[href]').forEach(a=>a.addEventListener('click',e=>{
 }));
 addEventListener('pageshow',()=>{const wipe=q('.page-transition');if(wipe){const currentMap={home:'to-home',experience:'to-experience',work:'to-work',skills:'to-skills',contact:'to-contact',photography:'to-photo'};wipe.className=`page-transition ${currentMap[document.body.dataset.page]||'to-home'} out`;setTimeout(()=>wipe.className='page-transition',730)}});
 
-// Photo metadata. Numbers refer to the visible filenames: photo 0.jpg, photo 1.jpg, etc.
+// Photo metadata. Known captions are matched by filename first, then by logical photo number.
 const photoMeta={
   1:{title:'Milky Way',place:'Zion National Park, Utah',categories:'astro landscapes'},
   3:{title:'Great Smoky Mountains',place:'Tennessee',categories:'landscapes nature travel'},
@@ -127,27 +127,42 @@ const photoMeta={
   31:{title:'Bear Rock Shadow',place:'',categories:'nature landscapes'},
   32:{title:'Tuckaleechee Caverns',place:'Tennessee',categories:'nature travel'}
 };
+const exactPhotoMeta={
+  'photo 26 (5)':{title:'Bear Rock Shadow',place:'',categories:'nature landscapes'},
+  'photo 26(5)':{title:'Bear Rock Shadow',place:'',categories:'nature landscapes'},
+  'photo 26 (6)':{title:'Tuckaleechee Caverns',place:'Tennessee',categories:'nature travel'},
+  'photo 26(6)':{title:'Tuckaleechee Caverns',place:'Tennessee',categories:'nature travel'}
+};
 
-function photoCandidates(i){
-  const list=[];
-  const stems=[`photos/photo ${i}`,`photos/photo${i}`,`photos/photo 0${i}`,`photos/photo0${i}`];
-  for(const stem of stems){for(const ext of ['.jpg','.jpeg','.png','.webp','.JPG','.JPEG','.PNG','.WEBP']) list.push(stem+ext)}
-  if(i>=27){
-    const n=i-26;
-    const extras=[`photos/photo 26(${n})`,`photos/photo 26 (${n})`,`photos/photo26(${n})`];
-    for(const stem of extras){for(const ext of ['.jpg','.jpeg','.png','.webp','.JPG','.JPEG','.PNG','.WEBP']) list.push(stem+ext)}
-  }
-  return [...new Set(list)];
+const imageExt=/\.(jpe?g|png|webp)$/i;
+const fileStem=name=>name.replace(/\.[^.]+$/,'').trim().toLowerCase();
+function logicalPhotoIndex(name){
+  const stem=fileStem(name);
+  const dup=stem.match(/^photo\s*(\d+)\s*\(\s*(\d+)\s*\)$/i);
+  if(dup)return Number(dup[1])+Number(dup[2]);
+  const direct=stem.match(/^photo\s*(\d+)$/i);
+  return direct?Number(direct[1]):Number.MAX_SAFE_INTEGER;
 }
-
-function loadPhotoWithFallback(img,i,onFail){
-  const candidates=photoCandidates(i);let at=0;
-  const next=()=>{
-    if(at>=candidates.length){onFail?.();return}
-    img.src=candidates[at++];
-  };
-  img.addEventListener('error',next);
-  next();
+function metaForFile(name){
+  const stem=fileStem(name);
+  return exactPhotoMeta[stem]||photoMeta[logicalPhotoIndex(name)]||{title:'',place:'',categories:''};
+}
+function naturalPhotoSort(a,b){
+  const ai=logicalPhotoIndex(a.name),bi=logicalPhotoIndex(b.name);
+  if(ai!==bi)return ai-bi;
+  return a.name.localeCompare(b.name,undefined,{numeric:true,sensitivity:'base'});
+}
+function priorityRank(file){
+  const priority=[1,14,24,17,3,21,12,8];
+  const idx=logicalPhotoIndex(file.name),rank=priority.indexOf(idx);
+  return rank===-1?999:rank;
+}
+function arrangePhotos(files){
+  return [...files].sort((a,b)=>{
+    const pa=priorityRank(a),pb=priorityRank(b);
+    if(pa!==pb)return pa-pb;
+    return naturalPhotoSort(a,b);
+  });
 }
 
 function setOrientation(img){
@@ -158,34 +173,66 @@ function setOrientation(img){
   fig.dataset.orientation=ratio<.92?'portrait':ratio>1.75?'panorama':'landscape';
 }
 
-// Hero photo 0 supports the same filename fallbacks.
-const heroPhoto=q('.hero-shot img[data-photo-index="0"]');
-if(heroPhoto){
-  const heroFig=heroPhoto.closest('.shot');
-  loadPhotoWithFallback(heroPhoto,0,()=>heroFig?.classList.add('image-missing'));
-  heroPhoto.addEventListener('load',()=>setOrientation(heroPhoto));
+function createPhotoFigure(file,position){
+  const meta=metaForFile(file.name);
+  const fig=document.createElement('figure');
+  fig.className='shot photo-item reveal';
+  fig.dataset.photo=file.name;
+  fig.dataset.category=meta.categories||'';
+  const img=document.createElement('img');
+  img.src=file.url;
+  img.alt=meta.place?`${meta.title} — ${meta.place}`:(meta.title||file.name.replace(/\.[^.]+$/,''));
+  img.loading=position<8?'eager':'lazy';
+  img.decoding='async';
+  img.setAttribute('draggable','false');
+  const cap=document.createElement('figcaption');
+  if(meta.title||meta.place)cap.innerHTML=`${meta.title?`<strong>${meta.title}</strong>`:''}${meta.place?`<span>${meta.place}</span>`:''}`;
+  else cap.hidden=true;
+  fig.append(img,cap);
+  img.addEventListener('load',()=>setOrientation(img));
+  img.addEventListener('error',()=>fig.classList.add('image-missing'));
+  return fig;
 }
 
-// Gallery supports photo 0.jpg through photo 37.jpg and can also tolerate alternate extensions / duplicate naming.
+async function getGitHubPhotos(){
+  const endpoint='https://api.github.com/repos/Veda-369/veda-369.github.io/contents/photos';
+  const response=await fetch(endpoint,{headers:{Accept:'application/vnd.github+json'},cache:'no-store'});
+  if(!response.ok)throw new Error(`GitHub photo listing failed: ${response.status}`);
+  const items=await response.json();
+  return items.filter(item=>item.type==='file'&&imageExt.test(item.name)&&item.download_url)
+    .map(item=>({name:item.name,url:item.download_url}));
+}
+
+// Local fallback for offline previews / temporary GitHub API failures.
+function localFallbackPhotos(){
+  const order=[1,14,24,17,3,21,12,8,0,2,4,5,6,7,9,10,11,13,15,16,18,19,20,22,23,25,26,27,28,29,30,31,32,33,34,35,36,37];
+  return order.map(i=>({name:`photo ${i}.jpg`,url:`photos/photo ${i}.jpg`}));
+}
+
+// Hero image remains photo 0; the main gallery below is populated dynamically from the GitHub /photos folder.
+const heroPhoto=q('.hero-shot img[data-photo-index="0"]');
+if(heroPhoto){
+  heroPhoto.addEventListener('load',()=>setOrientation(heroPhoto));
+  heroPhoto.addEventListener('error',()=>heroPhoto.closest('.shot')?.classList.add('image-missing'));
+}
+
 const gallery=q('#photo-grid');
 if(gallery){
-  const order=[1,14,24,17,3,21,12,8,2,4,5,6,7,9,10,11,13,15,16,18,19,20,22,23,25,26,27,28,29,30,31,32,33,34,35,36,37,0];
-  for(const i of order){
-    const meta=photoMeta[i]||{title:'',place:'',categories:''};
-    const fig=document.createElement('figure');fig.className='shot photo-item reveal';fig.dataset.photo=String(i);fig.dataset.category=meta.categories||'';
-    const img=document.createElement('img');img.alt=meta.place?`${meta.title} — ${meta.place}`:(meta.title||`Photo ${i}`);img.loading=order.indexOf(i)<8?'eager':'lazy';img.decoding='async';img.setAttribute('draggable','false');
-    const cap=document.createElement('figcaption');
-    if(meta.title||meta.place)cap.innerHTML=`${meta.title?`<strong>${meta.title}</strong>`:''}${meta.place?`<span>${meta.place}</span>`:''}`;
-    else cap.hidden=true;
-    fig.append(img,cap);gallery.appendChild(fig);
-    loadPhotoWithFallback(img,i,()=>fig.classList.add('image-missing'));
-    img.addEventListener('load',()=>setOrientation(img));
-  }
-
-  if('IntersectionObserver'in window){
-    const photoIO=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');photoIO.unobserve(e.target)}}),{threshold:.04});
-    qa('.photo-item').forEach(el=>photoIO.observe(el));
-  }else qa('.photo-item').forEach(el=>el.classList.add('visible'));
+  (async()=>{
+    let files=[];
+    try{
+      files=arrangePhotos(await getGitHubPhotos());
+    }catch(err){
+      console.warn(err);
+      files=localFallbackPhotos();
+    }
+    gallery.innerHTML='';
+    files.forEach((file,i)=>gallery.appendChild(createPhotoFigure(file,i)));
+    if('IntersectionObserver'in window){
+      const photoIO=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');photoIO.unobserve(e.target)}}),{threshold:.04});
+      qa('.photo-item').forEach(el=>photoIO.observe(el));
+    }else qa('.photo-item').forEach(el=>el.classList.add('visible'));
+  })();
 }
 
 // Photography lightbox.
@@ -227,4 +274,26 @@ if(document.body.dataset.page==='photography'){
       stopAuto();
     }
   },5000);
+}
+
+// V9.5: stronger best-effort photo protection.
+if(document.body.dataset.page==='photography'){
+  // Block browser context menus, drag/save gestures, and common Save Page/Image shortcuts.
+  document.addEventListener('contextmenu',e=>e.preventDefault(),{capture:true});
+  document.addEventListener('dragstart',e=>e.preventDefault(),{capture:true});
+  document.addEventListener('selectstart',e=>{
+    if(e.target.closest('.photo-grid,.photo-feature,.lightbox'))e.preventDefault();
+  },{capture:true});
+  document.addEventListener('keydown',e=>{
+    const save=(e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='s';
+    if(save){e.preventDefault();e.stopPropagation();}
+  },{capture:true});
+
+  // Some desktop capture utilities move focus away from the browser. Obscure photographs on blur.
+  // This may stop some capture workflows, but OS-level screenshots can still bypass browser code.
+  const obscure=()=>document.body.classList.add('photo-obscured');
+  const reveal=()=>setTimeout(()=>document.body.classList.remove('photo-obscured'),90);
+  window.addEventListener('blur',obscure);
+  window.addEventListener('focus',reveal);
+  document.addEventListener('visibilitychange',()=>document.hidden?obscure():reveal());
 }

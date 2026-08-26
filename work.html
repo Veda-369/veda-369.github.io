@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Projects — Veda Bharghav</title>
 <meta name="description" content="Detailed data engineering, analytics, AI/ML, and transportation projects by Veda Bharghav.">
-<link rel="stylesheet" href="assets/portfolio-v9.3.css?v=20260826-93">
+<link rel="stylesheet" href="assets/portfolio-v9.5.css?v=20260826-95">
 </head>
 <body data-page="work">
 <div class="progress"></div><div class="cursor"></div><div class="cursor-dot"></div><div class="page-transition"></div>
@@ -81,19 +81,20 @@
   </div>
 </section>
 
-<section class="case" id="healthcare-integration">
+<section class="case" id="breast-cancer">
   <div class="case-index">05</div>
   <div class="case-main">
-    <div class="case-label"><span>Professional work</span><span>Healthcare · Integration analytics</span></div>
-    <h2>Healthcare Operations Integration + Wait-Time Analytics</h2>
-    <p class="case-lead">A healthcare reporting and integration workflow designed to connect operational data, improve visibility, and reduce manual reporting effort for care teams.</p>
-    <div class="case-metrics"><div><strong>35%</strong><span>lower wait times</span></div><div><strong>30%</strong><span>higher adherence visibility</span></div><div><strong>25%</strong><span>less manual reporting</span></div></div>
+    <div class="case-label"><span>Portfolio project</span><span>Healthcare analytics · Tableau</span></div>
+    <h2>Breast Cancer Survival + Clinical Pattern Analysis</h2>
+    <p class="case-lead">A descriptive Tableau analysis of 4,024 breast-cancer patient records, built to move beyond a reassuring overall outcome rate and show where recorded outcomes diverge across disease severity and clinical characteristics.</p>
+    <div class="case-metrics"><div><strong>4,024</strong><span>patient records analyzed</span></div><div><strong>84.7%</strong><span>alive at last recorded follow-up</span></div><div><strong>16</strong><span>clinical and demographic fields</span></div></div>
     <div class="case-detail-grid">
-      <article><h3>Case addressed</h3><ul><li>Operational data used by care teams was fragmented across manual and semi-automated workflows.</li><li>Reporting lacked a single integrated view of wait times, throughput, and compliance trends.</li><li>Leadership needed faster and more reliable operational insight.</li></ul></article>
-      <article><h3>What I built</h3><ul><li>Integrated reporting flows using ETL, warehouse logic, and reusable BI layers.</li><li>Standardized performance views for wait-time tracking, throughput, and adherence monitoring.</li><li>Reduced reporting friction by replacing manual steps with repeatable analytical outputs.</li></ul></article>
-      <article><h3>Technology</h3><ul><li>SQL, Informatica, Tableau, Azure SQL, Azure Blob, and structured reporting workflows.</li><li>Dimensional design and reusable datasets for business users.</li><li>Operational healthcare and performance-reporting data.</li></ul></article>
-      <article><h3>What changed</h3><ul><li>Decision-makers gained a more current picture of operational bottlenecks.</li><li>Manual reporting effort dropped while visibility into adherence and service performance improved.</li><li>The combined improvements contributed to roughly 35% lower wait times in the monitored process area.</li></ul></article>
+      <article><h3>Case addressed</h3><ul><li>An overall survival headline can hide meaningful differences across cancer stage, lymph-node involvement, tumor grade, tumor size, and hormone-receptor status.</li><li>The challenge was to turn a multi-variable clinical dataset into a connected analytical story rather than a collection of unrelated charts.</li><li>The analysis needed to remain descriptive and avoid implying causal or population-level medical conclusions.</li></ul></article>
+      <article><h3>What I built</h3><ul><li>Structured a three-part Tableau story: Patient &amp; Outcomes Overview, Clinical Factors &amp; Outcomes, and Patient Profile &amp; Disease Characteristics.</li><li>Built KPI cards, stage and outcome views, receptor-status analysis, a stage × tumor-grade heatmap, tumor-size vs positive-node scatter analysis, and patient-profile views.</li><li>Reworked the narrative around Hook → Insight → So-What so the story begins with the 84.7% recorded-alive headline and then drills into where outcomes diverge.</li></ul></article>
+      <article><h3>Technology</h3><ul><li>Tableau, exploratory data analysis, descriptive statistics, visual analytics, and data storytelling.</li><li>Fields included cancer stage, N stage, tumor grade, tumor size, positive regional lymph nodes, ER/PR status, age, marital status, survival months, and recorded vital status.</li><li>Interactive visual design focused on comparison, drill-down, and clinically meaningful segmentation.</li></ul></article>
+      <article><h3>What the analysis surfaced</h3><ul><li>The overall recorded-alive rate was 84.7%, but the story showed that the headline should not be treated as a single summary score for every subgroup.</li><li>Greater disease severity and lymph-node involvement were associated with visibly poorer recorded outcomes in the supplied dataset.</li><li>The final narrative directs the viewer from the headline outcome into the clinical segments where the differences become most important.</li></ul></article>
     </div>
+    <p class="case-disclaimer">Descriptive analysis of the supplied dataset for portfolio and educational use. It does not establish causality, population incidence, diagnosis, prognosis, or clinical guidance.</p>
   </div>
 </section>
 
@@ -116,5 +117,5 @@
 <section class="section project-principle"><div class="wrap"><div class="section-kicker reveal">Project principle</div><h2 class="section-title reveal">SOURCE.<br>LOGIC.<br>TRUST.<br>ACTION.</h2><p class="section-intro reveal">A polished interface is the last step. The quality of the decision depends on everything underneath it.</p><div class="hero-actions reveal"><a class="link-btn" href="index.html#projects"><span>← Back to home projects</span></a></div></div></section>
 </main>
 <footer class="footer"><div class="footer-name">PROJECTS</div><div class="footer-meta"><a href="index.html#projects">Back to Home</a> · <a href="contact.html">Contact</a> · <a href="skills.html">Next: Skills →</a></div></footer>
-<script src="assets/portfolio-v9.3.js?v=20260826-93"></script>
+<script src="assets/portfolio-v9.5.js?v=20260826-95"></script>
 </body></html>
