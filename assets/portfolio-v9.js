@@ -23,12 +23,14 @@ function playShutter(){
   }catch(_e){}
 }
 
-// Home entry gate. Returning from photography or an anchored project bypasses the gate.
+// Home entry gate. Show once per browser session; bypass on anchored returns or photo->data returns.
 const entry=q('#site-entry'),shutter=q('#shutter-btn');
 if(entry&&shutter){
   const params=new URLSearchParams(location.search);
-  const skipIntro=Boolean(location.hash)||params.get('from')==='photo';
+  const sessionEntered=sessionStorage.getItem('veda_entered')==='1';
+  const skipIntro=sessionEntered||Boolean(location.hash)||params.get('from')==='photo';
   if(skipIntro){
+    sessionStorage.setItem('veda_entered','1');
     entry.remove();document.body.classList.remove('entry-locked');document.body.classList.add('site-entered');
     if(params.get('from')==='photo'){history.replaceState({},'',location.pathname+(location.hash||''));}
   }else{
@@ -36,6 +38,7 @@ if(entry&&shutter){
     shutter.addEventListener('click',()=>{
       if(entry.classList.contains('capturing'))return;
       playShutter();entry.classList.add('capturing');shutter.disabled=true;
+      sessionStorage.setItem('veda_entered','1');
       setTimeout(()=>entry.classList.add('exit'),690);
       setTimeout(()=>{entry.remove();document.body.classList.remove('entry-locked');document.body.classList.add('site-entered')},1150);
     },{once:true});
@@ -110,7 +113,7 @@ qa('a[href]').forEach(a=>a.addEventListener('click',e=>{
   wipe.className=`page-transition ${targetClass(href)} in`;
   setTimeout(()=>location.href=href,470);
 }));
-addEventListener('pageshow',()=>{const wipe=q('.page-transition');if(wipe){const currentMap={home:'to-home',experience:'to-experience',work:'to-work',skills:'to-skills',contact:'to-contact',photography:'to-home'};wipe.className=`page-transition ${currentMap[document.body.dataset.page]||'to-home'} out`;setTimeout(()=>wipe.className='page-transition',730)}});
+addEventListener('pageshow',()=>{const wipe=q('.page-transition');if(wipe){const currentMap={home:'to-home',experience:'to-experience',work:'to-work',skills:'to-skills',contact:'to-contact',photography:'to-photo'};wipe.className=`page-transition ${currentMap[document.body.dataset.page]||'to-home'} out`;setTimeout(()=>wipe.className='page-transition',730)}});
 
 // Photo metadata. Numbers refer to the visible filenames: photo 0.jpg, photo 1.jpg, etc.
 const photoMeta={
@@ -126,10 +129,13 @@ const photoMeta={
 };
 
 function photoCandidates(i){
-  const list=[`photos/photo ${i}.jpg`,`photos/photo${i}.jpg`];
+  const list=[];
+  const stems=[`photos/photo ${i}`,`photos/photo${i}`,`photos/photo 0${i}`,`photos/photo0${i}`];
+  for(const stem of stems){for(const ext of ['.jpg','.jpeg','.png','.webp','.JPG','.JPEG','.PNG','.WEBP']) list.push(stem+ext)}
   if(i>=27){
     const n=i-26;
-    list.push(`photos/photo 26(${n}).jpg`,`photos/photo 26 (${n}).jpg`,`photos/photo26(${n}).jpg`);
+    const extras=[`photos/photo 26(${n})`,`photos/photo 26 (${n})`,`photos/photo26(${n})`];
+    for(const stem of extras){for(const ext of ['.jpg','.jpeg','.png','.webp','.JPG','.JPEG','.PNG','.WEBP']) list.push(stem+ext)}
   }
   return [...new Set(list)];
 }
@@ -160,14 +166,14 @@ if(heroPhoto){
   heroPhoto.addEventListener('load',()=>setOrientation(heroPhoto));
 }
 
-// Gallery supports photo 1 through photo 38 and silently hides files that do not exist.
-// This accommodates 38-image sets that start at photo 0, as well as Windows-style photo 26(1) duplicates.
+// Gallery supports photo 0.jpg through photo 37.jpg and can also tolerate alternate extensions / duplicate naming.
 const gallery=q('#photo-grid');
 if(gallery){
-  for(let i=1;i<=38;i++){
+  const order=[1,14,24,17,3,21,12,8,2,4,5,6,7,9,10,11,13,15,16,18,19,20,22,23,25,26,27,28,29,30,31,32,33,34,35,36,37,0];
+  for(const i of order){
     const meta=photoMeta[i]||{title:'',place:'',categories:''};
     const fig=document.createElement('figure');fig.className='shot photo-item reveal';fig.dataset.photo=String(i);fig.dataset.category=meta.categories||'';
-    const img=document.createElement('img');img.alt=meta.place?`${meta.title} — ${meta.place}`:(meta.title||`Photo ${i}`);img.loading=i<6?'eager':'lazy';img.decoding='async';
+    const img=document.createElement('img');img.alt=meta.place?`${meta.title} — ${meta.place}`:(meta.title||`Photo ${i}`);img.loading=order.indexOf(i)<8?'eager':'lazy';img.decoding='async';img.setAttribute('draggable','false');
     const cap=document.createElement('figcaption');
     if(meta.title||meta.place)cap.innerHTML=`${meta.title?`<strong>${meta.title}</strong>`:''}${meta.place?`<span>${meta.place}</span>`:''}`;
     else cap.hidden=true;
@@ -199,3 +205,9 @@ if(lb){
   lb.addEventListener('click',e=>{if(e.target===lb)close?.click()});
   addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close?.click();if(e.key==='ArrowLeft')prev?.click();if(e.key==='ArrowRight')next?.click()});
 }
+
+// Best-effort image protection (cannot fully stop screenshots/downloads on the web).
+document.addEventListener('contextmenu',e=>{if(e.target.closest('.photo-grid img,.photo-feature img,.lightbox img'))e.preventDefault()});
+document.addEventListener('dragstart',e=>{if(e.target.closest('.photo-grid img,.photo-feature img,.lightbox img'))e.preventDefault()});
+document.addEventListener('copy',e=>{if(document.body.dataset.page==='photography'){const sel=String(document.getSelection()).trim();if(sel){e.preventDefault();}}});
+qa('.photo-grid img,.photo-feature img').forEach(img=>img.setAttribute('draggable','false'));
