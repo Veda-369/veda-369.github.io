@@ -211,3 +211,20 @@ document.addEventListener('contextmenu',e=>{if(e.target.closest('.photo-grid img
 document.addEventListener('dragstart',e=>{if(e.target.closest('.photo-grid img,.photo-feature img,.lightbox img'))e.preventDefault()});
 document.addEventListener('copy',e=>{if(document.body.dataset.page==='photography'){const sel=String(document.getSelection()).trim();if(sel){e.preventDefault();}}});
 qa('.photo-grid img,.photo-feature img').forEach(img=>img.setAttribute('draggable','false'));
+
+
+// Photography page: gentle cue + optional auto-scroll after 5 seconds.
+if(document.body.dataset.page==='photography'){
+  const hint=q('#photo-scroll-hint');
+  let interacted=false;
+  const stopAuto=()=>{interacted=true; if(hint) hint.classList.add('hide')};
+  addEventListener('scroll',()=>{if(scrollY>40) stopAuto()},{passive:true});
+  ['wheel','touchstart','keydown','mousedown'].forEach(evt=>addEventListener(evt,stopAuto,{passive:true}));
+  setTimeout(()=>{
+    if(!interacted && scrollY < 40){
+      const target=q('#gallery');
+      if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+      stopAuto();
+    }
+  },5000);
+}
