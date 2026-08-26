@@ -1,37 +1,20 @@
-# Veda Bharghav — Portfolio V3
+# Veda Bharghav Portfolio V4
 
-Static multi-page GitHub Pages portfolio.
+Updated portfolio rebuild with:
+- no public resume link or resume folder
+- Clutchpoint title set to **Data Engineer & Analyst**
+- home-page shutter intro animation
+- lighter full-page animated background palette
+- photography page updated to use portrait/landscape slots only (no square slots)
+- AI-103 certification added
+- UDOT Safe Corridor Intelligence project added to the Work page
 
-## Routes
-- `index.html` — Home
-- `experience.html` — Experience
-- `work.html` — Selected work
-- `skills.html` — Skills
-- `photography.html` — Photography
-- `contact.html` — Contact
+## Photography placeholders
+Replace the files in `/photos` using the same names.
 
-## Photography replacement guide
-Do not edit `photography.html` just to swap photographs. Replace the JPG file in `/photos` and keep the same filename.
-
-| File | Best image type |
-| --- | --- |
-| `photo-01.jpg` | **Strongest image on the site.** Wide landscape / cinematic, 16:9 or 3:2. This is also used on the homepage teaser. |
-| `photo-02.jpg` | Portrait 4:5. Used on homepage teaser + gallery. |
-| `photo-03.jpg` | Landscape 3:2. |
-| `photo-04.jpg` | Portrait 4:5. |
-| `photo-05.jpg` | Landscape 3:2. |
-| `photo-06.jpg` | Landscape 3:2. |
-| `photo-07.jpg` | Landscape 3:2. |
-| `photo-08.jpg` | Square 1:1. |
-| `photo-09.jpg` | Square 1:1. |
-| `photo-10.jpg` | Square 1:1. |
-| `photo-11.jpg` | Portrait 4:5. |
-| `photo-12.jpg` | Landscape 3:2. |
-
-JPG is simplest. Keep each image reasonably optimized for the web (roughly 1600–2400 px on the long edge is plenty for this portfolio).
-
-## Contact form
-The existing FormSubmit flow is preserved in `contact.html`.
+## UDOT Streamlit link
+A placeholder action button is included in `work.html` for the UDOT Streamlit app.
+Replace its `href="#"` with your actual Streamlit URL.
 
 ## Deploy
-Replace the files in the root of the `veda-369.github.io` repository with this folder's contents, commit to `main`, and push.
+Copy all files into the root of your `veda-369.github.io` repository, commit, and push.
