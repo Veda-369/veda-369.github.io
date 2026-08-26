@@ -42,7 +42,7 @@ body.entry-locked>.site-nav,body.entry-locked>.mobile-menu,body.entry-locked>mai
 @keyframes entryGridDrift{to{transform:translate(34px,-20px) rotate(-4deg)}}@keyframes nodePulse{50%{transform:scale(1.35);box-shadow:0 0 0 15px rgba(255,255,255,.02)}}@keyframes dataOrbit{to{transform:translate(36px,-28px) rotate(15deg)}}@keyframes sunFloat{to{transform:translate(-20px,20px) scale(1.07)}}@keyframes cameraFloat{to{transform:translateX(-50%) translateY(-12px) rotate(.8deg)}}@keyframes birdMove{to{transform:translateX(-120px)}}
 @media(max-width:760px){#site-entry .entry-split{grid-template-columns:1fr;grid-template-rows:1fr 1fr}#site-entry .entry-card{padding:24px 24px 22px}#site-entry .tripod-camera{transform:translateX(-50%) scale(.72);transform-origin:bottom center}.entry-photo-side .m2{opacity:.55}#site-entry .entry-data-node:after{width:26vw}}
 </style>
-<link rel="stylesheet" href="assets/portfolio-v9.5.2.css?v=20260826-952">
+<link rel="stylesheet" href="assets/portfolio-v9.5.4.css?v=20260826-954">
 </head>
 <body class="entry-locked" data-page="home">
 <div class="progress"></div><div class="cursor"></div><div class="cursor-dot"></div><div class="page-transition"></div>
@@ -132,5 +132,20 @@ body.entry-locked>.site-nav,body.entry-locked>.mobile-menu,body.entry-locked>mai
 </main>
 
 <footer class="footer"><div class="footer-name">VEDA BHARGHAV</div><div class="footer-meta">Data Engineer &amp; Analyst<br><a href="https://github.com/veda-369" target="_blank">GitHub</a> · <a href="https://www.linkedin.com/in/veda-bharghav-a61aa6304/" target="_blank">LinkedIn</a></div></footer>
-<script src="assets/portfolio-v9.5.2.js?v=20260826-952"></script>
+<script>
+/* Shutter fail-safe: never leave the portfolio locked if an optional script/storage feature fails. */
+(function(){
+  var b=document.getElementById('shutter-btn');
+  if(!b)return;
+  b.addEventListener('click',function(){
+    window.setTimeout(function(){
+      var e=document.getElementById('site-entry');
+      if(e)e.remove();
+      document.body.classList.remove('entry-locked');
+      document.body.classList.add('site-entered');
+    },1400);
+  },{once:true});
+})();
+</script>
+<script src="assets/portfolio-v9.5.4.js?v=20260826-954"></script>
 </body></html>
