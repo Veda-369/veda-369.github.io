@@ -132,9 +132,7 @@ const photoMeta={
   14:{title:'Bryce Canyon National Park',place:'Utah',categories:'landscapes nature travel'},
   17:{title:'Grand Canyon National Park',place:'Arizona',categories:'landscapes nature travel'},
   21:{title:'Bubble Rock',place:'Acadia National Park, Maine',categories:'nature landscapes travel'},
-  24:{title:'Bryce Canyon National Park',place:'Utah',categories:'landscapes nature travel'},
-  31:{title:'Bear Rock Shadow',place:'',categories:'nature landscapes'},
-  32:{title:'Tuckaleechee Caverns',place:'Tennessee',categories:'nature travel'}
+  24:{title:'Bryce Canyon National Park',place:'Utah',categories:'landscapes nature travel'}
 };
 const exactPhotoMeta={
   'photo 26 (5)':{title:'Bear Rock Shadow',place:'',categories:'nature landscapes'},
