@@ -1,77 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Veda Bharghav | Portfolio</title>
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=EB+Garamond&family=PT+Serif:wght@700&display=swap" rel="stylesheet" />
-
-  <!-- Font Awesome Icons -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>V</text></svg>">
-
-  <!-- React + Babel -->
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-  <!-- Disable Right Click + Auto Scroll -->
-  <script>
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    window.onload = () => {
-      setTimeout(() => {
-        document.querySelector('#summary')?.scrollIntoView({ behavior: 'smooth' });
-      }, 5000);
-    };
-  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Veda Bharghav — Data Engineer & Analyst. Data engineering, analytics, BI, automation, and photography.">
+  <title>Veda Bharghav — Data Engineer & Analyst</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect rx=%2222%22 width=%22100%22 height=%22100%22 fill=%22%237ce7ff%22/><text x=%2250%22 y=%2267%22 text-anchor=%22middle%22 font-size=%2255%22 font-family=%22Arial%22 font-weight=%22700%22 fill=%22%2307111f%22>V</text></svg>">
 </head>
+<body data-page="home">
+  <canvas id="particle-field" aria-hidden="true"></canvas><div class="cursor-glow" aria-hidden="true"></div>
+  <nav class="site-nav" aria-label="Primary navigation"><div class="nav-inner"><a class="brand" href="index.html"><span class="brand-mark">V</span><span>Veda Bharghav</span></a><div class="nav-links"><a data-nav="home" href="index.html">Home</a><a data-nav="experience" href="experience.html">Experience</a><a data-nav="work" href="work.html">Work</a><a data-nav="skills" href="skills.html">Skills</a><a data-nav="photography" href="photography.html">Photography</a><a data-nav="contact" class="nav-cta" href="contact.html">Contact</a></div><button class="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button></div><div class="mobile-nav"><a data-nav="home" href="index.html">Home</a><a data-nav="experience" href="experience.html">Experience</a><a data-nav="work" href="work.html">Work</a><a data-nav="skills" href="skills.html">Skills</a><a data-nav="photography" href="photography.html">Photography</a><a data-nav="contact" href="contact.html">Contact</a></div></nav>
 
-<body class="bg-[#f7f9fc] text-gray-800 scroll-smooth">
+  <main>
+    <section class="hero"><div class="container hero-grid"><div class="reveal"><div class="eyebrow">Data Engineer · Analyst · Builder</div><h1>Veda <span class="gradient-line">Bharghav.</span></h1><p class="hero-copy">I design data systems that move from raw signals to trusted decisions — combining engineering, analytics, BI, automation, and a visual eye for how information should feel.</p><div class="hero-actions"><a class="btn primary" data-magnetic href="work.html">Explore selected work <span class="arrow">→</span></a><a class="btn" data-magnetic href="photography.html">Enter photography <span class="arrow">↗</span></a><a class="btn" href="resume/Veda_Bharghav_Resume.pdf" target="_blank" rel="noopener">Résumé ↗</a></div></div><div class="hero-visual reveal" data-tilt><div class="orbit-shell"><div class="data-core"><div><div class="big">VB</div><div class="small">Data → Decision</div></div></div><div class="float-tag tag-a">SQL / Python</div><div class="float-tag tag-b">Fabric / Snowflake</div><div class="float-tag tag-c">Power BI / DAX</div><div class="float-tag tag-d">AI / Automation</div></div></div></div><div class="scroll-cue">Explore</div></section>
 
-  <!-- Navigation -->
-  <nav class="fixed top-0 w-full bg-white bg-opacity-90 shadow-md z-50">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-      <div class="text-xl font-bold tracking-wide text-[#00bfa6]">Veda</div>
-      <div class="hidden md:flex space-x-5 text-lg font-semibold items-center">
-        <a href="#summary" class="hover:text-blue-600 transition">About</a>
-        <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
-        <a href="#techstack" class="hover:text-blue-600 transition">Tech Stack</a>
-        <a href="#photography" class="hover:text-blue-600 transition">Photography</a>
-        <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
-        <a href="https://github.com/veda-369" target="_blank" class="hover:text-blue-600"><i class="fab fa-github fa-lg"></i></a>
-        <a href="https://www.linkedin.com/in/veda-bharghav-a61aa6304/" target="_blank" class="hover:text-blue-600"><i class="fab fa-linkedin fa-lg"></i></a>
-      </div>
-      <div class="md:hidden block">
-        <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
-          <i class="fas fa-bars text-xl"></i>
-        </button>
-      </div>
-    </div>
-    <div id="mobileMenu" class="md:hidden px-6 pb-4 hidden">
-      <a href="#summary" class="block py-1">About</a>
-      <a href="#projects" class="block py-1">Projects</a>
-      <a href="#techstack" class="block py-1">Tech Stack</a>
-      <a href="#photography" class="block py-1">Photography</a>
-      <a href="#contact" class="block py-1">Contact</a>
-      <a href="https://github.com/veda-369" target="_blank" class="block py-1">GitHub</a>
-      <a href="https://www.linkedin.com/in/veda-bharghav-a61aa6304/" target="_blank" class="block py-1">LinkedIn</a>
-    </div>
-  </nav>
+    <section class="section"><div class="container"><div class="section-head reveal"><div><div class="eyebrow">Measured impact</div><h2>Built to make<br>data useful.</h2></div><p>My work spans financial and operational reporting, renewable-energy manufacturing analytics, governed data pipelines, data quality, and AI-assisted reliability workflows.</p></div><div class="impact-grid"><article class="impact-card reveal" data-tilt><div class="impact-number"><span data-count="45" data-suffix="%">0%</span></div><div class="impact-label">Pipeline latency reduced through SQL tuning and workflow optimization.</div><div class="impact-source">Data engineering</div></article><article class="impact-card reveal" data-tilt><div class="impact-number"><span data-count="50" data-suffix="%">0%</span></div><div class="impact-label">Inventory discrepancies reduced using reconciliation and validation controls.</div><div class="impact-source">Operations analytics</div></article><article class="impact-card reveal" data-tilt><div class="impact-number"><span data-count="75" data-suffix="%">0%</span></div><div class="impact-label">Faster validation cycles through automated manufacturing-test checks.</div><div class="impact-source">Automation</div></article><article class="impact-card reveal" data-tilt><div class="impact-number"><span data-count="42" data-suffix="%">0%</span></div><div class="impact-label">Recurring defects reduced through anomaly and root-cause analysis.</div><div class="impact-source">Reliability + AI</div></article></div></div></section>
 
-  <!-- Root for React App -->
-  <div id="root" class="pt-28"></div>
+    <section class="section"><div class="container split-feature"><article class="glass-card feature-panel reveal"><div class="eyebrow">How I work</div><h3>From ingestion to insight — one connected system.</h3><p>I care about the whole path: source systems, transformation logic, validation, dimensional models, governed reporting layers, and the final interface a stakeholder actually uses. The goal is not another dashboard. It is a reliable decision system.</p><div class="hero-actions"><a class="btn" href="experience.html">See experience <span class="arrow">→</span></a><a class="btn" href="skills.html">Explore stack <span class="arrow">→</span></a></div></article><article class="glass-card feature-visual reveal"><div class="system-map"><div class="system-row"><div class="system-node">APIs</div><div class="system-node">ERP / MES</div><div class="system-node">Files / DBs</div></div><div class="pipeline-line"></div><div class="system-row"><div class="system-node active">SQL + Python</div><div class="system-node active">ETL / ELT</div><div class="system-node active">Validation</div></div><div class="pipeline-line"></div><div class="system-row"><div class="system-node">Lakehouse</div><div class="system-node">Warehouse</div><div class="system-node">Semantic</div></div><div class="pipeline-line"></div><div class="system-row"><div class="system-node active">Power BI</div><div class="system-node active">KPIs</div><div class="system-node active">Decisions</div></div></div></article></div></section>
 
-  <!-- React App -->
-  <script type="text/babel" src="app.js"></script>
-</body>
-</html>
+    <section class="section"><div class="container"><div class="section-head reveal"><div><div class="eyebrow">Two sides of the portfolio</div><h2>Systems.<br>And stories.</h2></div><p>Data engineering is how I structure complexity. Photography is how I notice it. The site gives both disciplines their own space instead of forcing one into the background.</p></div><div class="path-grid"><a class="glass-card path-card reveal" href="work.html"><div><div class="path-index">01 / WORK</div><h3>Case studies</h3><p>Manufacturing analytics, reliability intelligence, reporting systems, data quality, pipelines, and independent engineering projects.</p></div><div class="path-link"><span>Open selected work</span><span>↗</span></div></a><a class="glass-card path-card reveal" href="experience.html"><div><div class="path-index">02 / EXPERIENCE</div><h3>Professional timeline</h3><p>Clutchpoint, First Solar, Seneca Global, and Auburn University at Montgomery — with responsibilities and outcomes.</p></div><div class="path-link"><span>View experience</span><span>↗</span></div></a><a class="glass-card path-card reveal" href="photography.html"><div><div class="path-index">03 / PHOTOGRAPHY</div><h3>Outside the grid</h3><p>A separate visual world for selected frames — built as an editorial gallery rather than a small portfolio add-on.</p></div><div class="path-link"><span>Enter gallery</span><span>↗</span></div></a></div></div></section>
+  </main>
+  <footer><div class="container footer-row"><span>© 2026 Veda Bharghav. Built for GitHub Pages.</span><span><a href="https://github.com/veda-369" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/veda-bharghav-a61aa6304/" target="_blank" rel="noopener">LinkedIn</a></span></div></footer>
+  <script src="script.js"></script>
+</body></html>
