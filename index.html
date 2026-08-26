@@ -8,33 +8,41 @@
 <style>
 html,body{margin:0}body.entry-locked{overflow:hidden}
 body.entry-locked>.site-nav,body.entry-locked>.mobile-menu,body.entry-locked>main,body.entry-locked>footer,body.entry-locked>.progress,body.entry-locked>.cursor,body.entry-locked>.cursor-dot,body.entry-locked>.page-transition{visibility:hidden!important;opacity:0!important}
-#site-entry{position:fixed;inset:0;z-index:2147483000;overflow:hidden;font-family:Arial,sans-serif;background:#e9e7e3;color:#222}
+#site-entry{position:fixed;inset:0;z-index:2147483000;overflow:hidden;font-family:Arial,sans-serif;background:#f4f4f2;color:#171717}
 #site-entry .entry-split{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}
-#site-entry .entry-data-side{position:relative;background:#30353b;overflow:hidden}
-#site-entry .entry-photo-side{position:relative;background:#ece9e4;overflow:hidden}
-#site-entry .entry-photo-side img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(.88);opacity:.34}
-#site-entry .entry-photo-side:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(236,233,228,.55),rgba(236,233,228,.08)),radial-gradient(circle at 70% 35%,rgba(145,59,67,.16),transparent 33%)}
-#site-entry .entry-data-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:68px 68px;animation:entryGridDrift 11s ease-in-out infinite alternate}
-#site-entry .entry-data-node{position:absolute;width:10px;height:10px;border:2px solid #dedede;border-radius:50%;box-shadow:0 0 0 8px rgba(255,255,255,.025)}
-#site-entry .entry-data-node:after{content:"";position:absolute;height:1px;background:rgba(255,255,255,.24);width:16vw;left:10px;top:3px;transform-origin:left center}
-#site-entry .n1{left:16%;top:28%}#site-entry .n1:after{transform:rotate(18deg)}#site-entry .n2{left:43%;top:40%}#site-entry .n2:after{transform:rotate(-16deg);width:12vw}#site-entry .n3{left:25%;top:64%}#site-entry .n3:after{transform:rotate(-28deg);width:15vw}
-#site-entry .data-label{position:absolute;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:#c9cdd0}#site-entry .dl1{left:12%;top:18%}#site-entry .dl2{left:52%;top:31%}#site-entry .dl3{left:18%;bottom:18%}
-#site-entry .viewfinder{position:absolute;inset:11% 10%;border:1px solid rgba(41,43,46,.3)}#site-entry .viewfinder:before,#site-entry .viewfinder:after{content:"";position:absolute;background:rgba(41,43,46,.24)}#site-entry .viewfinder:before{width:1px;height:100%;left:50%}#site-entry .viewfinder:after{height:1px;width:100%;top:50%}
-#site-entry .focus-ring{position:absolute;width:min(34vw,420px);aspect-ratio:1;border:1px solid rgba(41,43,46,.28);border-radius:50%;right:8%;top:20%;animation:focusPulse 5s ease-in-out infinite alternate;box-shadow:0 0 0 38px rgba(145,59,67,.035),0 0 0 82px rgba(41,43,46,.025)}
+#site-entry .entry-data-side{position:relative;background:#25282c;overflow:hidden}
+#site-entry .entry-photo-side{position:relative;background:#f4f2ed;overflow:hidden}
+#site-entry .entry-data-lines{position:absolute;inset:-12%;background-image:linear-gradient(rgba(255,255,255,.075) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.075) 1px,transparent 1px);background-size:72px 72px;transform:rotate(-4deg);animation:entryGridDrift 11s ease-in-out infinite alternate}
+#site-entry .entry-data-node{position:absolute;width:11px;height:11px;border:2px solid #fff;border-radius:50%;box-shadow:0 0 0 9px rgba(255,255,255,.025);animation:nodePulse 3.8s ease-in-out infinite}
+#site-entry .entry-data-node:after{content:"";position:absolute;height:1px;background:rgba(255,255,255,.28);width:17vw;left:10px;top:3px;transform-origin:left center}
+#site-entry .n1{left:15%;top:27%}#site-entry .n1:after{transform:rotate(18deg)}#site-entry .n2{left:43%;top:41%;animation-delay:.5s}#site-entry .n2:after{transform:rotate(-17deg);width:13vw}#site-entry .n3{left:25%;top:66%;animation-delay:1s}#site-entry .n3:after{transform:rotate(-29deg);width:16vw}
+#site-entry .entry-data-ring{position:absolute;width:42vw;height:42vw;border:1px solid rgba(255,255,255,.08);border-radius:50%;left:-17vw;bottom:-18vw;box-shadow:0 0 0 70px rgba(255,255,255,.018),0 0 0 150px rgba(255,255,255,.012);animation:dataOrbit 10s ease-in-out infinite alternate}
+#site-entry .entry-photo-side:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#f8f7f3 0%,#ebe8e1 100%)}
+#site-entry .nature-art{position:absolute;inset:0;overflow:hidden}
+#site-entry .sun{position:absolute;width:150px;height:150px;border:2px solid #ff2020;border-radius:50%;right:13%;top:12%;opacity:.72;animation:sunFloat 6s ease-in-out infinite alternate}
+#site-entry .mountain{position:absolute;bottom:0;width:0;height:0;border-left:20vw solid transparent;border-right:20vw solid transparent;border-bottom:26vw solid #d9d6ce;filter:drop-shadow(0 -1px 0 rgba(0,0,0,.08))}
+#site-entry .m1{left:-4vw}.entry-photo-side .m2{right:-10vw;border-left-width:24vw;border-right-width:24vw;border-bottom-width:30vw;border-bottom-color:#cbc8c1;opacity:.8}
+#site-entry .ground-line{position:absolute;left:0;right:0;bottom:14%;height:1px;background:rgba(0,0,0,.18)}
+#site-entry .tripod-camera{position:absolute;left:50%;bottom:15%;width:170px;height:210px;transform:translateX(-50%);animation:cameraFloat 5s ease-in-out infinite alternate}
+#site-entry .camera-body{position:absolute;left:23px;top:12px;width:124px;height:74px;border:4px solid #27292c;border-radius:12px;background:#efede8;box-shadow:10px 10px 0 rgba(255,32,32,.1)}
+#site-entry .camera-body:before{content:"";position:absolute;left:18px;top:-19px;width:43px;height:19px;border:4px solid #27292c;border-bottom:0;border-radius:7px 7px 0 0;background:#efede8}
+#site-entry .lens{position:absolute;width:58px;height:58px;border:5px solid #27292c;border-radius:50%;left:33px;top:8px;background:radial-gradient(circle,#ff2020 0 12%,#34373a 13% 31%,#b9bdc0 32% 42%,#27292c 43% 100%)}
+#site-entry .tripod-head{position:absolute;left:78px;top:86px;width:14px;height:18px;background:#27292c}
+#site-entry .leg{position:absolute;top:101px;width:4px;height:105px;background:#27292c;transform-origin:top}.leg.l1{left:84px;transform:rotate(0)}.leg.l2{left:84px;transform:rotate(22deg)}.leg.l3{left:84px;transform:rotate(-22deg)}
+#site-entry .bird{position:absolute;width:28px;height:10px;border-top:2px solid #555;border-radius:50%;opacity:.55;animation:birdMove 10s linear infinite}.bird.b1{right:30%;top:33%}.bird.b2{right:19%;top:39%;animation-delay:-4s;transform:scale(.7)}
 #site-entry .entry-center{position:absolute;inset:0;display:grid;place-items:center;z-index:5;pointer-events:none}
-#site-entry .entry-card{text-align:center;padding:30px 44px 28px;background:rgba(248,247,244,.88);backdrop-filter:blur(15px);border:1px solid rgba(34,34,34,.12);box-shadow:0 28px 70px rgba(28,29,31,.12);pointer-events:auto}
-#site-entry .intro-eyebrow{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:#727272;margin-bottom:16px}
-#site-entry h1{margin:0;font-size:clamp(3.8rem,9vw,8.4rem);line-height:.82;letter-spacing:-.085em;text-transform:uppercase;color:#242528}
-#site-entry p{margin:20px 0 20px;color:#747474;font-size:.72rem;letter-spacing:.19em;text-transform:uppercase}
-#site-entry button{width:94px;height:94px;border:1px solid #c8c4c0;border-radius:50%;background:#f8f7f4;cursor:pointer;display:grid;place-items:center;margin:auto;box-shadow:0 16px 38px rgba(0,0,0,.1)}
-#site-entry button span{width:46px;height:46px;border-radius:50%;background:#913b43;display:block;box-shadow:inset 0 0 0 8px #f8f7f4,0 0 0 1px #913b43}
-#site-entry .entry-hint{margin-top:12px;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:#9a9a9a}
+#site-entry .entry-card{text-align:center;padding:34px 48px 30px;background:rgba(250,249,246,.9);backdrop-filter:blur(16px);border:1px solid rgba(20,20,20,.12);box-shadow:0 28px 70px rgba(28,29,31,.14);pointer-events:auto}
+#site-entry h1{margin:0;font-size:clamp(3.8rem,9vw,8.4rem);line-height:.82;letter-spacing:-.085em;text-transform:uppercase;color:#202225}
+#site-entry p{margin:22px 0 18px;color:#656565;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase}
+#site-entry button{width:98px;height:98px;border:1px solid #c8c4c0;border-radius:50%;background:#f8f7f4;cursor:pointer;display:grid;place-items:center;margin:auto;box-shadow:0 16px 38px rgba(0,0,0,.11);position:relative}
+#site-entry button:before{content:"";position:absolute;width:70px;height:70px;border:2px solid #202225;border-radius:50%}
+#site-entry button span{width:46px;height:46px;border-radius:50%;background:#ff2020;display:block;box-shadow:inset 0 0 0 8px #f8f7f4,0 0 0 2px #ff2020;position:relative;z-index:2}
 #site-entry .shutter-flash{position:absolute;inset:0;background:white;opacity:0;z-index:20;pointer-events:none}
-#site-entry .shutter-ring{position:absolute;width:110px;height:110px;border:2px solid #913b43;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);z-index:19;opacity:0;pointer-events:none}
-@keyframes entryGridDrift{to{transform:translate(30px,-18px)}}@keyframes focusPulse{to{transform:scale(1.08) rotate(12deg)}}
-@media(max-width:760px){#site-entry .entry-split{grid-template-columns:1fr;grid-template-rows:1fr 1fr}#site-entry .entry-card{padding:24px 24px 22px}#site-entry .focus-ring{width:54vw;right:22%;top:12%}#site-entry .entry-data-node:after{width:26vw}}
+#site-entry .shutter-ring{position:absolute;width:112px;height:112px;border:3px solid #ff2020;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);z-index:19;opacity:0;pointer-events:none}
+@keyframes entryGridDrift{to{transform:translate(34px,-20px) rotate(-4deg)}}@keyframes nodePulse{50%{transform:scale(1.35);box-shadow:0 0 0 15px rgba(255,255,255,.02)}}@keyframes dataOrbit{to{transform:translate(36px,-28px) rotate(15deg)}}@keyframes sunFloat{to{transform:translate(-20px,20px) scale(1.07)}}@keyframes cameraFloat{to{transform:translateX(-50%) translateY(-12px) rotate(.8deg)}}@keyframes birdMove{to{transform:translateX(-120px)}}
+@media(max-width:760px){#site-entry .entry-split{grid-template-columns:1fr;grid-template-rows:1fr 1fr}#site-entry .entry-card{padding:24px 24px 22px}#site-entry .tripod-camera{transform:translateX(-50%) scale(.72);transform-origin:bottom center}.entry-photo-side .m2{opacity:.55}#site-entry .entry-data-node:after{width:26vw}}
 </style>
-<link rel="stylesheet" href="assets/portfolio-v7.css?v=20260826-7">
+<link rel="stylesheet" href="assets/portfolio-v8.css?v=20260826-8">
 </head>
 <body class="entry-locked" data-page="home">
 <div class="progress"></div><div class="cursor"></div><div class="cursor-dot"></div><div class="page-transition"></div>
@@ -42,21 +50,18 @@ body.entry-locked>.site-nav,body.entry-locked>.mobile-menu,body.entry-locked>mai
 <div class="intro-screen" id="site-entry" aria-hidden="false">
   <div class="entry-split">
     <div class="entry-data-side">
-      <div class="entry-data-lines"></div>
+      <div class="entry-data-lines"></div><div class="entry-data-ring"></div>
       <i class="entry-data-node n1"></i><i class="entry-data-node n2"></i><i class="entry-data-node n3"></i>
-      <span class="data-label dl1">SQL / PYTHON</span><span class="data-label dl2">DATA → DECISION</span><span class="data-label dl3">FABRIC / ANALYTICS</span>
     </div>
     <div class="entry-photo-side">
-      <img src="photos/photo1.jpg" alt="Photography preview">
-      <div class="viewfinder"></div><div class="focus-ring"></div>
+      <div class="nature-art"><i class="sun"></i><i class="mountain m1"></i><i class="mountain m2"></i><i class="ground-line"></i><i class="bird b1"></i><i class="bird b2"></i></div>
+      <div class="tripod-camera"><div class="camera-body"><i class="lens"></i></div><i class="tripod-head"></i><i class="leg l1"></i><i class="leg l2"></i><i class="leg l3"></i></div>
     </div>
   </div>
   <div class="entry-center"><div class="entry-card">
-    <div class="intro-eyebrow">Data / Photography / Story</div>
     <h1>Veda<br>Bharghav</h1>
     <p>Tap the shutter to enter</p>
     <button class="shutter-btn" id="shutter-btn" type="button" aria-label="Enter Veda Bharghav portfolio"><span></span></button>
-    <div class="entry-hint">Mirrorless capture</div>
   </div></div>
   <div class="shutter-flash"></div><div class="shutter-ring"></div>
 </div>
@@ -64,12 +69,12 @@ body.entry-locked>.site-nav,body.entry-locked>.mobile-menu,body.entry-locked>mai
 <nav class="site-nav">
   <a class="brand" href="index.html">VEDA<b>.</b></a>
   <div class="nav-center">
-    <a data-nav="home" href="index.html">Home</a><a data-nav="experience" href="experience.html">Experience</a><a data-nav="work" href="work.html">Projects</a><a data-nav="skills" href="skills.html">Skills</a><a data-nav="photography" href="photography.html">Photography</a>
+    <a data-nav="home" href="index.html">Home</a><a data-nav="experience" href="experience.html">Experience</a><a data-nav="work" href="work.html">Projects</a><a data-nav="skills" href="skills.html">Skills</a><a data-nav="photography" href="photography.html" data-transition="photo">Photography</a>
   </div>
   <div class="nav-right"><a data-nav="contact" href="contact.html">Contact</a></div>
   <button class="menu-toggle" aria-expanded="false" aria-label="Open menu">☰</button>
 </nav>
-<div class="mobile-menu"><a href="index.html">Home</a><a href="experience.html">Experience</a><a href="work.html">Projects</a><a href="skills.html">Skills</a><a href="photography.html">Photography</a><a href="contact.html">Contact</a></div>
+<div class="mobile-menu"><a href="index.html">Home</a><a href="experience.html">Experience</a><a href="work.html">Projects</a><a href="skills.html">Skills</a><a href="photography.html" data-transition="photo">Photography</a><a href="contact.html">Contact</a></div>
 
 <main>
 <section class="hero">
@@ -77,7 +82,7 @@ body.entry-locked>.site-nav,body.entry-locked>.mobile-menu,body.entry-locked>mai
   <div class="hero-inner">
     <div class="hero-meta"><span>Portfolio / 2026</span><span>Data Engineering / Analytics / AI / Visual Storytelling</span></div>
     <h1 class="hero-title"><span class="line"><span>BUILDING</span></span><span class="line"><span>TRUSTED DATA.</span></span></h1>
-    <div class="hero-bottom"><div class="hero-number">01 / 06 — PORTFOLIO</div><div><div class="hero-copy">I build data systems that turn complex operational inputs into <strong>clear, reliable decisions</strong> — from pipelines and validation to analytics products and AI-driven workflows.</div><div class="hero-actions"><a class="link-btn primary" href="work.html"><span>Explore projects</span><span>↗</span></a><a class="link-btn" href="photography.html"><span>Photography</span><span>↗</span></a></div></div></div>
+    <div class="hero-bottom"><div class="hero-number">01 / 06 — PORTFOLIO</div><div><div class="hero-copy">I build data systems that turn complex operational inputs into <strong>clear, reliable decisions</strong> — from pipelines and validation to analytics products and AI-driven workflows.</div><div class="hero-actions"><a class="link-btn primary" href="work.html"><span>Explore projects</span><span>↗</span></a><a class="link-btn" href="photography.html" data-transition="photo"><span>Photography</span><span>↗</span></a></div></div></div>
   </div>
 </section>
 
@@ -100,7 +105,7 @@ body.entry-locked>.site-nav,body.entry-locked>.mobile-menu,body.entry-locked>mai
     <a class="project-card reveal" href="work.html#ai-ml"><div class="project-top"><span>01</span><em>Professional · AI / ML</em></div><h3>Operations Reliability + AI Inspection</h3><p class="project-summary">Connected ERP, MES, manufacturing, and inspection data to surface recurring defect patterns.</p><div class="project-hover"><strong>42%</strong><span>fewer recurring defects</span><p>Python ML, statistical analysis, anomaly detection, and root-cause workflows turned fragmented quality signals into an actionable reliability view.</p><b>Open full case study →</b></div></a>
     <a class="project-card reveal" href="work.html#udot"><div class="project-top"><span>02</span><em>Independent · Transportation</em></div><h3>UDOT SafeCorridor Intelligence</h3><p class="project-summary">Exposure-adjusted roadway safety prioritization built from public Utah transportation data.</p><div class="project-hover"><strong>449,804</strong><span>crash records processed</span><p>Python, DuckDB, spatial matching, statistical screening, GitHub Actions, and Streamlit create a reproducible decision-support workflow.</p><b>Open full case study →</b></div></a>
     <a class="project-card reveal" href="work.html#test-data"><div class="project-top"><span>03</span><em>Professional · Data Engineering</em></div><h3>Manufacturing Test Data Automation</h3><p class="project-summary">Automated engineering test-data ingestion, validation, transformation, and reporting.</p><div class="project-hover"><strong>75%</strong><span>faster validation cycles</span><p>SQL and Python ETL replaced repetitive verification, standardized quality checks, and made reporting repeatable across test workflows.</p><b>Open full case study →</b></div></a>
-    <a class="project-card reveal" href="work.html#inventory"><div class="project-top"><span>04</span><em>Professional · Operations</em></div><h3>Inventory Intelligence</h3><p class="project-summary">Unified inventory movement, reconciliation, bottlenecks, and planning visibility.</p><div class="project-hover"><strong>50%</strong><span>fewer data discrepancies</span><p>SQL, Power BI, and governed validation controls created a more trusted operating view for inventory and supply-chain decisions.</p><b>Open full case study →</b></div></a>
+    <a class="project-card reveal" href="work.html#enterprise-analytics"><div class="project-top"><span>04</span><em>Professional · Enterprise Analytics</em></div><h3>Fabric Lakehouse + Executive Reporting</h3><p class="project-summary">Governed enterprise reporting across finance, revenue, operations, and executive decision workflows.</p><div class="project-hover"><strong>55%</strong><span>higher dashboard adoption</span><p>Microsoft Fabric, reusable SQL, dimensional models, validation controls, and Power BI cut report delivery time while improving accuracy and adoption.</p><b>Open full case study →</b></div></a>
   </div></div>
 </section>
 
@@ -109,9 +114,9 @@ body.entry-locked>.site-nav,body.entry-locked>.mobile-menu,body.entry-locked>mai
   <div class="approach-flow reveal"><div><span>01</span><strong>Ingest</strong><p>APIs, files, ERP, MES, databases, events.</p></div><div><span>02</span><strong>Transform</strong><p>SQL, Python, ETL/ELT, dimensional logic.</p></div><div><span>03</span><strong>Validate</strong><p>QA, reconciliation, anomaly checks, lineage.</p></div><div><span>04</span><strong>Model</strong><p>Lakehouse, warehouse, semantic layer, KPIs.</p></div><div><span>05</span><strong>Decide</strong><p>Power BI, Streamlit, analysis, automation.</p></div></div></div>
 </section>
 
-<section class="photo-tease section"><div class="wrap"><div class="section-kicker reveal">Photography</div><h2 class="section-title reveal">DATA BY DAY.<br>LIGHT BY INSTINCT.</h2><div class="photo-tease-grid"><figure class="reveal portrait-card"><img src="photos/photo2.jpg" alt="Photography placeholder portrait"></figure><figure class="reveal landscape-card"><img src="photos/photo1.jpg" alt="Photography placeholder landscape"></figure></div><div class="hero-actions reveal"><a class="link-btn" href="photography.html"><span>Enter photography</span><span>↗</span></a></div></div></section>
+<section class="photo-tease section"><div class="wrap"><div class="section-kicker reveal">Photography</div><h2 class="section-title reveal">DATA BY DAY.<br>LIGHT BY INSTINCT.</h2><div class="photo-tease-grid"><figure class="reveal portrait-card"><img src="photos/photo 2.jpg" alt="Photography placeholder portrait"></figure><figure class="reveal landscape-card"><img src="photos/photo 1.jpg" alt="Photography placeholder landscape"></figure></div><div class="hero-actions reveal"><a class="link-btn" href="photography.html" data-transition="photo"><span>Enter photography</span><span>↗</span></a></div></div></section>
 </main>
 
 <footer class="footer"><div class="footer-name">VEDA BHARGHAV</div><div class="footer-meta">Data Engineer &amp; Analyst<br><a href="https://github.com/veda-369" target="_blank">GitHub</a> · <a href="https://www.linkedin.com/in/veda-bharghav-a61aa6304/" target="_blank">LinkedIn</a></div></footer>
-<script src="assets/portfolio-v7.js?v=20260826-7"></script>
+<script src="assets/portfolio-v8.js?v=20260826-8"></script>
 </body></html>
