@@ -1,162 +1,117 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Veda Bharghav — Data Engineer & Analyst. Data engineering, analytics, BI, automation, and photography.">
-  <title>Veda Bharghav — Data Engineer & Analyst</title>
-  <link rel="stylesheet" href="assets/styles.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Veda Bharghav — Data Engineer & Analyst. Data engineering, analytics, BI, automation, AI/ML, and photography.">
+<title>Veda Bharghav — Data Engineer & Analyst</title>
+<style>
+html,body{margin:0}body.entry-locked{overflow:hidden}
+body.entry-locked>.site-nav,body.entry-locked>.mobile-menu,body.entry-locked>main,body.entry-locked>footer,body.entry-locked>.progress,body.entry-locked>.cursor,body.entry-locked>.cursor-dot,body.entry-locked>.page-transition{visibility:hidden!important;opacity:0!important}
+#site-entry{position:fixed;inset:0;z-index:2147483000;overflow:hidden;font-family:Arial,sans-serif;background:#e9e7e3;color:#222}
+#site-entry .entry-split{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}
+#site-entry .entry-data-side{position:relative;background:#30353b;overflow:hidden}
+#site-entry .entry-photo-side{position:relative;background:#ece9e4;overflow:hidden}
+#site-entry .entry-photo-side img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(.88);opacity:.34}
+#site-entry .entry-photo-side:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(236,233,228,.55),rgba(236,233,228,.08)),radial-gradient(circle at 70% 35%,rgba(145,59,67,.16),transparent 33%)}
+#site-entry .entry-data-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);background-size:68px 68px;animation:entryGridDrift 11s ease-in-out infinite alternate}
+#site-entry .entry-data-node{position:absolute;width:10px;height:10px;border:2px solid #dedede;border-radius:50%;box-shadow:0 0 0 8px rgba(255,255,255,.025)}
+#site-entry .entry-data-node:after{content:"";position:absolute;height:1px;background:rgba(255,255,255,.24);width:16vw;left:10px;top:3px;transform-origin:left center}
+#site-entry .n1{left:16%;top:28%}#site-entry .n1:after{transform:rotate(18deg)}#site-entry .n2{left:43%;top:40%}#site-entry .n2:after{transform:rotate(-16deg);width:12vw}#site-entry .n3{left:25%;top:64%}#site-entry .n3:after{transform:rotate(-28deg);width:15vw}
+#site-entry .data-label{position:absolute;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:#c9cdd0}#site-entry .dl1{left:12%;top:18%}#site-entry .dl2{left:52%;top:31%}#site-entry .dl3{left:18%;bottom:18%}
+#site-entry .viewfinder{position:absolute;inset:11% 10%;border:1px solid rgba(41,43,46,.3)}#site-entry .viewfinder:before,#site-entry .viewfinder:after{content:"";position:absolute;background:rgba(41,43,46,.24)}#site-entry .viewfinder:before{width:1px;height:100%;left:50%}#site-entry .viewfinder:after{height:1px;width:100%;top:50%}
+#site-entry .focus-ring{position:absolute;width:min(34vw,420px);aspect-ratio:1;border:1px solid rgba(41,43,46,.28);border-radius:50%;right:8%;top:20%;animation:focusPulse 5s ease-in-out infinite alternate;box-shadow:0 0 0 38px rgba(145,59,67,.035),0 0 0 82px rgba(41,43,46,.025)}
+#site-entry .entry-center{position:absolute;inset:0;display:grid;place-items:center;z-index:5;pointer-events:none}
+#site-entry .entry-card{text-align:center;padding:30px 44px 28px;background:rgba(248,247,244,.88);backdrop-filter:blur(15px);border:1px solid rgba(34,34,34,.12);box-shadow:0 28px 70px rgba(28,29,31,.12);pointer-events:auto}
+#site-entry .intro-eyebrow{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:#727272;margin-bottom:16px}
+#site-entry h1{margin:0;font-size:clamp(3.8rem,9vw,8.4rem);line-height:.82;letter-spacing:-.085em;text-transform:uppercase;color:#242528}
+#site-entry p{margin:20px 0 20px;color:#747474;font-size:.72rem;letter-spacing:.19em;text-transform:uppercase}
+#site-entry button{width:94px;height:94px;border:1px solid #c8c4c0;border-radius:50%;background:#f8f7f4;cursor:pointer;display:grid;place-items:center;margin:auto;box-shadow:0 16px 38px rgba(0,0,0,.1)}
+#site-entry button span{width:46px;height:46px;border-radius:50%;background:#913b43;display:block;box-shadow:inset 0 0 0 8px #f8f7f4,0 0 0 1px #913b43}
+#site-entry .entry-hint{margin-top:12px;font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:#9a9a9a}
+#site-entry .shutter-flash{position:absolute;inset:0;background:white;opacity:0;z-index:20;pointer-events:none}
+#site-entry .shutter-ring{position:absolute;width:110px;height:110px;border:2px solid #913b43;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);z-index:19;opacity:0;pointer-events:none}
+@keyframes entryGridDrift{to{transform:translate(30px,-18px)}}@keyframes focusPulse{to{transform:scale(1.08) rotate(12deg)}}
+@media(max-width:760px){#site-entry .entry-split{grid-template-columns:1fr;grid-template-rows:1fr 1fr}#site-entry .entry-card{padding:24px 24px 22px}#site-entry .focus-ring{width:54vw;right:22%;top:12%}#site-entry .entry-data-node:after{width:26vw}}
+</style>
+<link rel="stylesheet" href="assets/portfolio-v7.css?v=20260826-7">
 </head>
-<body data-page="home">
-  <div class="progress"></div>
-  <div class="cursor"></div>
-  <div class="cursor-dot"></div>
-  <div class="page-transition"></div>
+<body class="entry-locked" data-page="home">
+<div class="progress"></div><div class="cursor"></div><div class="cursor-dot"></div><div class="page-transition"></div>
 
-  <div class="intro-screen" id="intro-screen" aria-hidden="false">
-    <div class="intro-screen__grain"></div>
-    <div class="intro-screen__inner">
-      <div class="intro-eyebrow">Data Engineer &amp; Analyst · Photography</div>
-      <h1>Veda Bharghav</h1>
-      <p>Hit the shutter to open.</p>
-      <button class="shutter-btn" id="shutter-btn" type="button">Hit the shutter</button>
+<div class="intro-screen" id="site-entry" aria-hidden="false">
+  <div class="entry-split">
+    <div class="entry-data-side">
+      <div class="entry-data-lines"></div>
+      <i class="entry-data-node n1"></i><i class="entry-data-node n2"></i><i class="entry-data-node n3"></i>
+      <span class="data-label dl1">SQL / PYTHON</span><span class="data-label dl2">DATA → DECISION</span><span class="data-label dl3">FABRIC / ANALYTICS</span>
     </div>
-    <div class="shutter-flash"></div>
-    <div class="shutter-panels"><span></span><span></span></div>
+    <div class="entry-photo-side">
+      <img src="photos/photo1.jpg" alt="Photography preview">
+      <div class="viewfinder"></div><div class="focus-ring"></div>
+    </div>
   </div>
+  <div class="entry-center"><div class="entry-card">
+    <div class="intro-eyebrow">Data / Photography / Story</div>
+    <h1>Veda<br>Bharghav</h1>
+    <p>Tap the shutter to enter</p>
+    <button class="shutter-btn" id="shutter-btn" type="button" aria-label="Enter Veda Bharghav portfolio"><span></span></button>
+    <div class="entry-hint">Mirrorless capture</div>
+  </div></div>
+  <div class="shutter-flash"></div><div class="shutter-ring"></div>
+</div>
 
-  <nav class="site-nav">
-    <a class="brand" href="index.html">VEDA<b>.</b></a>
-    <div class="nav-center">
-      <a data-nav="home" href="index.html">Home</a>
-      <a data-nav="experience" href="experience.html">Experience</a>
-      <a data-nav="work" href="work.html">Work</a>
-      <a data-nav="skills" href="skills.html">Skills</a>
-      <a data-nav="photography" href="photography.html">Photography</a>
-    </div>
-    <div class="nav-right">
-      <a data-nav="contact" href="contact.html">Contact</a>
-    </div>
-    <button class="menu-toggle" aria-expanded="false" aria-label="Open menu">☰</button>
-  </nav>
-
-  <div class="mobile-menu">
-    <a href="index.html">Home</a>
-    <a href="experience.html">Experience</a>
-    <a href="work.html">Work</a>
-    <a href="skills.html">Skills</a>
-    <a href="photography.html">Photography</a>
-    <a href="contact.html">Contact</a>
+<nav class="site-nav">
+  <a class="brand" href="index.html">VEDA<b>.</b></a>
+  <div class="nav-center">
+    <a data-nav="home" href="index.html">Home</a><a data-nav="experience" href="experience.html">Experience</a><a data-nav="work" href="work.html">Projects</a><a data-nav="skills" href="skills.html">Skills</a><a data-nav="photography" href="photography.html">Photography</a>
   </div>
+  <div class="nav-right"><a data-nav="contact" href="contact.html">Contact</a></div>
+  <button class="menu-toggle" aria-expanded="false" aria-label="Open menu">☰</button>
+</nav>
+<div class="mobile-menu"><a href="index.html">Home</a><a href="experience.html">Experience</a><a href="work.html">Projects</a><a href="skills.html">Skills</a><a href="photography.html">Photography</a><a href="contact.html">Contact</a></div>
 
-  <main>
-    <section class="hero">
-      <div class="hero-grid-bg"></div>
-      <div class="hero-beam"></div>
-      <div class="hero-beam hero-beam--two"></div>
-      <div class="hero-inner">
-        <div class="hero-meta">
-          <span>Clutchpoint · Data Engineer &amp; Analyst</span>
-          <span>Systems / Analytics / Visual Storytelling</span>
-        </div>
-        <h1 class="hero-title">
-          <span class="line"><span>BUILDING</span></span>
-          <span class="line"><span>TRUSTED DATA.</span></span>
-        </h1>
-        <div class="hero-bottom">
-          <div class="hero-number">01 / 06 — PORTFOLIO</div>
-          <div>
-            <div class="hero-copy">I design pipelines, reporting systems, and analytics experiences that turn messy operational data into <strong>clear, decision-ready systems</strong> — and I bring the same eye for composition into photography.</div>
-            <div class="hero-actions">
-              <a class="link-btn primary" href="work.html"><span>Selected work</span><span>↗</span></a>
-              <a class="link-btn" href="photography.html"><span>Photography</span><span>↗</span></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<main>
+<section class="hero">
+  <div class="hero-grid-bg"></div><div class="hero-red-glow"></div><div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+  <div class="hero-inner">
+    <div class="hero-meta"><span>Portfolio / 2026</span><span>Data Engineering / Analytics / AI / Visual Storytelling</span></div>
+    <h1 class="hero-title"><span class="line"><span>BUILDING</span></span><span class="line"><span>TRUSTED DATA.</span></span></h1>
+    <div class="hero-bottom"><div class="hero-number">01 / 06 — PORTFOLIO</div><div><div class="hero-copy">I build data systems that turn complex operational inputs into <strong>clear, reliable decisions</strong> — from pipelines and validation to analytics products and AI-driven workflows.</div><div class="hero-actions"><a class="link-btn primary" href="work.html"><span>Explore projects</span><span>↗</span></a><a class="link-btn" href="photography.html"><span>Photography</span><span>↗</span></a></div></div></div>
+  </div>
+</section>
 
-    <div class="ticker">
-      <div class="ticker-track">
-        <span>SQL</span><span>Python</span><span>Microsoft Fabric</span><span>Snowflake</span><span>Power BI</span><span>DAX</span><span>ETL / ELT</span><span>Data Quality</span><span>Automation</span>
-        <span>SQL</span><span>Python</span><span>Microsoft Fabric</span><span>Snowflake</span><span>Power BI</span><span>DAX</span><span>ETL / ELT</span><span>Data Quality</span><span>Automation</span>
-      </div>
-    </div>
+<div class="ticker"><div class="ticker-track"><span>SQL</span><span>Python</span><span>Microsoft Fabric</span><span>Snowflake</span><span>Power BI</span><span>DAX</span><span>ETL / ELT</span><span>AI / ML</span><span>Automation</span><span>SQL</span><span>Python</span><span>Microsoft Fabric</span><span>Snowflake</span><span>Power BI</span><span>DAX</span><span>ETL / ELT</span><span>AI / ML</span><span>Automation</span></div></div>
 
-    <section class="section section-soft">
-      <div class="wrap">
-        <div class="section-kicker reveal">Impact</div>
-        <h2 class="section-title reveal">THE WORK<br>HAS RESULTS.</h2>
-        <p class="section-intro reveal">Across enterprise reporting, manufacturing analytics, data engineering, and reliability work, I focus on measurable improvements in speed, accuracy, adoption, and repeatability.</p>
-        <div class="impact-list">
-          <div class="impact-row reveal"><div class="impact-num">45<sup>%</sup></div><div class="impact-label">Lower pipeline latency</div><div class="impact-context">SQL tuning and workflow optimization across enterprise ETL.</div></div>
-          <div class="impact-row reveal"><div class="impact-num">50<sup>%</sup></div><div class="impact-label">Fewer inventory discrepancies</div><div class="impact-context">Automated reconciliation and governed validation controls.</div></div>
-          <div class="impact-row reveal"><div class="impact-num">75<sup>%</sup></div><div class="impact-label">Faster validation cycles</div><div class="impact-context">Automated quality checks across manufacturing test-data workflows.</div></div>
-          <div class="impact-row reveal"><div class="impact-num">42<sup>%</sup></div><div class="impact-label">Reduction in recurring defects</div><div class="impact-context">Anomaly detection, defect-pattern analysis, and root-cause evaluation.</div></div>
-        </div>
-      </div>
-    </section>
+<section class="section section-soft" id="results">
+  <div class="wrap"><div class="section-kicker reveal">Impact</div><h2 class="section-title reveal">THE WORK<br>HAS RESULTS.</h2><p class="section-intro reveal">I care about outcomes that can be measured: faster pipelines, cleaner data, shorter validation cycles, stronger adoption, and better operational visibility.</p>
+  <div class="impact-list"><div class="impact-row reveal"><div class="impact-num">45<sup>%</sup></div><div class="impact-label">Lower pipeline latency</div><div class="impact-context">SQL tuning and workflow optimization across enterprise ETL.</div></div><div class="impact-row reveal"><div class="impact-num">50<sup>%</sup></div><div class="impact-label">Fewer inventory discrepancies</div><div class="impact-context">Automated reconciliation and governed validation controls.</div></div><div class="impact-row reveal"><div class="impact-num">75<sup>%</sup></div><div class="impact-label">Faster validation cycles</div><div class="impact-context">Automated quality checks across manufacturing test-data workflows.</div></div><div class="impact-row reveal"><div class="impact-num">42<sup>%</sup></div><div class="impact-label">Fewer recurring defects</div><div class="impact-context">Anomaly detection, defect-pattern analysis, and root-cause evaluation.</div></div></div></div>
+</section>
 
-    <section class="section">
-      <div class="wrap">
-        <div class="section-kicker reveal">Selected work</div>
-        <h2 class="section-title reveal">SYSTEMS THAT<br>MOVE PEOPLE.</h2>
-        <div class="work-list">
-          <a class="work-row reveal" href="work.html#udot"><div class="work-index">01</div><div class="work-name">UDOT Safe Corridor Intelligence</div><div class="work-type">Transportation analytics</div><div class="work-tech">Python · Streamlit · GIS-style storytelling</div><div class="work-arrow">→</div></a>
-          <a class="work-row reveal" href="work.html#inventory"><div class="work-index">02</div><div class="work-name">Inventory Intelligence</div><div class="work-type">Operations analytics</div><div class="work-tech">SQL · Power BI · Validation</div><div class="work-arrow">→</div></a>
-          <a class="work-row reveal" href="work.html#manufacturing"><div class="work-index">03</div><div class="work-name">Manufacturing Test Automation</div><div class="work-type">Data engineering</div><div class="work-tech">Python · ETL · Power BI</div><div class="work-arrow">→</div></a>
-          <a class="work-row reveal" href="work.html#reliability"><div class="work-index">04</div><div class="work-name">Reliability + AI Inspection</div><div class="work-type">AI / reliability</div><div class="work-tech">Python · ML · ERP / MES</div><div class="work-arrow">→</div></a>
-        </div>
-      </div>
-    </section>
+<section class="section" id="experience-preview">
+  <div class="wrap"><div class="section-kicker reveal">Experience</div><h2 class="section-title reveal">WHERE I’VE<br>BUILT IT.</h2>
+  <div class="experience-preview reveal"><div class="xp-row"><span>2025—Now</span><strong>Clutchpoint</strong><em>Data Engineer &amp; Analyst</em><b>Fabric · SQL · Power BI · Analytics</b></div><div class="xp-row"><span>2024—Now</span><strong>First Solar</strong><em>Data Analyst</em><b>Manufacturing · R&amp;D · Reliability</b></div><div class="xp-row"><span>2023—2024</span><strong>Auburn University at Montgomery</strong><em>ITS Technical Analyst</em><b>Enterprise systems · Support</b></div><div class="xp-row"><span>2021—2022</span><strong>Seneca Global</strong><em>Data Engineer</em><b>Snowflake · SQL Server · ETL</b></div></div>
+  <div class="hero-actions reveal"><a class="link-btn" href="experience.html"><span>Full experience</span><span>↗</span></a></div></div>
+</section>
 
-    <section class="section" style="padding-bottom:70px">
-      <div class="wrap dual">
-        <div class="dual-pane reveal">
-          <div class="section-kicker">Experience</div>
-          <h3>ENGINEERING<br>MEETS ANALYTICS.</h3>
-          <p>My roles sit where data engineering, reporting, operational analysis, and stakeholder decision-making overlap.</p>
-          <div class="mini-timeline">
-            <div class="mini-role"><div class="year">2025—NOW</div><div><strong>Clutchpoint</strong><span>Data Engineer &amp; Analyst</span></div></div>
-            <div class="mini-role"><div class="year">2024—NOW</div><div><strong>First Solar</strong><span>Data Analyst</span></div></div>
-            <div class="mini-role"><div class="year">2023—2024</div><div><strong>Auburn University at Montgomery</strong><span>ITS Technical Analyst</span></div></div>
-            <div class="mini-role"><div class="year">2021—2022</div><div><strong>Seneca Global</strong><span>Data Engineer</span></div></div>
-          </div>
-          <div class="hero-actions"><a class="link-btn" href="experience.html"><span>Full timeline</span><span>↗</span></a></div>
-        </div>
-        <div class="dual-pane reveal">
-          <div class="section-kicker">Approach</div>
-          <h3>RAW → TRUSTED → USEFUL.</h3>
-          <p>I care about the complete path: ingestion, transformations, validation, dimensional models, governed datasets, semantic logic, and the actual interface someone uses to make a decision.</p>
-          <div class="architecture home-architecture">
-            <div class="arch-row" style="grid-template-columns:repeat(3,1fr)">
-              <div class="arch-node"><b>01</b><span>Ingest</span></div>
-              <div class="arch-node"><b>02</b><span>Model + Validate</span></div>
-              <div class="arch-node"><b>03</b><span>Decide</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<section class="section section-projects" id="projects">
+  <div class="wrap"><div class="section-kicker reveal">Projects</div><h2 class="section-title reveal">PROJECTS.</h2><p class="section-intro reveal">Hover a project for the problem, key metric, and why it mattered. Open the detailed case study for the full build.</p>
+  <div class="project-grid">
+    <a class="project-card reveal" href="work.html#ai-ml"><div class="project-top"><span>01</span><em>Professional · AI / ML</em></div><h3>Operations Reliability + AI Inspection</h3><p class="project-summary">Connected ERP, MES, manufacturing, and inspection data to surface recurring defect patterns.</p><div class="project-hover"><strong>42%</strong><span>fewer recurring defects</span><p>Python ML, statistical analysis, anomaly detection, and root-cause workflows turned fragmented quality signals into an actionable reliability view.</p><b>Open full case study →</b></div></a>
+    <a class="project-card reveal" href="work.html#udot"><div class="project-top"><span>02</span><em>Independent · Transportation</em></div><h3>UDOT SafeCorridor Intelligence</h3><p class="project-summary">Exposure-adjusted roadway safety prioritization built from public Utah transportation data.</p><div class="project-hover"><strong>449,804</strong><span>crash records processed</span><p>Python, DuckDB, spatial matching, statistical screening, GitHub Actions, and Streamlit create a reproducible decision-support workflow.</p><b>Open full case study →</b></div></a>
+    <a class="project-card reveal" href="work.html#test-data"><div class="project-top"><span>03</span><em>Professional · Data Engineering</em></div><h3>Manufacturing Test Data Automation</h3><p class="project-summary">Automated engineering test-data ingestion, validation, transformation, and reporting.</p><div class="project-hover"><strong>75%</strong><span>faster validation cycles</span><p>SQL and Python ETL replaced repetitive verification, standardized quality checks, and made reporting repeatable across test workflows.</p><b>Open full case study →</b></div></a>
+    <a class="project-card reveal" href="work.html#inventory"><div class="project-top"><span>04</span><em>Professional · Operations</em></div><h3>Inventory Intelligence</h3><p class="project-summary">Unified inventory movement, reconciliation, bottlenecks, and planning visibility.</p><div class="project-hover"><strong>50%</strong><span>fewer data discrepancies</span><p>SQL, Power BI, and governed validation controls created a more trusted operating view for inventory and supply-chain decisions.</p><b>Open full case study →</b></div></a>
+  </div></div>
+</section>
 
-    <section class="photo-tease section">
-      <div class="wrap">
-        <div class="section-kicker reveal">Away from the dashboard</div>
-        <h2 class="section-title reveal">I ALSO<br>CHASE LIGHT.</h2>
-        <div class="photo-tease-grid photo-tease-grid--alt">
-          <figure class="reveal photo-card portrait-card"><img src="photos/photo-02.jpg" alt="Photography placeholder 02"></figure>
-          <figure class="reveal photo-card landscape-card"><img src="photos/photo-01.jpg" alt="Photography placeholder 01"></figure>
-        </div>
-        <div class="hero-actions reveal"><a class="link-btn secondary-ink" href="photography.html"><span>Enter photography</span><span>↗</span></a></div>
-      </div>
-    </section>
-  </main>
+<section class="section" id="approach">
+  <div class="wrap"><div class="section-kicker reveal">Approach</div><h2 class="section-title reveal">RAW → TRUSTED<br>→ USEFUL.</h2><p class="section-intro reveal">The interface comes last. I start with the source, define the logic, test the data, model it correctly, and only then build the experience someone uses to decide.</p>
+  <div class="approach-flow reveal"><div><span>01</span><strong>Ingest</strong><p>APIs, files, ERP, MES, databases, events.</p></div><div><span>02</span><strong>Transform</strong><p>SQL, Python, ETL/ELT, dimensional logic.</p></div><div><span>03</span><strong>Validate</strong><p>QA, reconciliation, anomaly checks, lineage.</p></div><div><span>04</span><strong>Model</strong><p>Lakehouse, warehouse, semantic layer, KPIs.</p></div><div><span>05</span><strong>Decide</strong><p>Power BI, Streamlit, analysis, automation.</p></div></div></div>
+</section>
 
-  <footer class="footer">
-    <div class="footer-name">VEDA BHARGHAV</div>
-    <div class="footer-meta">Data Engineer &amp; Analyst<br><a href="mailto:V.bharghav3@gmail.com">V.bharghav3@gmail.com</a> · <a href="https://github.com/veda-369" target="_blank">GitHub</a> · <a href="https://www.linkedin.com/in/veda-bharghav-a61aa6304/" target="_blank">LinkedIn</a></div>
-  </footer>
+<section class="photo-tease section"><div class="wrap"><div class="section-kicker reveal">Photography</div><h2 class="section-title reveal">DATA BY DAY.<br>LIGHT BY INSTINCT.</h2><div class="photo-tease-grid"><figure class="reveal portrait-card"><img src="photos/photo2.jpg" alt="Photography placeholder portrait"></figure><figure class="reveal landscape-card"><img src="photos/photo1.jpg" alt="Photography placeholder landscape"></figure></div><div class="hero-actions reveal"><a class="link-btn" href="photography.html"><span>Enter photography</span><span>↗</span></a></div></div></section>
+</main>
 
-  <script src="assets/app.js"></script>
-</body>
-</html>
+<footer class="footer"><div class="footer-name">VEDA BHARGHAV</div><div class="footer-meta">Data Engineer &amp; Analyst<br><a href="https://github.com/veda-369" target="_blank">GitHub</a> · <a href="https://www.linkedin.com/in/veda-bharghav-a61aa6304/" target="_blank">LinkedIn</a></div></footer>
+<script src="assets/portfolio-v7.js?v=20260826-7"></script>
+</body></html>
