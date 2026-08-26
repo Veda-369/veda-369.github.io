@@ -205,7 +205,7 @@ async function getGitHubPhotos(){
 
 // Local fallback for offline previews / temporary GitHub API failures.
 function localFallbackPhotos(){
-  const order=[1,14,24,17,3,21,12,8,0,2,4,5,6,7,9,10,11,13,15,16,18,19,20,22,23,25,26,27,28,29,30,31,32,33,34,35,36,37];
+  const order=[1,14,24,17,3,21,12,8,2,4,5,6,7,9,10,11,13,15,16,18,19,20,22,23,25,26,27,28,29,30,31,32,33,34,35,36,37];
   return order.map(i=>({name:`photo ${i}.jpg`,url:`photos/photo ${i}.jpg`}));
 }
 

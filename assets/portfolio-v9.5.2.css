@@ -370,3 +370,57 @@ body.photo.photo-obscured .lightbox-frame{background:#111!important}
   body.photo .lightbox img{visibility:hidden!important}
   body.photo .shot{background:#111!important}
 }
+
+/* V9.5.2 — Indian flag page-transition identity
+   Experience = saffron, Projects = white + Ashoka Chakra, Skills = green. */
+.page-transition.to-experience{background:var(--india-saffron)}
+.page-transition.to-work{background:#fff;overflow:hidden}
+.page-transition.to-skills{background:var(--india-green)}
+
+/* Ashoka Chakra appears only on the Projects transition. */
+.page-transition.to-work::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:88px;
+  height:88px;
+  transform:translate(-50%,-50%) scale(.72) rotate(-8deg);
+  border:3px solid var(--india-navy);
+  border-radius:50%;
+  background:repeating-conic-gradient(from 0deg,var(--india-navy) 0deg 1.15deg,transparent 1.15deg 15deg);
+  opacity:0;
+  animation:none;
+}
+.page-transition.to-work::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:12px;
+  height:12px;
+  transform:translate(-50%,-50%) scale(.72);
+  border:2px solid var(--india-navy);
+  border-radius:50%;
+  background:#fff;
+  opacity:0;
+  animation:none;
+}
+.page-transition.to-work.in::before,
+.page-transition.to-work.out::before{animation:chakraReveal .68s var(--ease) both}
+.page-transition.to-work.in::after,
+.page-transition.to-work.out::after{animation:chakraHub .68s var(--ease) both}
+@keyframes chakraReveal{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.62) rotate(-16deg)}
+  30%,78%{opacity:1}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(1) rotate(8deg)}
+}
+@keyframes chakraHub{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.62)}
+  30%,78%{opacity:1}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(1)}
+}
+@media(max-width:560px){
+  .page-transition.to-work::before{width:72px;height:72px}
+  .page-transition.to-work::after{width:10px;height:10px}
+}

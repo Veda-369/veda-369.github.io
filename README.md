@@ -17,3 +17,5 @@ The gallery automatically detects portrait, landscape, and panoramic orientation
 
 - replaced the healthcare wait-time case with a defensible Breast Cancer Survival + Clinical Pattern Analysis Tableau project
 - added stronger iOS long-press / touch-callout blocking for photography images (best-effort; OS screenshots cannot be blocked by a website)
+
+- V9.5.2: Projects transition is white with a centered navy Ashoka Chakra; Experience remains saffron and Skills remains India green.
